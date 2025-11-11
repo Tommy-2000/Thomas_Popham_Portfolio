@@ -14,7 +14,6 @@ class HomeBannerCard extends StatefulWidget {
 }
 
 class _HomeBannerCardState extends State<HomeBannerCard> {
-
   bool landscapeWindow = false;
   bool foldableWindow = false;
 
@@ -37,9 +36,18 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TitleText(
-                  data: "Hi there! I'm Thomas Popham",
+                  data: "Hi there! I'm Thomas Popham 👍🏻",
                   fontSize: 40,
                   minFontSize: 20,
+                  maxLines: 2,
+                  softWrap: true,
+                  textAlign: TextAlign.center,
+                  textOverflow: TextOverflow.ellipsis,
+                ),
+                SubtitleText(
+                  data: "(He/Him)",
+                  fontSize: 20,
+                  minFontSize: 10,
                   maxLines: 2,
                   softWrap: true,
                   textAlign: TextAlign.center,
@@ -51,8 +59,8 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
                   minFontSize: 10,
                   maxLines: 2,
                   softWrap: true,
-                  textAlign: TextAlign.end,
-                  textOverflow: TextOverflow.fade,
+                  textAlign: TextAlign.center,
+                  textOverflow: TextOverflow.ellipsis,
                 ),
                 Gap(5),
                 landscapeWindow ? ContactButtonRow() : ContactButtonColumn(),
@@ -61,7 +69,7 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
           ),
           landscapeWindow ? Gap(100) : Gap(50),
           ClipRRect(
-            borderRadius: BorderRadius.circular(300),
+            borderRadius: BorderRadius.circular(400),
             clipBehavior: Clip.antiAlias,
             child: Image(
               image: AssetImage('assets/profile_image_2025.jpg'),

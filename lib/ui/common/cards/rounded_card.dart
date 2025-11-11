@@ -10,7 +10,11 @@ class RoundedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final colourScheme = Theme.of(context).colorScheme;
+
     return Card(
+      color: colourScheme.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(40))
         ),

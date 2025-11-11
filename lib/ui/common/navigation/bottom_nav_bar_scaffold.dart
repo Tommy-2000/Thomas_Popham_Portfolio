@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:hugeicons/styles/stroke_rounded.dart';
 
 import '../../../logic/navigation/nav_branch.dart';
 import 'nav_screen_model.dart';
@@ -23,8 +22,11 @@ class BottomNavBarScaffold extends ConsumerStatefulWidget {
 }
 
 class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
+
   @override
   Widget build(BuildContext context) {
+    final colourScheme = Theme.of(context).colorScheme;
+
     if (kDebugMode) {
       print("CustomBottomNavigationBar has been built");
     }
@@ -33,7 +35,7 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: Container(
-          color: Colors.green,
+          color: colourScheme.primaryContainer,
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
             child: SizedBox(
@@ -41,13 +43,12 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(navScreens.length, (navIndex) {
-                  // final riveModel = bottomNavItems[index].riveModel;
                   return Flexible(
                     child: Column(
                       children: [
                         IconButton(
                           mouseCursor: SystemMouseCursors.click,
-                          icon: navScreens[navIndex].navScreenIcon,
+                          icon: HugeIcon(icon: navScreens[navIndex].navScreenIcon, color: colourScheme.surface),
                           isSelected: true,
                           onPressed: () {
                             if (kDebugMode) {
@@ -63,7 +64,7 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
                         ),
                         Text(
                           navScreens[navIndex].navScreenName,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: colourScheme.surface),
                         ),
                       ],
                     ),

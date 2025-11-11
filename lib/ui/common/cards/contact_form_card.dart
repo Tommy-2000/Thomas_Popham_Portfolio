@@ -15,6 +15,8 @@ class ContactFormCard extends StatefulWidget {
 class _ContactFormCardState extends State<ContactFormCard> {
   @override
   Widget build(BuildContext context) {
+    final colourScheme = Theme.of(context).colorScheme;
+
     final contactFormKey = GlobalKey<FormState>();
     final fullNameController = TextEditingController();
     final emailController = TextEditingController();
@@ -32,18 +34,38 @@ class _ContactFormCardState extends State<ContactFormCard> {
             children: [
               TextFormField(
                 controller: fullNameController,
-                decoration: const InputDecoration(label: Text("Full Name")),
+                style: TextStyle(color: colourScheme.primary),
+                decoration: InputDecoration(
+                  label: const Text("Full Name"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: colourScheme.primary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                ),
               ),
               TextFormField(
                 controller: emailController,
-                decoration: const InputDecoration(
-                  label: Text("Email Address"),
+                style: TextStyle(color: colourScheme.primary),
+                decoration: InputDecoration(
+                  label: const Text("Email Address"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: colourScheme.primary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
                 ),
               ),
               TextFormField(
                 controller: messageController,
-                decoration: const InputDecoration(
-                  label: Text("Your Message"),
+                style: TextStyle(color: colourScheme.primary),
+                decoration: InputDecoration(
+                  label: const Text("Your Message"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: colourScheme.primary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
                 ),
               ),
               Gap(20),
@@ -59,7 +81,7 @@ class _ContactFormCardState extends State<ContactFormCard> {
                     HugeIcon(
                       icon: HugeIcons.strokeRoundedMail01,
                       size: 24.0,
-                      color: Colors.green,
+                      color: colourScheme.primary,
                       strokeWidth: 1.5,
                     ),
                     Gap(5),

@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:hugeicons/hugeicons.dart';
-import 'package:hugeicons/styles/stroke_rounded.dart';
 
 import '../../../logic/navigation/nav_branch.dart';
 import 'nav_screen_model.dart';
@@ -23,16 +22,19 @@ class NavRailScaffold extends ConsumerStatefulWidget {
 }
 
 class _NavRailScaffoldState extends ConsumerState<NavRailScaffold> {
-  bool toggleButtonIsSelected = true;
+
   @override
   Widget build(BuildContext context) {
+
+    final colourScheme = Theme.of(context).colorScheme;
+
     if (kDebugMode) {
       print("CustomNavigationRail has been built");
     }
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
       child: Container(
-        color: Colors.green,
+        color: colourScheme.primaryContainer,
         width: 100,
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
@@ -49,9 +51,9 @@ class _NavRailScaffoldState extends ConsumerState<NavRailScaffold> {
                         children: [
                           IconButton(
                             mouseCursor: SystemMouseCursors.click,
-                            focusColor: Colors.white,
+                            focusColor: colourScheme.onPrimary,
                             isSelected: true,
-                            icon: navScreens[navIndex].navScreenIcon,
+                            icon: HugeIcon(icon: navScreens[navIndex].navScreenIcon, color: colourScheme.surface),
                             onPressed: () {
                               if (kDebugMode) {
                                 print(
@@ -66,7 +68,7 @@ class _NavRailScaffoldState extends ConsumerState<NavRailScaffold> {
                           ),
                           Text(
                             navScreens[navIndex].navScreenName,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: colourScheme.surface),
                           ),
                         ],
                       );

@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TitleText extends StatelessWidget {
-  const TitleText({super.key,
-  required this.data, required this.fontSize, required this.minFontSize, required this.maxLines, required this.softWrap, required this.textAlign, required this.textOverflow});
+  const TitleText({
+    super.key,
+    required this.data,
+    required this.fontSize,
+    required this.minFontSize,
+    required this.maxLines,
+    required this.softWrap,
+    required this.textAlign,
+    required this.textOverflow,
+  });
 
   final String data;
   final double fontSize;
@@ -16,14 +24,20 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoSizeText(data, style: TextStyle(
-                          fontSize: fontSize,
-                          fontFamily: GoogleFonts.lexend().fontFamily,
-                          color: Colors.green,
-                        ),
-                        minFontSize: minFontSize,
-                        maxLines: maxLines,
-                        textAlign: textAlign,
-                        overflow: textOverflow);
+    final colourScheme = Theme.of(context).colorScheme;
+
+    return AutoSizeText(
+      data,
+      style: TextStyle(
+        fontSize: fontSize,
+        fontFamily: GoogleFonts.lexend().fontFamily,
+        color: colourScheme.primary,
+      ),
+      minFontSize: minFontSize,
+      maxLines: maxLines,
+      softWrap: softWrap,
+      textAlign: textAlign,
+      overflow: textOverflow,
+    );
   }
 }

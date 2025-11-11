@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:gap/gap.dart';
 import '../../common/cards/rounded_card.dart';
 import '../../common/title_text.dart';
 
@@ -38,6 +39,7 @@ class _BlogScreenState extends State<BlogScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colourScheme = Theme.of(context).colorScheme;
     return CustomScrollView(
       slivers: <Widget>[
         SliverGrid(
@@ -57,60 +59,65 @@ SliverChildListDelegate buildSliverChildListDelegate() {
       RoundedCard(
         child: Column(
           children: [
-            TitleText(data: "Blog", fontSize: 40, minFontSize: 20, maxLines: 2, softWrap: true,
+            TitleText(
+              data: "Blog",
+              fontSize: 40,
+              minFontSize: 20,
+              maxLines: 2,
+              softWrap: true,
               textAlign: TextAlign.center,
-              textOverflow: TextOverflow.ellipsis,),
+              textOverflow: TextOverflow.ellipsis,
+            ),
           ],
         ),
       ),
       RoundedCard(child: Container(color: Colors.red)),
-      RoundedCard(child: Container(color: Colors.green)),
-      RoundedCard(child: Container(color: Colors.blue)),
-      RoundedCard(child: Container(color: Colors.yellow)),
-      RoundedCard(child: Container(color: Colors.brown)),
-      RoundedCard(child: Container(color: Colors.orange)),
+      Gap(5),
     ],
     addAutomaticKeepAlives: false,
     addRepaintBoundaries: false,
   );
 }
 
-SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
-  return SliverQuiltedGridDelegate(
-    repeatPattern: QuiltedGridRepeatPattern.same,
-    crossAxisCount: 32,
-    pattern: [
-      QuiltedGridTile(6, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-    ],
-  );
-}
 
 SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
   return SliverQuiltedGridDelegate(
     repeatPattern: QuiltedGridRepeatPattern.same,
-    crossAxisCount: 32,
+    crossAxisCount: 64,
     pattern: [
-      QuiltedGridTile(2, 32),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
-      QuiltedGridTile(8, 16),
+      QuiltedGridTile(4, 64),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(6, 64),
     ],
   );
 }
+
+SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
+  return SliverQuiltedGridDelegate(
+    repeatPattern: QuiltedGridRepeatPattern.same,
+    crossAxisCount: 64,
+    pattern: [
+      QuiltedGridTile(12, 64),
+      QuiltedGridTile(32, 64),
+      QuiltedGridTile(32, 64),
+      QuiltedGridTile(32, 64),
+      QuiltedGridTile(32, 64),
+      QuiltedGridTile(32, 64),
+      QuiltedGridTile(32, 64),
+      QuiltedGridTile(14, 64),
+    ],
+  );
+}
+
+

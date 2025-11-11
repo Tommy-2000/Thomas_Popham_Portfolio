@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:thomas_popham_portfolio/styles/colour_scheme.dart';
 import '../../logic/navigation/nav_router.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,8 @@ class _RootAppState extends ConsumerState<RootApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Thomas Popham - Graduate Software Developer',
-      theme: ThemeData(useMaterial3: true, primarySwatch: Colors.lightGreen),
-      // darkTheme: ThemeData.light(),
-      // themeMode: ThemeMode.light,
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColourScheme),
+      // darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColourScheme),
       routerConfig: NavRouter().goRouter,
     );
   }

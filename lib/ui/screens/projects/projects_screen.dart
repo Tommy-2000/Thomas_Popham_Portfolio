@@ -40,20 +40,24 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colourScheme = Theme.of(context).colorScheme;
     return CustomScrollView(
       slivers: <Widget>[
         SliverGrid(
           gridDelegate: landscapeWindow
               ? buildSliverLandscapeGridDelegate()
               : buildSliverPortraitGridDelegate(),
-          delegate: buildSliverChildListDelegate(),
+          delegate: buildSliverChildListDelegate(landscapeWindow, colourScheme),
         ),
       ],
     );
   }
 }
 
-SliverChildListDelegate buildSliverChildListDelegate() {
+SliverChildListDelegate buildSliverChildListDelegate(
+  bool landscapeWindow,
+  ColorScheme colourScheme,
+) {
   return SliverChildListDelegate(
     <Widget>[
       RoundedCard(
@@ -79,8 +83,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/dreamCare_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 500,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -95,28 +99,49 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Flutter")),
-                  Gap(10),
-                  Chip(label: const Text(".NET with .NET Aspire")),
-                  Gap(10),
-                  Chip(label: const Text("Riverpod")),
-                  Gap(10),
-                  Chip(label: const Text("AidBox FHIR Server")),
-                  Gap(10),
-                  Chip(
-                    label: const Text(
-                      "ReBAC (Relationship-Based Access Control)",
-                    ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Flutter"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Riverpod"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text(".NET"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text(".NET Aspire"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("AidBox FHIR Server"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text(
+                    "ReBAC (Relationship-Based Access Control)",
                   ),
-                ],
-              ),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
@@ -124,7 +149,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                   "This project is being developed as an novel approach to improving cross-collaboration for NHS workers working with EHR systems. Making effective use of Auth0 for JWT-based and ReBAC (Relationship-Based Access Control) authentication, Aidbox FHIR Server to model and manage FHIR health data, ASP.NET for building back-end architecture, and a Flutter client application that compiles to both Android, iOS and Web.",
               fontSize: 18,
               minFontSize: 12,
-              maxLines: 6,
+              maxLines: 7,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -140,8 +165,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/dreamTravel_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 450,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -157,32 +182,46 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Flutter")),
-                  Gap(10),
-                  Chip(label: const Text("Node.JS with TypeScript")),
-                  Gap(10),
-                  Chip(label: const Text("Riverpod")),
-                  Gap(10),
-                  Chip(label: const Text("Express")),
-                  Gap(10),
-                  Chip(label: const Text("Zod")),
-                ],
-              ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Flutter"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Node.JS with TypeScript"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Riverpod"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Express"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Zod"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
               data:
-                  "This project is being developed as a full-stack improvement on my TravelHopper Android project and was expanded with a Flutter application that implements state management with Riverpod, http networking with Dio and support for Android, iOS and web. While Node.JS was used with TypeScript to ensure type-checking, JWT-based token authentication and REST-based queries with the Amadeus travel API to fetch flights, hotels and travel package data to the Flutter app.",
+                  "This project is being developed as a full-stack improvement on my TravelHopper Android project and is expanded with a Flutter application that implements state management with Riverpod, http networking with Dio and support for Android, iOS and web. While Node.JS was used with TypeScript to ensure type-checking, JWT-based authentication and REST-based queries with the Amadeus API to fetch travel data to the app.",
               fontSize: 18,
               minFontSize: 12,
-              maxLines: 6,
+              maxLines: 7,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -198,8 +237,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/CMP_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 450,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -215,30 +254,40 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Unreal Engine 4")),
-                  Gap(10),
-                  Chip(label: const Text("Blender")),
-                  Gap(10),
-                  Chip(label: const Text("Adobe Audition")),
-                  Gap(10),
-                  Chip(label: const Text("Digital Signal Processing (DSP)")),
-                ],
-              ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Unreal Engine 4"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Blender"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Adobe Audition"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Digital Signal Processing (DSP)"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
               data:
-                  "This final year project was developed as a part of a major research paper that was built on existing work in sound-to colour Synaesthesia (Chromesthesia), Music Therapy and Video Game Design. The final project deliverable was presented as a novel, sensory-based approach to managing mental wellbeing through an audio-driven game-based experience built on Chromesthesia research where colours and shapes appear depending on the sounds being played by the user.",
+                  "This final year project was developed as a part of a major research paper that was built on existing work in sound-to colour Synaesthesia (Chromesthesia), Music Therapy and Video Game Design. The project was presented as a novel, sensory-based approach to managing mental wellbeing through an audio-driven game-based experience built on Chromesthesia research where colours and shapes appear depending on sounds that the user plays.",
               fontSize: 18,
               minFontSize: 12,
-              maxLines: 6,
+              maxLines: 7,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -254,8 +303,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/MAD_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 450,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -263,7 +312,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             Gap(10),
             HeaderText(
               data:
-                  "TravelHopper - Android Travel App for Holiday Planning and Navigation - Mobile Application Development",
+                  "TravelHopper - Android Travel App for Holiday Planning - Mobile Application Development",
               fontSize: 30,
               minFontSize: 20,
               maxLines: 2,
@@ -271,26 +320,44 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Android")),
-                  Gap(10),
-                  Chip(label: const Text("Java")),
-                  Gap(10),
-                  Chip(label: const Text("Fragments")),
-                  Gap(10),
-                  Chip(label: const Text("Room")),
-                  Gap(10),
-                  Chip(label: const Text("Google Maps API")),
-                  Gap(10),
-                  Chip(label: const Text("CameraX")),
-                ],
-              ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Android"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Java"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Fragments"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Room"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Google Maps API"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("CameraX"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
@@ -298,7 +365,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                   "This Android application was developed as a Travel app for people to manage their trips, add favourite trips to a list, track their location through Google Maps and take photos and videos directly within the app. Agile development and Git Version Control was applied to the overall development process of the app to ensure the iterative development of all key features and to promote thorough software testing.",
               fontSize: 18,
               minFontSize: 12,
-              maxLines: 6,
+              maxLines: 7,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -314,8 +381,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/AIF_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 450,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -331,24 +398,38 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Python")),
-                  Gap(10),
-                  Chip(label: const Text("Google Colab")),
-                  Gap(10),
-                  Chip(label: const Text("Stable Baselines 3")),
-                  Gap(10),
-                  Chip(label: const Text("Network X")),
-                  Gap(10),
-                  Chip(label: const Text("Seaborn")),
-                ],
-              ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Python"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Google Colab"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Stable Baselines 3"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Network X"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Seaborn"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
@@ -372,8 +453,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/BDAndBI_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 450,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -390,26 +471,37 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textOverflow: TextOverflow.fade,
             ),
             Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Microsoft Power BI")),
-                  Gap(10),
-                  Chip(label: const Text("DAX")),
-                  Gap(10),
-                  Chip(label: const Text("Power Query")),
-                  Gap(10),
-                  Chip(label: const Text("Microsoft Excel")),
-                ],
-              ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Microsoft Power BI"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("DAX"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Power Query"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Microsoft Excel"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
               data:
-                  "This final year project was developed as a part of a major research paper that was built on existing work in sound-to colour Synaesthesia (Chromesthesia), Music Therapy and Video Game Design. Unreal Engine (with Niagara VFX and Animations), Adobe Audition and Blender were used in developing an audio-driven gameplay experience based on Chromesthesia where colours and shapes appear depending on the sounds being played by the user within a sensory environment.",
+                  "This business dashboard consisting of five pages was built on key business questions raised on data regarding flight delays and cancellations in 2015. Each page contains a combination of appropriate data visualisations and data queries created within Microsoft Power BI using data transformation, scaling and DAX queries.",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 6,
@@ -428,8 +520,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/ML_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 450,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -446,21 +538,32 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textOverflow: TextOverflow.fade,
             ),
             Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Python")),
-                  Gap(10),
-                  Chip(label: const Text("SciKit Learn")),
-                  Gap(10),
-                  Chip(label: const Text("Numpy")),
-                  Gap(10),
-                  Chip(label: const Text("Pandas")),
-                ],
-              ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Python"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("SciKit Learn"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Numpy"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Pandas"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
@@ -468,7 +571,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                   "This project was developed as an exploration into multi-class classification techniques that can correctly classify phrases made in British Sign Language based on the cartesian coordinate data retrieved from hand landmarks. This made effective use of data exploration, cleaning and PCA (Principal Component Analysis) techniques before fitting training and testing subsets onto Naïve Bayes, Support Vector Classification, K-Nearest Neighbours and Random Forest models.",
               fontSize: 18,
               minFontSize: 12,
-              maxLines: 6,
+              maxLines: 7,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -484,8 +587,8 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
                   image: AssetImage('assets/projects/OOP_Project.png'),
-                  height: 300,
-                  width: 600,
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 450,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -502,21 +605,32 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textOverflow: TextOverflow.fade,
             ),
             Gap(10),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              controller: ScrollController(),
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Row(
-                children: [
-                  Chip(label: const Text("Java")),
-                  Gap(10),
-                  Chip(label: const Text("Swing GUI")),
-                  Gap(10),
-                  Chip(label: const Text("Maven")),
-                  Gap(10),
-                  Chip(label: const Text("Agile Project Management")),
-                ],
-              ),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Java"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Swing GUI"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Maven"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Agile Project Management"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
             ),
             Gap(10),
             SubtitleText(
@@ -524,7 +638,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                   "This desktop application was developed as a stock management application written in Java and Swing GUI as a part of a group-based project assignment, where roles and responsibilities were appropriately assigned and progress was recorded and shared during weekly meetings. The application itself was built to demonstrate best practices in Java development and testing.",
               fontSize: 18,
               minFontSize: 12,
-              maxLines: 6,
+              maxLines: 7,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -532,6 +646,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
           ],
         ),
       ),
+      Gap(5),
     ],
     addAutomaticKeepAlives: false,
     addRepaintBoundaries: false,
@@ -541,19 +656,18 @@ SliverChildListDelegate buildSliverChildListDelegate() {
 SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
   return SliverQuiltedGridDelegate(
     repeatPattern: QuiltedGridRepeatPattern.same,
-    crossAxisCount: 32,
+    crossAxisCount: 64,
     pattern: [
-      QuiltedGridTile(6, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
+      QuiltedGridTile(12, 64),
+      QuiltedGridTile(72, 64),
+      QuiltedGridTile(70, 64),
+      QuiltedGridTile(70, 64),
+      QuiltedGridTile(70, 64),
+      QuiltedGridTile(70, 64),
+      QuiltedGridTile(70, 64),
+      QuiltedGridTile(70, 64),
+      QuiltedGridTile(70, 64),
+      QuiltedGridTile(14, 64),
     ],
   );
 }
@@ -561,19 +675,18 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
 SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
   return SliverQuiltedGridDelegate(
     repeatPattern: QuiltedGridRepeatPattern.same,
-    crossAxisCount: 32,
+    crossAxisCount: 64,
     pattern: [
-      QuiltedGridTile(2, 32),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
-      QuiltedGridTile(16, 16),
+      QuiltedGridTile(4, 64),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(6, 64),
     ],
   );
 }
