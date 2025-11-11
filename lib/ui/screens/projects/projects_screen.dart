@@ -78,9 +78,9 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
-                  image: AssetImage('assets/projects/'),
-                  height: 500,
-                  width: 540,
+                  image: AssetImage('assets/projects/dreamCare_Project.png'),
+                  height: 300,
+                  width: 600,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -139,9 +139,9 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 child: Image(
-                  image: AssetImage('assets/projects/'),
-                  height: 500,
-                  width: 540,
+                  image: AssetImage('assets/projects/dreamTravel_Project.png'),
+                  height: 300,
+                  width: 600,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -512,16 +512,16 @@ SliverChildListDelegate buildSliverChildListDelegate() {
                   Gap(10),
                   Chip(label: const Text("Swing GUI")),
                   Gap(10),
-                  Chip(label: const Text("Agile Project Management")),
+                  Chip(label: const Text("Maven")),
                   Gap(10),
-                  Chip(label: const Text("Group Project")),
+                  Chip(label: const Text("Agile Project Management")),
                 ],
               ),
             ),
             Gap(10),
             SubtitleText(
               data:
-                  "This desktop application was developed as a basic stock management application written in Java and Swing GUI as a part of a group-based project assignment, where roles and responsibilities were appropriately assigned and progress was recorded and shared during weekly meetings. The application itself was built within the Apache NetBeans IDE to demonstrate best practices in Java development and testing as a part of this project.",
+                  "This desktop application was developed as a stock management application written in Java and Swing GUI as a part of a group-based project assignment, where roles and responsibilities were appropriately assigned and progress was recorded and shared during weekly meetings. The application itself was built to demonstrate best practices in Java development and testing.",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 6,

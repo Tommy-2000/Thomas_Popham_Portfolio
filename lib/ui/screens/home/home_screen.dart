@@ -161,7 +161,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             Gap(5),
             HeaderText(
-              data: "3D Animation and VFX",
+              data: "3D Animation",
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -170,7 +170,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textOverflow: TextOverflow.fade,
             ),
             SubtitleText(
-              data: "Blender - Houdini - Unreal Engine",
+              data: "Blender - Unreal Engine",
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -190,25 +190,6 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data: "Jira - Trello",
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Gap(5),
-            HeaderText(
-              data: "Git Version Control",
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data: "GitHub - GitKraken (I highly recommend GitKraken!)",
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -337,7 +318,7 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
     pattern: [
       QuiltedGridTile(16, 32),
       QuiltedGridTile(24, 32),
-      QuiltedGridTile(24, 32),
+      QuiltedGridTile(32, 32),
       QuiltedGridTile(24, 32),
     ],
   );

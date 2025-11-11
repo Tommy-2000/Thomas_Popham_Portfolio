@@ -17,6 +17,7 @@ class ContactButtonColumn extends StatelessWidget {
       children: [
         ElevatedButton(
           style: ElevatedButton.styleFrom(
+            fixedSize: Size(140, 10),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
@@ -38,6 +39,7 @@ class ContactButtonColumn extends StatelessWidget {
         Gap(5),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
+            fixedSize: Size(140, 10),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
@@ -59,6 +61,7 @@ class ContactButtonColumn extends StatelessWidget {
         Gap(5),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
+            fixedSize: Size(140, 10),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
