@@ -1,0 +1,104 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:hugeicons/hugeicons.dart';
+
+import '../../../logic/utils/uri_utils.dart';
+
+class ContactButtonRow extends StatelessWidget {
+  const ContactButtonRow({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+          ),
+          onPressed: UriUtils().launchNewEmail,
+          child: Row(
+            children: [
+              HugeIcon(
+                icon: HugeIcons.strokeRoundedMail01,
+                size: 24.0,
+                color: Colors.green,
+                strokeWidth: 1.5,
+              ),
+              Gap(5),
+              Text("Email"),
+            ],
+          ),
+        ),
+        Gap(5),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+          ),
+          onPressed: () {},
+          child: Row(
+            children: [
+              HugeIcon(
+                icon: HugeIcons.strokeRoundedLinkedin01,
+                size: 24.0,
+                color: Colors.green,
+                strokeWidth: 1.5,
+              ),
+              Gap(5),
+              Text("LinkedIn"),
+            ],
+          ),
+        ),
+        Gap(5),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+          ),
+          onPressed: () {},
+          child: Row(
+            children: [
+              HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub01,
+                size: 24.0,
+                color: Colors.green,
+                strokeWidth: 1.5,
+              ),
+              Gap(5),
+              Text("GitHub"),
+            ],
+          ),
+        ),
+        Gap(5),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+          ),
+          onPressed: () {},
+          child: Row(
+            children: [
+              HugeIcon(
+                icon: HugeIcons.strokeRoundedMedium,
+                size: 24.0,
+                color: Colors.green,
+                strokeWidth: 1.5,
+              ),
+              Gap(5),
+              Text("Medium"),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
