@@ -42,7 +42,7 @@ class ContactButtonRow extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
-          onPressed: () {},
+          onPressed: UriUtils().launchLinkedIn,
           child: Row(
             children: [
               HugeIcon(
@@ -63,7 +63,7 @@ class ContactButtonRow extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
-          onPressed: () {},
+          onPressed: UriUtils().launchGitHub,
           child: Row(
             children: [
               HugeIcon(
@@ -84,7 +84,7 @@ class ContactButtonRow extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
-          onPressed: () {},
+          onPressed: UriUtils().launchMedium,
           child: Row(
             children: [
               HugeIcon(

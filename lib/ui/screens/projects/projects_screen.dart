@@ -124,16 +124,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-                Gap(10),
+              ],
+            ),
+            Row(
+              children: [
                 Chip(
                   label: const Text("AidBox FHIR Server"),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-              ],
-            ),
-            Row(
-              children: [
+                Gap(10),
                 Chip(
                   label: const Text(
                     "ReBAC (Relationship-Based Access Control)",
@@ -201,20 +201,21 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-                Gap(10),
-                Chip(
-                  label: const Text("Express"),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Gap(10),
-                Chip(
-                  label: const Text("Zod"),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
               ],
             ),
+            Row(children: [
+              Chip(
+                label: const Text("Express"),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+              Gap(10),
+              Chip(
+                label: const Text("Zod"),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+            ],),
             Gap(10),
             SubtitleText(
               data:
@@ -273,14 +274,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-                Gap(10),
-                Chip(
-                  label: const Text("Digital Signal Processing (DSP)"),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
               ],
             ),
+            Row(children: [
+              Chip(
+                label: const Text("Digital Signal Processing (DSP)"),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+            ],),
             Gap(10),
             SubtitleText(
               data:
@@ -345,20 +347,21 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-                Gap(10),
-                Chip(
-                  label: const Text("Google Maps API"),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Gap(10),
-                Chip(
-                  label: const Text("CameraX"),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
               ],
             ),
+            Row(children: [
+              Chip(
+                label: const Text("Google Maps API"),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+              Gap(10),
+              Chip(
+                label: const Text("CameraX"),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+            ],),
             Gap(10),
             SubtitleText(
               data:
@@ -417,20 +420,21 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-                Gap(10),
-                Chip(
-                  label: const Text("Network X"),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Gap(10),
-                Chip(
-                  label: const Text("Seaborn"),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
               ],
             ),
+            Row(children: [
+              Chip(
+                label: const Text("Network X"),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+              Gap(10),
+              Chip(
+                label: const Text("Seaborn"),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+            ],),
             Gap(10),
             SubtitleText(
               data:
@@ -490,7 +494,10 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-                Gap(10),
+              ],
+            ),
+            Row(
+              children: [
                 Chip(
                   label: const Text("Microsoft Excel"),
                   labelStyle: TextStyle(color: colourScheme.primary),

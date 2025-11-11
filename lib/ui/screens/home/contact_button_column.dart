@@ -44,7 +44,7 @@ class ContactButtonColumn extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
-          onPressed: () {},
+          onPressed: UriUtils().launchLinkedIn,
           child: Row(
             children: [
               HugeIcon(
@@ -66,7 +66,7 @@ class ContactButtonColumn extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
-          onPressed: () {},
+          onPressed: UriUtils().launchGitHub,
           child: Row(
             children: [
               HugeIcon(
@@ -77,6 +77,28 @@ class ContactButtonColumn extends StatelessWidget {
               ),
               Gap(5),
               Text("GitHub"),
+            ],
+          ),
+        ),
+        Gap(5),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            fixedSize: Size(140, 10),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+          ),
+          onPressed: UriUtils().launchMedium,
+          child: Row(
+            children: [
+              HugeIcon(
+                icon: HugeIcons.strokeRoundedMedium,
+                size: 24.0,
+                color: Colors.green,
+                strokeWidth: 1.5,
+              ),
+              Gap(5),
+              Text("Medium"),
             ],
           ),
         ),
