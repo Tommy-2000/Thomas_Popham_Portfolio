@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
+import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/logic/utils/uri_utils.dart';
 import 'package:thomas_popham_portfolio/ui/common/header_text.dart';
 import 'package:thomas_popham_portfolio/ui/common/subtitle_text.dart';
 import '../../common/cards/rounded_card.dart';
@@ -81,11 +83,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Image(
-                  image: AssetImage('assets/projects/dreamCare_Project.png'),
-                  height: landscapeWindow ? 300 : 180,
-                  width: landscapeWindow ? 600 : 500,
-                  fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Material(
+                      child: InkWell(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        mouseCursor: SystemMouseCursors.click,
+                        splashColor: colourScheme.primary,
+                        child: Image(
+                          image: AssetImage('assets/projects/dreamCare_Project.png'),
+                          height: landscapeWindow ? 300 : 180,
+                          width: landscapeWindow ? 600 : 500,
+                          fit: BoxFit.cover,
+                        ),
+                        onTap: () {
+                          UriUtils().launchGitHubProject1();
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      bottom: 20,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: HugeIcon(
+                          icon: HugeIcons.strokeRoundedArrowUpRight01,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -124,12 +150,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
+                Gap(10),
+                Chip(
+                  label: const Text("FHIR"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
               ],
             ),
             Row(
               children: [
                 Chip(
-                  label: const Text("AidBox FHIR Server"),
+                  label: const Text("AidBox Server"),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -163,11 +195,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Image(
-                  image: AssetImage('assets/projects/dreamTravel_Project.png'),
-                  height: landscapeWindow ? 300 : 180,
-                  width: landscapeWindow ? 600 : 450,
-                  fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Material(
+                      child: InkWell(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        mouseCursor: SystemMouseCursors.click,
+                        splashColor: colourScheme.primary,
+                        child: Image(
+                          image: AssetImage('assets/projects/dreamTravel_Project.png'),
+                          height: landscapeWindow ? 300 : 180,
+                          width: landscapeWindow ? 600 : 500,
+                          fit: BoxFit.cover,
+                        ),
+                        onTap: () {
+                          UriUtils().launchGitHubProject2();
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      bottom: 20,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: HugeIcon(
+                          icon: HugeIcons.strokeRoundedArrowUpRight01,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -203,19 +259,21 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 ),
               ],
             ),
-            Row(children: [
-              Chip(
-                label: const Text("Express"),
-                labelStyle: TextStyle(color: colourScheme.primary),
-                side: BorderSide(color: colourScheme.primary),
-              ),
-              Gap(10),
-              Chip(
-                label: const Text("Zod"),
-                labelStyle: TextStyle(color: colourScheme.primary),
-                side: BorderSide(color: colourScheme.primary),
-              ),
-            ],),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Express"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Zod"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
+            ),
             Gap(10),
             SubtitleText(
               data:
@@ -276,13 +334,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 ),
               ],
             ),
-            Row(children: [
-              Chip(
-                label: const Text("Digital Signal Processing (DSP)"),
-                labelStyle: TextStyle(color: colourScheme.primary),
-                side: BorderSide(color: colourScheme.primary),
-              ),
-            ],),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Digital Signal Processing (DSP)"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
+            ),
             Gap(10),
             SubtitleText(
               data:
@@ -303,11 +363,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Image(
-                  image: AssetImage('assets/projects/MAD_Project.png'),
-                  height: landscapeWindow ? 300 : 180,
-                  width: landscapeWindow ? 600 : 450,
-                  fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Material(
+                      child: InkWell(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        mouseCursor: SystemMouseCursors.click,
+                        splashColor: colourScheme.primary,
+                        child: Image(
+                          image: AssetImage('assets/projects/MAD_Project.png'),
+                          height: landscapeWindow ? 300 : 180,
+                          width: landscapeWindow ? 600 : 500,
+                          fit: BoxFit.cover,
+                        ),
+                        onTap: () {
+                          UriUtils().launchGitHubProject3();
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      bottom: 20,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: HugeIcon(
+                          icon: HugeIcons.strokeRoundedArrowUpRight01,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -349,19 +433,21 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 ),
               ],
             ),
-            Row(children: [
-              Chip(
-                label: const Text("Google Maps API"),
-                labelStyle: TextStyle(color: colourScheme.primary),
-                side: BorderSide(color: colourScheme.primary),
-              ),
-              Gap(10),
-              Chip(
-                label: const Text("CameraX"),
-                labelStyle: TextStyle(color: colourScheme.primary),
-                side: BorderSide(color: colourScheme.primary),
-              ),
-            ],),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Google Maps API"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("CameraX"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
+            ),
             Gap(10),
             SubtitleText(
               data:
@@ -382,11 +468,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Image(
-                  image: AssetImage('assets/projects/AIF_Project.png'),
-                  height: landscapeWindow ? 300 : 180,
-                  width: landscapeWindow ? 600 : 450,
-                  fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Material(
+                      child: InkWell(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        mouseCursor: SystemMouseCursors.click,
+                        splashColor: colourScheme.primary,
+                        child: Image(
+                          image: AssetImage('assets/projects/AIF_Project.png'),
+                          height: landscapeWindow ? 300 : 180,
+                          width: landscapeWindow ? 600 : 500,
+                          fit: BoxFit.cover,
+                        ),
+                        onTap: () {
+                          UriUtils().launchGitHubProject4();
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      bottom: 20,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: HugeIcon(
+                          icon: HugeIcons.strokeRoundedArrowUpRight01,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -422,19 +532,21 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 ),
               ],
             ),
-            Row(children: [
-              Chip(
-                label: const Text("Network X"),
-                labelStyle: TextStyle(color: colourScheme.primary),
-                side: BorderSide(color: colourScheme.primary),
-              ),
-              Gap(10),
-              Chip(
-                label: const Text("Seaborn"),
-                labelStyle: TextStyle(color: colourScheme.primary),
-                side: BorderSide(color: colourScheme.primary),
-              ),
-            ],),
+            Row(
+              children: [
+                Chip(
+                  label: const Text("Network X"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Gap(10),
+                Chip(
+                  label: const Text("Seaborn"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
+            ),
             Gap(10),
             SubtitleText(
               data:
@@ -525,11 +637,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Image(
-                  image: AssetImage('assets/projects/ML_Project.png'),
-                  height: landscapeWindow ? 300 : 180,
-                  width: landscapeWindow ? 600 : 450,
-                  fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Material(
+                      child: InkWell(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        mouseCursor: SystemMouseCursors.click,
+                        splashColor: colourScheme.primary,
+                        child: Image(
+                          image: AssetImage('assets/projects/ML_Project.png'),
+                          height: landscapeWindow ? 300 : 180,
+                          width: landscapeWindow ? 600 : 500,
+                          fit: BoxFit.cover,
+                        ),
+                        onTap: () {
+                          UriUtils().launchGitHubProject5();
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      bottom: 20,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: HugeIcon(
+                          icon: HugeIcons.strokeRoundedArrowUpRight01,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -592,11 +728,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Image(
-                  image: AssetImage('assets/projects/OOP_Project.png'),
-                  height: landscapeWindow ? 300 : 180,
-                  width: landscapeWindow ? 600 : 450,
-                  fit: BoxFit.cover,
+                child: Stack(
+                  children: [
+                    Material(
+                      child: InkWell(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        mouseCursor: SystemMouseCursors.click,
+                        splashColor: colourScheme.primary,
+                        child: Image(
+                          image: AssetImage('assets/projects/OOP_Project.png'),
+                          height: landscapeWindow ? 300 : 180,
+                          width: landscapeWindow ? 600 : 500,
+                          fit: BoxFit.cover,
+                        ),
+                        onTap: () {
+                          UriUtils().launchGitHubProject6();
+                        },
+                      ),
+                    ),
+                    Positioned(
+                      right: 20,
+                      bottom: 20,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: HugeIcon(
+                          icon: HugeIcons.strokeRoundedArrowUpRight01,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

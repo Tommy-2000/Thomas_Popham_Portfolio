@@ -36,7 +36,7 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TitleText(
-                  data: "Hi there! I'm Thomas Popham 👍🏻",
+                  data: "Hi there! I'm Thomas Popham 👍",
                   fontSize: 40,
                   minFontSize: 20,
                   maxLines: 2,
@@ -54,7 +54,7 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
                   textOverflow: TextOverflow.ellipsis,
                 ),
                 SubtitleText(
-                  data: "Graduate Software Developer and 3D Animator",
+                  data: "Graduate Software Developer",
                   fontSize: 20,
                   minFontSize: 10,
                   maxLines: 2,

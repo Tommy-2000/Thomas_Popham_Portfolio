@@ -118,7 +118,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               "Checked, scanned and managed customer packages throughout the delivery process within Outbound area. Management of warehouse stock and stock rotations within Returns. Reported any damaged orders and potential chemical hazards to Operations Manager within Outbound. Operated within health and safety operations and guidelines established under the company.Met both team-based and individual KPI targets for orders within Outbound process. Operated with Linux-based system to check, scan and dispatch customer goods. Raised potential health and safety hazards to operations managers within all areas of Outbound. Demonstrated emotional resilience and cooperated with fellow goods associates throughout the role.",
               fontSize: 18,
               minFontSize: 12,
-              maxLines: 9,
+              maxLines: 11,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -278,7 +278,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Machine Learning",
+              "Business Intelligence",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -288,7 +288,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Object-Oriented Programming",
+              "Project Management",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -308,7 +308,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Big Data and Business Intelligence",
+              "Social Media & SEO",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -318,17 +318,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Artificial Intelligence Foundations",
-              fontSize: 18,
-              minFontSize: 12,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data:
-              "Computer Masters Project",
+              "Computing Project",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -356,7 +346,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             Gap(5),
             SubtitleText(
               data:
-              "Research Methods",
+              "Personal and Professional Development IT",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -366,7 +356,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Machine Learning",
+              "Work Related Learning IT 1",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -376,7 +366,87 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Object-Oriented Programming",
+              "Introduction to Web Development",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Database Design and Development",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Work Related Learning IT 2",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Advanced Database Concepts",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Systems Analysis and Design",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Innovation, Idea Generation and Enterprise",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "E-Business",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Human Computer Interaction",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Advanced Web Development",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -387,36 +457,6 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             SubtitleText(
               data:
               "Mobile Application Development",
-              fontSize: 18,
-              minFontSize: 12,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data:
-              "Big Data and Business Intelligence",
-              fontSize: 18,
-              minFontSize: 12,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data:
-              "Artificial Intelligence Foundations",
-              fontSize: 18,
-              minFontSize: 12,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data:
-              "Computer Masters Project",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -444,7 +484,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             Gap(5),
             SubtitleText(
               data:
-              "Research Methods",
+              "Visual Recording In Arts And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -454,7 +494,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Machine Learning",
+              "Materials, Techniques And Processes In Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -464,7 +504,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Object-Oriented Programming",
+              "Ideas And Concepts In Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -474,7 +514,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Mobile Application Development",
+              "Communication Through Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -484,7 +524,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Big Data and Business Intelligence",
+              "Contextual Influences In Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -494,7 +534,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Artificial Intelligence Foundations",
+              "Application, Exploration And Realisation In Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -504,7 +544,107 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Computer Masters Project",
+              "Personal And Professional Development In Art And Design",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Freelance Work In Art And Design",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Computers In Art And Design",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Lens-Based Image Making",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Multi-Camera Techniques",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Music-Based Programming",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Digital Storytelling",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Narrative Image Making",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Film And Video Editing Techniques",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Single Camera Techniques",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Digital Video Production For Interactive Media",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -521,7 +661,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
           children: [
             HeaderText(
               data:
-              "New College Durham - BTEC Level 3 (Subsidiary) Creative Media Diploma - September 2014-June 2015",
+              "New College Durham - BTEC Level 3 (Subsidiary) Creative Media Diploma - September 2014-July 2015",
               fontSize: 30,
               minFontSize: 20,
               maxLines: 3,
@@ -532,7 +672,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             Gap(5),
             SubtitleText(
               data:
-              "Research Methods",
+              "Visual Recording In Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -542,7 +682,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Machine Learning",
+              "Materials, Techniques And Processes In Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -552,7 +692,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Object-Oriented Programming",
+              "Ideas And Concepts In Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -562,7 +702,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Mobile Application Development",
+              "Communication Through Art And Design",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -572,7 +712,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Big Data and Business Intelligence",
+              "Multi-Camera Techniques",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -582,17 +722,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Artificial Intelligence Foundations",
-              fontSize: 18,
-              minFontSize: 12,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data:
-              "Computer Masters Project",
+              "Digital Video Production For Interactive Media",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -620,7 +750,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             Gap(5),
             SubtitleText(
               data:
-              "Research Methods",
+              "Research For Creative Media Production",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -630,7 +760,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Machine Learning",
+              "Communication Techniques For Creative Media Production",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -640,7 +770,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Object-Oriented Programming",
+              "The Creative Media Sector",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -650,7 +780,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Mobile Application Development",
+              "Media Audiences And Products",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -660,7 +790,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Big Data and Business Intelligence",
+              "Video Production",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -670,7 +800,7 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Artificial Intelligence Foundations",
+              "Photography Techniques",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -680,7 +810,17 @@ SliverChildListDelegate buildSliverChildListDelegate() {
             ),
             SubtitleText(
               data:
-              "Computer Masters Project",
+              "Factual Production For The Creative Media",
+              fontSize: 18,
+              minFontSize: 12,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            SubtitleText(
+              data:
+              "Creative Media Production Project",
               fontSize: 18,
               minFontSize: 12,
               maxLines: 1,
@@ -689,6 +829,18 @@ SliverChildListDelegate buildSliverChildListDelegate() {
               textOverflow: TextOverflow.fade,
             ),
           ],
+        ),
+      ),
+      RoundedCard(
+        child: HeaderText(
+          data:
+          "Entry Level Japanese - Short Course - October 2013-March 2014",
+          fontSize: 30,
+          minFontSize: 20,
+          maxLines: 3,
+          softWrap: true,
+          textAlign: TextAlign.end,
+          textOverflow: TextOverflow.fade,
         ),
       ),
       RoundedCard(
@@ -728,17 +880,18 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
     pattern: [
       QuiltedGridTile(4, 64),
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
+      QuiltedGridTile(20, 32),
+      QuiltedGridTile(20, 32),
       QuiltedGridTile(4, 64),
       QuiltedGridTile(16, 32),
       QuiltedGridTile(16, 32),
       QuiltedGridTile(16, 32),
       QuiltedGridTile(16, 32),
+      QuiltedGridTile(20, 64),
+      QuiltedGridTile(26, 64),
       QuiltedGridTile(16, 64),
       QuiltedGridTile(16, 64),
-      QuiltedGridTile(16, 64),
-      QuiltedGridTile(16, 64),
+      QuiltedGridTile(4, 64),
       QuiltedGridTile(4, 64),
       QuiltedGridTile(4, 64),
       QuiltedGridTile(6, 64),
@@ -753,16 +906,17 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
       QuiltedGridTile(12, 64),
       QuiltedGridTile(12, 64),
       QuiltedGridTile(20, 64),
-      QuiltedGridTile(50, 64),
+      QuiltedGridTile(60, 64),
       QuiltedGridTile(12, 64),
       QuiltedGridTile(20, 64),
       QuiltedGridTile(50, 64),
+      QuiltedGridTile(20, 64),
       QuiltedGridTile(50, 64),
+      QuiltedGridTile(60, 64),
+      QuiltedGridTile(80, 64),
+      QuiltedGridTile(40, 64),
       QuiltedGridTile(50, 64),
-      QuiltedGridTile(50, 64),
-      QuiltedGridTile(50, 64),
-      QuiltedGridTile(50, 64),
-      QuiltedGridTile(50, 64),
+      QuiltedGridTile(20, 64),
       QuiltedGridTile(20, 64),
       QuiltedGridTile(20, 64),
       QuiltedGridTile(14, 64),

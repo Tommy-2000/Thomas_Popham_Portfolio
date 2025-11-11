@@ -77,7 +77,7 @@ SliverChildListDelegate buildSliverChildListDelegate(bool landscapeWindow) {
               borderRadius: BorderRadius.all(Radius.circular(20)),
               child: CachedNetworkImage(
                 imageUrl:
-                "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&force=true&w=1920",
+                    "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&force=true&w=1920",
                 placeholder: (context, url) =>
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
@@ -125,7 +125,7 @@ SliverChildListDelegate buildSliverChildListDelegate(bool landscapeWindow) {
             Gap(15),
             SubtitleText(
               data:
-              "My ultimate career goal is to develop educational games/immersive software for young children based on impactful academic research and to make a positive difference to their educational development and pedagogy. I’ve looked into existing research into the effective adoption of technology (e.g. Augmented Reality or Artificial Intelligence) for neurodivergent individuals and how it can be effective in supporting children with Autism or ADHD. I have been inspired by the work created by companies such as Xploro, BrainSpark Games and Mrs Wordsmith, whose innovation to supporting children in their health and education fuels my drive to build novel solutions that give them the best start to life.",
+                  "My ultimate career goal is to develop educational games/immersive software for young children based on impactful academic research and to make a positive difference to their educational development and pedagogy. I’ve looked into existing research into the effective adoption of technology (e.g. Augmented Reality or Artificial Intelligence) for neurodivergent individuals and how it can be effective in supporting children with Autism or ADHD. I have been inspired by the work created by companies such as Xploro, BrainSpark Games, Augment Therapy and Mrs Wordsmith, whose innovation to supporting children in their health and education fuels my drive to build novel solutions that give them the best start to life.",
               fontSize: 16,
               minFontSize: 12,
               maxLines: 12,
@@ -136,7 +136,7 @@ SliverChildListDelegate buildSliverChildListDelegate(bool landscapeWindow) {
             Gap(15),
             SubtitleText(
               data:
-                  "In my spare time, I’m passionate for literature (currently reading Piranesi by Susanna Clarke), watching movies (especially the Studio Ghibli films), listening to music (ELO, Rush and David Bowie are my favourites), a bit of gaming (personally love the Dark Souls series) and some creative drawing/animation. If you wish to get in touch with me for a chat regarding my past experience and skillset, please feel free to let me know via the contact form below or through LinkedIn.",
+                  "In my spare time, I’m passionate for literature (currently reading Piranesi by Susanna Clarke), watching movies (especially the Studio Ghibli films), listening to music (ELO, Rush and David Bowie are my favourites), a bit of gaming (personally love the Dark Souls series) and some creative drawing/animation. If you wish to get in touch with me for a chat regarding my past experience and skillset, please feel free to let me know via the contact form below or via LinkedIn. I will also be posting some blog posts on software development, 3D animation and what I've been working on through Medium as well 👍",
               fontSize: 16,
               minFontSize: 12,
               maxLines: 12,
@@ -269,7 +269,7 @@ SliverChildListDelegate buildSliverChildListDelegate(bool landscapeWindow) {
               borderRadius: BorderRadius.all(Radius.circular(20)),
               child: CachedNetworkImage(
                 imageUrl:
-                "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&force=true&w=1920",
+                    "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&force=true&w=1920",
                 placeholder: (context, url) =>
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
