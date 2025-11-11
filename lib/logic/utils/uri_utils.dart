@@ -48,45 +48,45 @@ class UriUtils {
     }
   }
 
-  late final Uri gitHubProject1Uri = Uri.parse("https://github.com/Tommy-2000/dreamCare");
-  late final Uri gitHubProject2Uri = Uri.parse("https://github.com/Tommy-2000/dreamTravel");
-  late final Uri gitHubProject3Uri = Uri.parse("https://github.com/Tommy-2000/TravelHopper_Android");
-  late final Uri gitHubProject4Uri = Uri.parse("https://github.com/Tommy-2000/Video_Game_AI_Solution_Pathfinding_Experiment");
-  late final Uri gitHubProject5Uri = Uri.parse("https://github.com/Tommy-2000/British_Sign_Language_Multi-Class_Classification");
-  late final Uri gitHubProject6Uri = Uri.parse("https://github.com/Tommy-2000/Stock_Management_App_Java_Group_Project");
+  late final Uri dreamCareUri = Uri.parse("https://github.com/Tommy-2000/dreamCare");
+  late final Uri dreamTravelUri = Uri.parse("https://github.com/Tommy-2000/dreamTravel");
+  late final Uri madProjectUri = Uri.parse("https://github.com/Tommy-2000/TravelHopper_Android");
+  late final Uri aifProjectUri = Uri.parse("https://github.com/Tommy-2000/Video_Game_AI_Solution_Pathfinding_Experiment");
+  late final Uri mlProjectUri = Uri.parse("https://github.com/Tommy-2000/British_Sign_Language_Multi-Class_Classification");
+  late final Uri oopProjectUri = Uri.parse("https://github.com/Tommy-2000/Stock_Management_App_Java_Group_Project");
 
   Future<void> launchGitHubProject1() async {
-    if (!await launchUrl(gitHubProject1Uri, mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(dreamCareUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
   Future<void> launchGitHubProject2() async {
-    if (!await launchUrl(gitHubProject2Uri, mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(dreamTravelUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
   Future<void> launchGitHubProject3() async {
-    if (!await launchUrl(gitHubProject3Uri, mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(madProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
   Future<void> launchGitHubProject4() async {
-    if (!await launchUrl(gitHubProject4Uri, mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(aifProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
   Future<void> launchGitHubProject5() async {
-    if (!await launchUrl(gitHubProject5Uri, mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(mlProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
   Future<void> launchGitHubProject6() async {
-    if (!await launchUrl(gitHubProject6Uri, mode: LaunchMode.externalApplication)) {
+    if (!await launchUrl(oopProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }

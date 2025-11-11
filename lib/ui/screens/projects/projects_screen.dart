@@ -79,39 +79,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Stack(
-                  children: [
-                    Material(
-                      child: InkWell(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        mouseCursor: SystemMouseCursors.click,
-                        splashColor: colourScheme.primary,
-                        child: Image(
-                          image: AssetImage('assets/projects/dreamCare_Project.png'),
-                          height: landscapeWindow ? 300 : 180,
-                          width: landscapeWindow ? 600 : 500,
-                          fit: BoxFit.cover,
-                        ),
-                        onTap: () {
-                          UriUtils().launchGitHubProject1();
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      right: 20,
-                      bottom: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: HugeIcon(
-                          icon: HugeIcons.strokeRoundedArrowUpRight01,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Image(
+                  image: AssetImage(
+                    'assets/projects/dreamCare_Project.png',
+                  ),
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 500,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -126,6 +105,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Flutter"),
@@ -159,6 +139,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("AidBox Server"),
@@ -186,44 +167,31 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().dreamCareUri,
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub,
+                color: colourScheme.primary,
+              ),
+            ),
           ],
         ),
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Stack(
-                  children: [
-                    Material(
-                      child: InkWell(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        mouseCursor: SystemMouseCursors.click,
-                        splashColor: colourScheme.primary,
-                        child: Image(
-                          image: AssetImage('assets/projects/dreamTravel_Project.png'),
-                          height: landscapeWindow ? 300 : 180,
-                          width: landscapeWindow ? 600 : 500,
-                          fit: BoxFit.cover,
-                        ),
-                        onTap: () {
-                          UriUtils().launchGitHubProject2();
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      right: 20,
-                      bottom: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: HugeIcon(
-                          icon: HugeIcons.strokeRoundedArrowUpRight01,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Image(
+                  image: AssetImage(
+                    'assets/projects/dreamTravel_Project.png',
+                  ),
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 500,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -239,6 +207,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Flutter"),
@@ -260,6 +229,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Express"),
@@ -285,11 +255,20 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().dreamTravelUri,
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub,
+                color: colourScheme.primary,
+              ),
+            ),
           ],
         ),
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
@@ -314,6 +293,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Unreal Engine 4"),
@@ -335,6 +315,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Digital Signal Processing (DSP)"),
@@ -359,39 +340,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Stack(
-                  children: [
-                    Material(
-                      child: InkWell(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        mouseCursor: SystemMouseCursors.click,
-                        splashColor: colourScheme.primary,
-                        child: Image(
-                          image: AssetImage('assets/projects/MAD_Project.png'),
-                          height: landscapeWindow ? 300 : 180,
-                          width: landscapeWindow ? 600 : 500,
-                          fit: BoxFit.cover,
-                        ),
-                        onTap: () {
-                          UriUtils().launchGitHubProject3();
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      right: 20,
-                      bottom: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: HugeIcon(
-                          icon: HugeIcons.strokeRoundedArrowUpRight01,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Image(
+                  image: AssetImage('assets/projects/MAD_Project.png'),
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 500,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -407,6 +365,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Android"),
@@ -434,6 +393,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Google Maps API"),
@@ -459,44 +419,29 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().madProjectUri,
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub,
+                color: colourScheme.primary,
+              ),
+            ),
           ],
         ),
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Stack(
-                  children: [
-                    Material(
-                      child: InkWell(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        mouseCursor: SystemMouseCursors.click,
-                        splashColor: colourScheme.primary,
-                        child: Image(
-                          image: AssetImage('assets/projects/AIF_Project.png'),
-                          height: landscapeWindow ? 300 : 180,
-                          width: landscapeWindow ? 600 : 500,
-                          fit: BoxFit.cover,
-                        ),
-                        onTap: () {
-                          UriUtils().launchGitHubProject4();
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      right: 20,
-                      bottom: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: HugeIcon(
-                          icon: HugeIcons.strokeRoundedArrowUpRight01,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Image(
+                  image: AssetImage('assets/projects/AIF_Project.png'),
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 500,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -512,6 +457,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Python"),
@@ -533,6 +479,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Network X"),
@@ -558,11 +505,20 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().aifProjectUri,
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub,
+                color: colourScheme.primary,
+              ),
+            ),
           ],
         ),
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
@@ -588,6 +544,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(10),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Microsoft Power BI"),
@@ -609,6 +566,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Microsoft Excel"),
@@ -633,39 +591,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Stack(
-                  children: [
-                    Material(
-                      child: InkWell(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        mouseCursor: SystemMouseCursors.click,
-                        splashColor: colourScheme.primary,
-                        child: Image(
-                          image: AssetImage('assets/projects/ML_Project.png'),
-                          height: landscapeWindow ? 300 : 180,
-                          width: landscapeWindow ? 600 : 500,
-                          fit: BoxFit.cover,
-                        ),
-                        onTap: () {
-                          UriUtils().launchGitHubProject5();
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      right: 20,
-                      bottom: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: HugeIcon(
-                          icon: HugeIcons.strokeRoundedArrowUpRight01,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Image(
+                  image: AssetImage('assets/projects/ML_Project.png'),
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 500,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -682,6 +617,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(10),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Python"),
@@ -719,44 +655,29 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().mlProjectUri,
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub,
+                color: colourScheme.primary,
+              ),
+            ),
           ],
         ),
       ),
       RoundedCard(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             RoundedCard(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                child: Stack(
-                  children: [
-                    Material(
-                      child: InkWell(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        mouseCursor: SystemMouseCursors.click,
-                        splashColor: colourScheme.primary,
-                        child: Image(
-                          image: AssetImage('assets/projects/OOP_Project.png'),
-                          height: landscapeWindow ? 300 : 180,
-                          width: landscapeWindow ? 600 : 500,
-                          fit: BoxFit.cover,
-                        ),
-                        onTap: () {
-                          UriUtils().launchGitHubProject6();
-                        },
-                      ),
-                    ),
-                    Positioned(
-                      right: 20,
-                      bottom: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: HugeIcon(
-                          icon: HugeIcons.strokeRoundedArrowUpRight01,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: Image(
+                  image: AssetImage('assets/projects/OOP_Project.png'),
+                  height: landscapeWindow ? 300 : 180,
+                  width: landscapeWindow ? 600 : 500,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -773,6 +694,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(10),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Chip(
                   label: const Text("Java"),
@@ -810,6 +732,14 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().oopProjectUri,
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub,
+                color: colourScheme.primary,
+              ),
+            ),
           ],
         ),
       ),
@@ -826,14 +756,14 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(12, 64),
-      QuiltedGridTile(72, 64),
-      QuiltedGridTile(70, 64),
-      QuiltedGridTile(70, 64),
-      QuiltedGridTile(70, 64),
-      QuiltedGridTile(70, 64),
-      QuiltedGridTile(70, 64),
-      QuiltedGridTile(70, 64),
-      QuiltedGridTile(70, 64),
+      QuiltedGridTile(77, 64),
+      QuiltedGridTile(77, 64),
+      QuiltedGridTile(77, 64),
+      QuiltedGridTile(77, 64),
+      QuiltedGridTile(77, 64),
+      QuiltedGridTile(77, 64),
+      QuiltedGridTile(77, 64),
+      QuiltedGridTile(77, 64),
       QuiltedGridTile(14, 64),
     ],
   );
