@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../logic/navigation/nav_branch.dart';
+import '../../../logic/state/providers.dart';
 import 'nav_screen_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -42,34 +43,47 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
               height: 65,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate(navScreens.length, (navIndex) {
-                  return Flexible(
-                    child: Column(
-                      children: [
-                        IconButton(
-                          mouseCursor: SystemMouseCursors.click,
-                          icon: HugeIcon(icon: navScreens[navIndex].navScreenIcon, color: colourScheme.surface),
-                          isSelected: true,
-                          onPressed: () {
-                            if (kDebugMode) {
-                              print(
-                                "CustomBottomNavigationBar button has been tapped",
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: List.generate(navScreens.length, (navIndex) {
+                      return Column(
+                        children: [
+                          IconButton(
+                            mouseCursor: SystemMouseCursors.click,
+                            icon: HugeIcon(icon: navScreens[navIndex].navScreenIcon, color: colourScheme.primary),
+                            isSelected: true,
+                            onPressed: () {
+                              if (kDebugMode) {
+                                print(
+                                  "CustomBottomNavigationBar button has been tapped",
+                                );
+                              }
+                              NavBranch().goToBranch(
+                                navIndex,
+                                widget.navigationShell,
                               );
-                            }
-                            NavBranch().goToBranch(
-                              navIndex,
-                              widget.navigationShell,
-                            );
-                          },
-                        ),
-                        Text(
-                          navScreens[navIndex].navScreenName,
-                          style: TextStyle(color: colourScheme.surface),
-                        ),
-                      ],
+                            },
+                          ),
+                          Text(
+                            navScreens[navIndex].navScreenName,
+                            style: TextStyle(color: colourScheme.primary),
+                          ),
+                        ],
+                      );
+                    }),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        ref.read(themeProvider.notifier).toggleTheme();
+                      });
+                    },
+                    icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedMoon02,
                     ),
-                  );
-                }),
+                  ),
+                ],
               ),
             ),
           ),

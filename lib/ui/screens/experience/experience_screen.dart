@@ -41,8 +41,6 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colourScheme = Theme.of(context).colorScheme;
-
     return CustomScrollView(
       slivers: <Widget>[
         SliverGrid(

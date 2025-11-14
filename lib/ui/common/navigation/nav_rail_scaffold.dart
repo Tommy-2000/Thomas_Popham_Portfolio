@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/logic/state/providers.dart';
 
 import '../../../logic/navigation/nav_branch.dart';
 import 'nav_screen_model.dart';
@@ -53,7 +54,7 @@ class _NavRailScaffoldState extends ConsumerState<NavRailScaffold> {
                             mouseCursor: SystemMouseCursors.click,
                             focusColor: colourScheme.onPrimary,
                             isSelected: true,
-                            icon: HugeIcon(icon: navScreens[navIndex].navScreenIcon, color: colourScheme.surface),
+                            icon: HugeIcon(icon: navScreens[navIndex].navScreenIcon, color: colourScheme.primary),
                             onPressed: () {
                               if (kDebugMode) {
                                 print(
@@ -68,17 +69,19 @@ class _NavRailScaffoldState extends ConsumerState<NavRailScaffold> {
                           ),
                           Text(
                             navScreens[navIndex].navScreenName,
-                            style: TextStyle(color: colourScheme.surface),
                           ),
                         ],
                       );
                     }),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        ref.read(themeProvider.notifier).toggleTheme();
+                      });
+                    },
                     icon: HugeIcon(
                       icon: HugeIcons.strokeRoundedMoon02,
-                      color: Colors.white,
                     ),
                   ),
                 ],

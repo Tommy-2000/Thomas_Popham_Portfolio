@@ -46,23 +46,24 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
-    return Container(
-      color: colourScheme.primaryContainer,
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverGrid(
-            gridDelegate: landscapeWindow
-                ? buildSliverLandscapeGridDelegate()
-                : buildSliverPortraitGridDelegate(),
-            delegate: buildSliverChildListDelegate(landscapeWindow),
-          ),
-        ],
-      ),
+
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverGrid(
+          gridDelegate: landscapeWindow
+              ? buildSliverLandscapeGridDelegate()
+              : buildSliverPortraitGridDelegate(),
+          delegate: buildSliverChildListDelegate(landscapeWindow, colourScheme),
+        ),
+      ],
     );
   }
 }
 
-SliverChildListDelegate buildSliverChildListDelegate(bool landscapeWindow) {
+SliverChildListDelegate buildSliverChildListDelegate(
+  bool landscapeWindow,
+  ColorScheme colourScheme,
+) {
   return SliverChildListDelegate(
     addAutomaticKeepAlives: false,
     addRepaintBoundaries: false,
@@ -367,7 +368,7 @@ SliverChildListDelegate buildSliverChildListDelegate(bool landscapeWindow) {
                   icon: HugeIcon(
                     icon: HugeIcons.strokeRoundedLinkedin01,
                     size: 24.0,
-                    color: Colors.green,
+                    color: colourScheme.primary,
                     strokeWidth: 1.5,
                   ),
                 ),
@@ -376,7 +377,7 @@ SliverChildListDelegate buildSliverChildListDelegate(bool landscapeWindow) {
                   icon: HugeIcon(
                     icon: HugeIcons.strokeRoundedGithub01,
                     size: 24.0,
-                    color: Colors.green,
+                    color: colourScheme.primary,
                     strokeWidth: 1.5,
                   ),
                 ),
