@@ -32,6 +32,8 @@ dependencies:
   gap: ^3.0.1
   hugeicons: ^1.1.1
   mask_text_input_formatter: ^2.9.0
+  email_validator: ^3.0.0
+  mocktail: ^1.0.4
 
 
 dev_dependencies:

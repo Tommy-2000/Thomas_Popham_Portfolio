@@ -21,7 +21,7 @@ class ContactButtonRow extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
           ),
-          onPressed: UriUtils().launchNewEmail,
+          onPressed: UriUtils().launchNewEmailInWindow,
           child: Row(
             children: [
               HugeIcon(

@@ -169,7 +169,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             IconButton(
               highlightColor: colourScheme.primary,
-              onPressed: () => UriUtils().dreamCareUri,
+              onPressed: () => UriUtils().launchDreamCareProject(),
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedGithub,
                 color: colourScheme.primary,
@@ -257,7 +257,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             IconButton(
               highlightColor: colourScheme.primary,
-              onPressed: () => UriUtils().dreamTravelUri,
+              onPressed: () => UriUtils().launchDreamTravelProject(),
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedGithub,
                 color: colourScheme.primary,
@@ -421,7 +421,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             IconButton(
               highlightColor: colourScheme.primary,
-              onPressed: () => UriUtils().madProjectUri,
+              onPressed: () => UriUtils().launchMADProject(),
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedGithub,
                 color: colourScheme.primary,
@@ -507,7 +507,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             IconButton(
               highlightColor: colourScheme.primary,
-              onPressed: () => UriUtils().aifProjectUri,
+              onPressed: () => UriUtils().launchAIFProject(),
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedGithub,
                 color: colourScheme.primary,
@@ -657,7 +657,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             IconButton(
               highlightColor: colourScheme.primary,
-              onPressed: () => UriUtils().mlProjectUri,
+              onPressed: () => UriUtils().launchMLProject(),
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedGithub,
                 color: colourScheme.primary,
@@ -734,7 +734,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             IconButton(
               highlightColor: colourScheme.primary,
-              onPressed: () => UriUtils().oopProjectUri,
+              onPressed: () => UriUtils().launchOOPProject(),
               icon: HugeIcon(
                 icon: HugeIcons.strokeRoundedGithub,
                 color: colourScheme.primary,

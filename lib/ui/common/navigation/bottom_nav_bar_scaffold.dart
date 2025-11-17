@@ -23,7 +23,6 @@ class BottomNavBarScaffold extends ConsumerStatefulWidget {
 }
 
 class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
-
   @override
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
@@ -43,15 +42,20 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
               height: 65,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                spacing: 5.0,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    spacing: 50.0,
                     children: List.generate(navScreens.length, (navIndex) {
                       return Column(
                         children: [
                           IconButton(
                             mouseCursor: SystemMouseCursors.click,
-                            icon: HugeIcon(icon: navScreens[navIndex].navScreenIcon, color: colourScheme.primary),
+                            icon: HugeIcon(
+                              icon: navScreens[navIndex].navScreenIcon,
+                              color: colourScheme.primary,
+                            ),
                             isSelected: true,
                             onPressed: () {
                               if (kDebugMode) {
@@ -81,6 +85,7 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
                     },
                     icon: HugeIcon(
                       icon: HugeIcons.strokeRoundedMoon02,
+                      color: colourScheme.primary,
                     ),
                   ),
                 ],

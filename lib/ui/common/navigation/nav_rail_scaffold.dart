@@ -44,9 +44,11 @@ class _NavRailScaffoldState extends ConsumerState<NavRailScaffold> {
             child: SizedBox(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                spacing: 5.0,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    spacing: 50.0,
                     children: List.generate(navScreens.length, (navIndex) {
                       return Column(
                         children: [

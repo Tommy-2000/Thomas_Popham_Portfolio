@@ -24,7 +24,16 @@ class UriUtils {
   late final Uri mediumUri = Uri.parse("https://medium.com/@tommy-2000");
 
 
-  Future<void> launchNewEmail() async {
+  Future<void> sendFormEmail(String emailAddress, String emailSubject, String emailBody) async {
+    var emailUri = Uri.parse('mailto:$emailAddress?subject=$emailSubject&body=$emailBody');
+    if (await canLaunchUrl(emailUri)) {
+      await launchUrl(emailUri);
+    } else {
+      throw Exception('Could not launch $emailUri');
+    }
+  }
+
+  Future<void> launchNewEmailInWindow() async {
     if (!await launchUrl(emailUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not create a new email, please try again later');
     }
@@ -55,37 +64,37 @@ class UriUtils {
   late final Uri mlProjectUri = Uri.parse("https://github.com/Tommy-2000/British_Sign_Language_Multi-Class_Classification");
   late final Uri oopProjectUri = Uri.parse("https://github.com/Tommy-2000/Stock_Management_App_Java_Group_Project");
 
-  Future<void> launchGitHubProject1() async {
+  Future<void> launchDreamCareProject() async {
     if (!await launchUrl(dreamCareUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
-  Future<void> launchGitHubProject2() async {
+  Future<void> launchDreamTravelProject() async {
     if (!await launchUrl(dreamTravelUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
-  Future<void> launchGitHubProject3() async {
+  Future<void> launchMADProject() async {
     if (!await launchUrl(madProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
-  Future<void> launchGitHubProject4() async {
+  Future<void> launchAIFProject() async {
     if (!await launchUrl(aifProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
-  Future<void> launchGitHubProject5() async {
+  Future<void> launchMLProject() async {
     if (!await launchUrl(mlProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }
   }
 
-  Future<void> launchGitHubProject6() async {
+  Future<void> launchOOPProject() async {
     if (!await launchUrl(oopProjectUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open GitHub page, please try again later');
     }

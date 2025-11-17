@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/logic/utils/uri_utils.dart';
 import '../../common/header_text.dart';
 import '../../common/image_not_found.dart';
 import '../../common/title_text.dart';
 import 'home_banner_card.dart';
-import '../../common/cards/contact_form_card.dart';
+import 'contact_form_card.dart';
 import '../../common/cards/rounded_card.dart';
 import '../../common/subtitle_text.dart';
 
@@ -270,7 +271,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(20)),
               child: CachedNetworkImage(
                 imageUrl:
-                    "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&force=true&w=1920",
+                    "https://images.unsplash.com/photo-1513436539083-9d2127e742f1?q=80&force=true&w=1920",
                 placeholder: (context, url) =>
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
@@ -281,7 +282,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ),
             ),
             SubtitleText(
-              data: "Photo by Mohammad Rahmani on Unsplash",
+              data: "Photo by Zoltan Tasi on Unsplash",
               fontSize: 10,
               minFontSize: 10,
               maxLines: 2,
@@ -364,7 +365,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: UriUtils().launchLinkedIn,
                   icon: HugeIcon(
                     icon: HugeIcons.strokeRoundedLinkedin01,
                     size: 24.0,
@@ -373,7 +374,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: UriUtils().launchGitHub,
                   icon: HugeIcon(
                     icon: HugeIcons.strokeRoundedGithub01,
                     size: 24.0,
@@ -382,6 +383,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   ),
                 ),
               ],
+            ),
+            SubtitleText(
+              data: "Icon by Muhammad Usman",
+              fontSize: 10,
+              minFontSize: 10,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.ellipsis,
             ),
           ],
         ),
@@ -418,8 +428,8 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
       QuiltedGridTile(64, 64),
       QuiltedGridTile(46, 64),
       QuiltedGridTile(12, 64),
-      QuiltedGridTile(64, 64),
-      QuiltedGridTile(32, 64),
+      QuiltedGridTile(75, 64),
+      QuiltedGridTile(30, 64),
       QuiltedGridTile(14, 64),
     ],
   );
