@@ -46,3 +46,14 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 /android/.kotlin/
+/firebase.json
+
+# Ignore android, ios, windows, macos and linux build folders
+/android/
+/ios/
+/windows/
+/macos/
+/linux/
+
+# Ignore static files for Firebase hosting
+/.firebase/
