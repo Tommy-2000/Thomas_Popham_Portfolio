@@ -41,6 +41,15 @@ class NavRouter {
                 ),
               ],
             ),
+            StatefulShellBranch(
+              routes: [
+                GoRoute(
+                  path: "/blog",
+                  pageBuilder: (context, state) =>
+                      MaterialPage(child: navScreens[3].navScreen),
+                ),
+              ],
+            ),
           ],
         ),
       ],

@@ -34,6 +34,7 @@ dependencies:
   mask_text_input_formatter: ^2.9.0
   email_validator: ^3.0.0
   mocktail: ^1.0.4
+  flutter_spinkit: ^5.2.2
 
 
 dev_dependencies:

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../../../logic/utils/email_validator.dart';
-import '../../../logic/utils/uri_utils.dart';
-import '../../common/cards/rounded_card.dart';
+import '../../../../logic/utils/email_validator.dart';
+import '../../../../logic/utils/uri_utils.dart';
+import '../../../common/stateless_rounded_card.dart';
 
 class ContactFormCard extends StatefulWidget {
   const ContactFormCard({super.key});
@@ -14,27 +14,37 @@ class ContactFormCard extends StatefulWidget {
 }
 
 class _ContactFormCardState extends State<ContactFormCard> {
+
+  late GlobalKey<FormState> _contactFormKey;
+  late TextEditingController _fullNameController;
+  late TextEditingController _emailController;
+  late TextEditingController _messageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _contactFormKey = GlobalKey<FormState>();
+    _fullNameController = TextEditingController();
+    _emailController = TextEditingController();
+    _messageController = TextEditingController();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
 
-    final contactFormKey = GlobalKey<FormState>();
-    final fullNameController = TextEditingController();
-    final emailController = TextEditingController();
-    final messageController = TextEditingController();
-
-    return RoundedCard(
+    return StatelessRoundedCard(
       child: SizedBox(
         child: Padding(
           padding: EdgeInsets.all(15),
           child: Form(
-            key: contactFormKey,
+            key: _contactFormKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TextFormField(
-                  controller: fullNameController,
+                  controller: _fullNameController,
                   validator: (fullNameValue) {
                     if (fullNameValue == null || fullNameValue.isEmpty) {
                       return 'Please enter your name';
@@ -51,8 +61,9 @@ class _ContactFormCardState extends State<ContactFormCard> {
                     ),
                   ),
                 ),
+                Gap(10),
                 TextFormField(
-                  controller: emailController,
+                  controller: _emailController,
                   validator: (emailValue) =>
                       emailValue != null && !EmailValidator.validate(emailValue)
                       ? 'Please enter a valid email address'
@@ -67,8 +78,9 @@ class _ContactFormCardState extends State<ContactFormCard> {
                     ),
                   ),
                 ),
+                Gap(10),
                 TextFormField(
-                  controller: messageController,
+                  controller: _messageController,
                   validator: (messageValue) {
                     if (messageValue == null || messageValue.isEmpty) {
                       return 'Please enter your message';
@@ -86,7 +98,7 @@ class _ContactFormCardState extends State<ContactFormCard> {
                     ),
                   ),
                 ),
-                Gap(20),
+                Gap(10),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -97,12 +109,12 @@ class _ContactFormCardState extends State<ContactFormCard> {
                         ),
                       ),
                       onPressed: () => {
-                        if (contactFormKey.currentState!.validate())
+                        if (_contactFormKey.currentState!.validate())
                           {
                             UriUtils().sendFormEmail(
-                              emailController.text,
-                              fullNameController.text,
-                              messageController.text,
+                              _emailController.text,
+                              _fullNameController.text,
+                              _messageController.text,
                             ),
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
@@ -133,4 +145,6 @@ class _ContactFormCardState extends State<ContactFormCard> {
       ),
     );
   }
+
+
 }

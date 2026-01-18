@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
 
-import '../../../logic/utils/uri_utils.dart';
+import '../../../../logic/utils/uri_utils.dart';
 
-class ContactButtonRow extends StatelessWidget {
-  const ContactButtonRow({
+class ContactMaterialButtons extends StatelessWidget {
+  const ContactMaterialButtons({
     super.key,
   });
 

@@ -4,13 +4,17 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:thomas_popham_portfolio/logic/utils/uri_utils.dart';
+import 'package:thomas_popham_portfolio/ui/common/stateful_hero_card.dart';
+import 'package:thomas_popham_portfolio/ui/common/stateful_hero_window.dart';
 import '../../common/header_text.dart';
 import '../../common/image_not_found.dart';
 import '../../common/title_text.dart';
-import 'home_banner_card.dart';
-import 'contact_form_card.dart';
-import '../../common/cards/rounded_card.dart';
+import 'cards/home_banner_card.dart';
+import 'cards/contact_form_card.dart';
+import '../../common/stateless_rounded_card.dart';
 import '../../common/subtitle_text.dart';
+import '../../../constants/hero_strings.dart' as heroStrings;
+import '../../../constants/home_strings.dart' as homeStrings;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,20 +52,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
 
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverGrid(
-          gridDelegate: landscapeWindow
-              ? buildSliverLandscapeGridDelegate()
-              : buildSliverPortraitGridDelegate(),
-          delegate: buildSliverChildListDelegate(landscapeWindow, colourScheme),
-        ),
-      ],
+    return SelectionArea(
+      child: CustomScrollView(
+        slivers: <Widget>[
+          SliverGrid(
+            gridDelegate: landscapeWindow
+                ? buildSliverLandscapeGridDelegate()
+                : buildSliverPortraitGridDelegate(),
+            delegate: buildSliverChildListDelegate(
+              context,
+              landscapeWindow,
+              colourScheme,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
 
 SliverChildListDelegate buildSliverChildListDelegate(
+  BuildContext context,
   bool landscapeWindow,
   ColorScheme colourScheme,
 ) {
@@ -70,7 +81,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
     addRepaintBoundaries: false,
     <Widget>[
       HomeBannerCard(),
-      RoundedCard(
+      StatelessRoundedCard(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,13 +95,13 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
                     Center(child: SizedBox(child: ImageNotFound())),
-                height: landscapeWindow ? 500 : 300,
+                height: landscapeWindow ? 500 : 200,
                 width: landscapeWindow ? 700 : 500,
                 fit: BoxFit.fill,
               ),
             ),
             SubtitleText(
-              data: "Photo by Mohammad Rahmani on Unsplash",
+              data: homeStrings.homeString_4,
               fontSize: 10,
               minFontSize: 10,
               maxLines: 2,
@@ -101,11 +112,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ],
         ),
       ),
-      RoundedCard(
+      StatefulHeroCard(
+        childHeroTag: heroStrings.HOME_HERO_TAG_1,
         child: Column(
           children: [
             TitleText(
-              data: "A little bit about me...",
+              data: homeStrings.homeString_5,
               fontSize: 40,
               minFontSize: 20,
               maxLines: 2,
@@ -115,47 +127,99 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(15),
             SubtitleText(
-              data:
-                  "I’m a postgraduate in MSc. Computer Science (June 2023) from Teesside University. I’d best describe myself as eager, curious and deeply supportive of other graduates like myself; looking to make their mark within software development. I firmly believe that creativity and imagination help form my overall approach to problem solving, project planning and software design and development. Enabling me to think outside-the-box and share a research-based perspective that I would love to bring to the workplace.",
+              data: homeStrings.homeString_6,
               fontSize: 16,
               minFontSize: 12,
-              maxLines: 12,
+              maxLines: 3,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.ellipsis,
             ),
             Gap(15),
             SubtitleText(
-              data:
-                  "My ultimate career goal is to develop educational games/immersive software for young children based on impactful academic research and to make a positive difference to their educational development and pedagogy. I’ve looked into existing research into the effective adoption of technology (e.g. Augmented Reality or Artificial Intelligence) for neurodivergent individuals and how it can be effective in supporting children with Autism or ADHD. I have been inspired by the work created by companies such as Xploro, BrainSpark Games, Augment Therapy and Mrs Wordsmith, whose innovation to supporting children in their health and education fuels my drive to build novel solutions that give them the best start to life.",
+              data: homeStrings.homeString_7,
               fontSize: 16,
               minFontSize: 12,
-              maxLines: 12,
+              maxLines: 3,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.ellipsis,
             ),
             Gap(15),
             SubtitleText(
-              data:
-                  "In my spare time, I’m passionate for literature (currently reading Piranesi by Susanna Clarke), watching movies (especially the Studio Ghibli films), listening to music (ELO, Rush and David Bowie are my favourites), a bit of gaming (personally love the Dark Souls series) and some creative drawing/animation. If you wish to get in touch with me for a chat regarding my past experience and skillset, please feel free to let me know via the contact form below or via LinkedIn. I will also be posting some blog posts on software development, 3D animation and what I've been working on through Medium as well 👍",
+              data: homeStrings.homeString_8,
               fontSize: 16,
               minFontSize: 12,
-              maxLines: 12,
+              maxLines: 3,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.ellipsis,
             ),
           ],
         ),
+        childHeroOnTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.HOME_HERO_TAG_1,
+                  child: Column(
+                    children: [
+                      TitleText(
+                        data: homeStrings.homeString_5,
+                        fontSize: 40,
+                        minFontSize: 20,
+                        maxLines: 2,
+                        softWrap: true,
+                        textAlign: TextAlign.center,
+                        textOverflow: TextOverflow.ellipsis,
+                      ),
+                      Gap(15),
+                      SubtitleText(
+                        data: homeStrings.homeString_6,
+                        fontSize: 16,
+                        minFontSize: 12,
+                        maxLines: 25,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.ellipsis,
+                      ),
+                      Gap(15),
+                      SubtitleText(
+                        data: homeStrings.homeString_7,
+                        fontSize: 16,
+                        minFontSize: 12,
+                        maxLines: 25,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.ellipsis,
+                      ),
+                      Gap(15),
+                      SubtitleText(
+                        data: homeStrings.homeString_8,
+                        fontSize: 16,
+                        minFontSize: 12,
+                        maxLines: 25,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          );
+        },
       ),
 
-      RoundedCard(
+      StatefulHeroCard(
+        childHeroTag: heroStrings.HOME_HERO_TAG_2,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TitleText(
-              data: "Technical Skills",
+              data: homeStrings.homeString_9,
               fontSize: 40,
               minFontSize: 20,
               maxLines: 2,
@@ -165,57 +229,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(10),
             HeaderText(
-              data: "Cross-platform Front-End Development",
+              data: homeStrings.homeString_10,
               fontSize: 30,
               minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data: "Android Compose - Flutter - React Native",
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Gap(5),
-            HeaderText(
-              data: "Back-End Development",
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data: ".NET - Node.JS",
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Gap(5),
-            HeaderText(
-              data: "Database Management",
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data:
-                  "SQL Server and PostgreSQL (SQL) or Google Firestore and MongoDb (NoSQL)",
-              fontSize: 20,
-              minFontSize: 10,
               maxLines: 2,
               softWrap: true,
               textAlign: TextAlign.end,
@@ -223,18 +239,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(5),
             HeaderText(
-              data: "3D Animation and VFX",
+              data: homeStrings.homeString_12,
               fontSize: 30,
               minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data: "Blender - Unreal Engine",
-              fontSize: 20,
-              minFontSize: 10,
               maxLines: 1,
               softWrap: true,
               textAlign: TextAlign.end,
@@ -242,7 +249,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(5),
             HeaderText(
-              data: "Project Management",
+              data: homeStrings.homeString_14,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -250,10 +257,21 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            SubtitleText(
-              data: "Jira - Trello - GitKraken",
-              fontSize: 20,
-              minFontSize: 10,
+            Gap(5),
+            HeaderText(
+              data: homeStrings.homeString_16,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            HeaderText(
+              data: homeStrings.homeString_18,
+              fontSize: 30,
+              minFontSize: 20,
               maxLines: 1,
               softWrap: true,
               textAlign: TextAlign.end,
@@ -261,8 +279,128 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           ],
         ),
+        childHeroOnTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.HOME_HERO_TAG_2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      TitleText(
+                        data: homeStrings.homeString_9,
+                        fontSize: 40,
+                        minFontSize: 20,
+                        maxLines: 2,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.ellipsis,
+                      ),
+                      Gap(10),
+                      HeaderText(
+                        data: homeStrings.homeString_10,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 2,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: homeStrings.homeString_11,
+                        fontSize: 20,
+                        minFontSize: 10,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      HeaderText(
+                        data: homeStrings.homeString_12,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: homeStrings.homeString_13,
+                        fontSize: 20,
+                        minFontSize: 10,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      HeaderText(
+                        data: homeStrings.homeString_14,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: homeStrings.homeString_15,
+                        fontSize: 20,
+                        minFontSize: 10,
+                        maxLines: 2,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      HeaderText(
+                        data: homeStrings.homeString_16,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: homeStrings.homeString_17,
+                        fontSize: 20,
+                        minFontSize: 10,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      HeaderText(
+                        data: homeStrings.homeString_18,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: homeStrings.homeString_19,
+                        fontSize: 20,
+                        minFontSize: 10,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          );
+        },
       ),
-      RoundedCard(
+      StatelessRoundedCard(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -276,13 +414,13 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
                     Center(child: SizedBox(child: ImageNotFound())),
-                height: landscapeWindow ? 500 : 300,
+                height: landscapeWindow ? 500 : 200,
                 width: landscapeWindow ? 700 : 500,
                 fit: BoxFit.fill,
               ),
             ),
             SubtitleText(
-              data: "Photo by Zoltan Tasi on Unsplash",
+              data: homeStrings.homeString_20,
               fontSize: 10,
               minFontSize: 10,
               maxLines: 2,
@@ -293,9 +431,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ],
         ),
       ),
-      RoundedCard(
+      StatelessRoundedCard(
         child: TitleText(
-          data: "Contact Me",
+          data: homeStrings.homeString_21,
           fontSize: 40,
           minFontSize: 20,
           maxLines: 2,
@@ -304,11 +442,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
           textOverflow: TextOverflow.ellipsis,
         ),
       ),
-      RoundedCard(
+      StatelessRoundedCard(
         child: Column(
           children: [
             HeaderText(
-              data: "Send a Message",
+              data: homeStrings.homeString_22,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -316,13 +454,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            Gap(10),
+            Gap(30),
             SubtitleText(
-              data:
-                  "Fill in the form below and I will get back to you on the following weekend if possible.",
+              data: homeStrings.homeString_23,
               fontSize: 20,
               minFontSize: 10,
-              maxLines: 1,
+              maxLines: 2,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -332,11 +469,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ],
         ),
       ),
-      RoundedCard(
+      StatelessRoundedCard(
         child: Column(
           children: [
             HeaderText(
-              data: "Contact Information",
+              data: homeStrings.homeString_24,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -345,7 +482,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             SubtitleText(
-              data: "Location - Durham, UK",
+              data: homeStrings.homeString_25,
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -354,7 +491,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             SubtitleText(
-              data: "Email - dreamdev.tommy.2000@outlook.com",
+              data: homeStrings.homeString_26,
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -385,7 +522,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             SubtitleText(
-              data: "Icon by Muhammad Usman",
+              data: homeStrings.homeString_27,
               fontSize: 10,
               minFontSize: 10,
               maxLines: 1,
@@ -411,8 +548,8 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
       QuiltedGridTile(26, 32),
       QuiltedGridTile(26, 32),
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(26, 32),
-      QuiltedGridTile(26, 32),
+      QuiltedGridTile(32, 32),
+      QuiltedGridTile(32, 32),
       QuiltedGridTile(6, 64),
     ],
   );
@@ -422,15 +559,15 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
   return SliverQuiltedGridDelegate(
     crossAxisCount: 64,
     pattern: [
-      QuiltedGridTile(46, 64),
-      QuiltedGridTile(46, 64),
-      QuiltedGridTile(110, 64),
-      QuiltedGridTile(64, 64),
-      QuiltedGridTile(46, 64),
-      QuiltedGridTile(12, 64),
+      QuiltedGridTile(45, 64),
+      QuiltedGridTile(45, 64),
+      QuiltedGridTile(65, 64),
       QuiltedGridTile(75, 64),
-      QuiltedGridTile(30, 64),
-      QuiltedGridTile(14, 64),
+      QuiltedGridTile(45, 64),
+      QuiltedGridTile(12, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(35, 64),
+      QuiltedGridTile(16, 64),
     ],
   );
 }

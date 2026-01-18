@@ -31,61 +31,93 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
       print("CustomBottomNavigationBar has been built");
     }
     return Padding(
-      padding: const EdgeInsets.all(30),
+      padding: const EdgeInsets.all(5),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: Container(
           color: colourScheme.primaryContainer,
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
+            filter: ImageFilter.blur(sigmaX: 60, sigmaY: 60),
             child: SizedBox(
               height: 65,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                spacing: 5.0,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    spacing: 50.0,
                     children: List.generate(navScreens.length, (navIndex) {
-                      return Column(
-                        children: [
-                          IconButton(
-                            mouseCursor: SystemMouseCursors.click,
-                            icon: HugeIcon(
-                              icon: navScreens[navIndex].navScreenIcon,
-                              color: colourScheme.primary,
-                            ),
-                            isSelected: true,
-                            onPressed: () {
-                              if (kDebugMode) {
-                                print(
-                                  "CustomBottomNavigationBar button has been tapped",
-                                );
-                              }
-                              NavBranch().goToBranch(
-                                navIndex,
-                                widget.navigationShell,
+                      return Material(
+                        type: MaterialType.button,
+                        color: Colors.transparent,
+                        child: InkWell(
+                          mouseCursor: SystemMouseCursors.click,
+                          splashColor: colourScheme.primary,
+                          customBorder: RoundedSuperellipseBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          onTap: () {
+                            if (kDebugMode) {
+                              print(
+                                "CustomBottomNavigationBar button has been tapped",
                               );
-                            },
+                            }
+                            NavBranch().goToBranch(
+                              navIndex,
+                              widget.navigationShell,
+                            );
+                          },
+                          child: SizedBox(
+                            width: 75,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              spacing: 2,
+                              children: [
+                                HugeIcon(
+                                  icon: navScreens[navIndex].navScreenIcon,
+                                  color: colourScheme.primary,
+                                ),
+                                Text(
+                                  navScreens[navIndex].navScreenName,
+                                  style: TextStyle(color: colourScheme.primary),
+                                ),
+                              ],
+                            ),
                           ),
-                          Text(
-                            navScreens[navIndex].navScreenName,
-                            style: TextStyle(color: colourScheme.primary),
-                          ),
-                        ],
+                        ),
                       );
                     }),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      setState(() {
-                        ref.read(themeProvider.notifier).toggleTheme();
-                      });
-                    },
-                    icon: HugeIcon(
-                      icon: HugeIcons.strokeRoundedMoon02,
-                      color: colourScheme.primary,
+                  Material(
+                    type: MaterialType.button,
+                    color: Colors.transparent,
+                    child: InkWell(
+                      mouseCursor: SystemMouseCursors.click,
+                      splashColor: colourScheme.primary,
+                      customBorder: RoundedSuperellipseBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          ref.read(themeProvider.notifier).toggleTheme();
+                        });
+                      },
+                      child: SizedBox(
+                        height: 75,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          spacing: 2,
+                          children: [
+                            HugeIcon(
+                              icon: HugeIcons.strokeRoundedMoon02,
+                              color: colourScheme.primary,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ],

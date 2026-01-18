@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/ui/screens/blog/blog_screen.dart';
 
 import '../../screens/home/home_screen.dart';
 import '../../screens/projects/projects_screen.dart';
@@ -32,5 +33,10 @@ List<NavScreenModel> navScreens = [
     navScreen: ExperienceScreen(),
     navScreenName: "Experience",
     navScreenIcon: HugeIcons.strokeRoundedWork,
+  ),
+  NavScreenModel(
+    navScreen: BlogScreen(),
+    navScreenName: "Blog",
+    navScreenIcon: HugeIcons.strokeRoundedNews,
   ),
 ];

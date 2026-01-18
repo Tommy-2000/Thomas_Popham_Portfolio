@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'contact_button_column.dart';
-import 'contact_button_row.dart';
-import '../../common/cards/rounded_card.dart';
-import '../../common/subtitle_text.dart';
-import '../../common/title_text.dart';
+import '../../../common/stateless_rounded_card.dart';
+import '../../../common/subtitle_text.dart';
+import '../../../common/title_text.dart';
+import 'contact_icon_buttons.dart';
+import 'contact_material_buttons.dart';
+import '../../../../constants/home_strings.dart' as homeStrings;
+import '../../../../constants/image_strings.dart' as imageStrings;
 
 class HomeBannerCard extends StatefulWidget {
   const HomeBannerCard({super.key});
@@ -27,7 +29,7 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
 
   @override
   Widget build(BuildContext context) {
-    return RoundedCard(
+    return StatelessRoundedCard(
       child: Row(
         children: [
           Flexible(
@@ -36,45 +38,45 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TitleText(
-                  data: "Hi there! I'm Thomas Popham 👍",
+                  data: homeStrings.homeString_1,
                   fontSize: 40,
-                  minFontSize: 20,
+                  minFontSize: 18,
                   maxLines: 2,
                   softWrap: true,
                   textAlign: TextAlign.center,
                   textOverflow: TextOverflow.ellipsis,
                 ),
                 SubtitleText(
-                  data: "(He/Him)",
-                  fontSize: 20,
-                  minFontSize: 10,
+                  data: homeStrings.homeString_2,
+                  fontSize: 18,
+                  minFontSize: 8,
                   maxLines: 2,
                   softWrap: true,
                   textAlign: TextAlign.center,
                   textOverflow: TextOverflow.ellipsis,
                 ),
                 SubtitleText(
-                  data: "Graduate Software Developer",
-                  fontSize: 20,
-                  minFontSize: 10,
+                  data: homeStrings.homeString_3,
+                  fontSize: 18,
+                  minFontSize: 8,
                   maxLines: 2,
                   softWrap: true,
                   textAlign: TextAlign.center,
                   textOverflow: TextOverflow.ellipsis,
                 ),
                 Gap(5),
-                landscapeWindow ? ContactButtonRow() : ContactButtonColumn(),
+                landscapeWindow ? ContactMaterialButtons() : ContactIconButtons(),
               ],
             ),
           ),
-          landscapeWindow ? Gap(100) : Gap(50),
+          landscapeWindow ? Gap(100) : Gap(0),
           ClipRRect(
-            borderRadius: BorderRadius.circular(400),
+            borderRadius: BorderRadius.circular(500),
             clipBehavior: Clip.antiAlias,
             child: Image(
-              image: AssetImage('assets/profile_image_2025.jpg'),
-              height: landscapeWindow ? 500 : 200,
-              width: landscapeWindow ? 540 : 220,
+              image: AssetImage(imageStrings.imageString_1),
+              height: landscapeWindow ? 500 : 130,
+              width: landscapeWindow ? 540 : 140,
               fit: BoxFit.fill,
             ),
           ),

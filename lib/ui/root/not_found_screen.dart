@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/src/misc/errors.dart';
-import 'package:thomas_popham_portfolio/ui/common/cards/rounded_card.dart';
+import 'package:thomas_popham_portfolio/ui/common/stateless_rounded_card.dart';
 
 class NotFoundScreen extends StatefulWidget {
   const NotFoundScreen({super.key, required this.goRouterException});
@@ -17,7 +17,7 @@ class _NotFoundScreenState extends State<NotFoundScreen> {
     return Center(
       child: Padding(
         padding: EdgeInsetsGeometry.all(10),
-        child: RoundedCard(
+        child: StatelessRoundedCard(
           child: Padding(
             padding: EdgeInsets.all(5),
             child: ClipRRect(
