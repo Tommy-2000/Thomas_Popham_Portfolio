@@ -17,35 +17,6 @@ class RootScaffold extends StatefulWidget {
 
 class _RootScaffoldState extends State<RootScaffold> {
   bool landscapeWindow = false;
-  late ScrollController _hideBottomNavigationBar;
-  var _isBottomNavBarVisible;
-
-  @override
-  void initState() {
-    super.initState();
-    _isBottomNavBarVisible = true;
-    _hideBottomNavigationBar = ScrollController();
-    _hideBottomNavigationBar.addListener(() {
-      if (_hideBottomNavigationBar.position.userScrollDirection ==
-          ScrollDirection.reverse) {
-        setState(() {
-          _isBottomNavBarVisible = false;
-          if (kDebugMode) {
-            print("Bottom Nav Bar is invisible");
-          }
-        });
-      }
-      if (_hideBottomNavigationBar.position.userScrollDirection ==
-          ScrollDirection.forward) {
-        setState(() {
-          _isBottomNavBarVisible = true;
-          if (kDebugMode) {
-            print("Bottom Nav Bar is visible");
-          }
-        });
-      }
-    });
-  }
 
   @override
   void didChangeDependencies() {
