@@ -17,20 +17,20 @@ class ProjectsScreen extends StatefulWidget {
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
-  late ScrollController _chipScrollController;
+  late ScrollController _projectsScrollController;
   late bool landscapeWindow = false;
   late bool foldableWindow = false;
 
   @override
   void initState() {
     super.initState();
-    _chipScrollController = ScrollController();
+    _projectsScrollController = ScrollController();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _chipScrollController.dispose();
+    _projectsScrollController.dispose();
   }
 
   @override
@@ -44,17 +44,16 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
-    return SelectionArea(
-      child: CustomScrollView(
-        slivers: <Widget>[
-          SliverGrid(
-            gridDelegate: landscapeWindow
-                ? buildSliverLandscapeGridDelegate()
-                : buildSliverPortraitGridDelegate(),
-            delegate: buildSliverChildListDelegate(landscapeWindow, colourScheme),
-          ),
-        ],
-      ),
+    return CustomScrollView(
+      controller: _projectsScrollController,
+      slivers: <Widget>[
+        SliverGrid(
+          gridDelegate: landscapeWindow
+              ? buildSliverLandscapeGridDelegate()
+              : buildSliverPortraitGridDelegate(),
+          delegate: buildSliverChildListDelegate(landscapeWindow, colourScheme),
+        ),
+      ],
     );
   }
 }

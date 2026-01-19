@@ -19,7 +19,8 @@ class BlogScreen extends StatefulWidget {
 }
 
 class _BlogScreenState extends State<BlogScreen> {
-  late ScrollController _chipScrollController;
+
+  late ScrollController _blogScrollController;
 
   bool landscapeWindow = false;
   bool foldableWindow = false;
@@ -27,13 +28,13 @@ class _BlogScreenState extends State<BlogScreen> {
   @override
   void initState() {
     super.initState();
-    _chipScrollController = ScrollController();
+    _blogScrollController = ScrollController();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _chipScrollController.dispose();
+    _blogScrollController.dispose();
   }
 
   @override
@@ -49,6 +50,7 @@ class _BlogScreenState extends State<BlogScreen> {
     final colourScheme = Theme.of(context).colorScheme;
     return SelectionArea(
       child: CustomScrollView(
+        controller: _blogScrollController,
         slivers: <Widget>[
           SliverGrid(
             gridDelegate: landscapeWindow

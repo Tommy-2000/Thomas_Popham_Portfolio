@@ -24,20 +24,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late ScrollController _chipScrollController;
+  late ScrollController _homeScrollController;
   bool landscapeWindow = false;
   bool foldableWindow = false;
 
   @override
   void initState() {
     super.initState();
-    _chipScrollController = ScrollController();
+    _homeScrollController = ScrollController();
   }
 
   @override
   void dispose() {
     super.dispose();
-    _chipScrollController.dispose();
+    _homeScrollController.dispose();
   }
 
   @override
@@ -54,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SelectionArea(
       child: CustomScrollView(
+        controller: _homeScrollController,
         slivers: <Widget>[
           SliverGrid(
             gridDelegate: landscapeWindow
@@ -126,35 +127,65 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.ellipsis,
             ),
             Gap(15),
-            SubtitleText(
-              data: homeStrings.homeString_6,
-              fontSize: 16,
-              minFontSize: 12,
-              maxLines: 3,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.ellipsis,
-            ),
+            landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_6,
+                    fontSize: 16,
+                    minFontSize: 12,
+                    maxLines: 25,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  )
+                : SubtitleText(
+                    data: homeStrings.homeString_6,
+                    fontSize: 16,
+                    minFontSize: 14,
+                    maxLines: 4,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  ),
             Gap(15),
-            SubtitleText(
-              data: homeStrings.homeString_7,
-              fontSize: 16,
-              minFontSize: 12,
-              maxLines: 3,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.ellipsis,
-            ),
+            landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_7,
+                    fontSize: 16,
+                    minFontSize: 12,
+                    maxLines: 25,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  )
+                : SubtitleText(
+                    data: homeStrings.homeString_7,
+                    fontSize: 16,
+                    minFontSize: 14,
+                    maxLines: 4,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  ),
             Gap(15),
-            SubtitleText(
-              data: homeStrings.homeString_8,
-              fontSize: 16,
-              minFontSize: 12,
-              maxLines: 3,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.ellipsis,
-            ),
+            landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_8,
+                    fontSize: 16,
+                    minFontSize: 12,
+                    maxLines: 25,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  )
+                : SubtitleText(
+                    data: homeStrings.homeString_8,
+                    fontSize: 16,
+                    minFontSize: 14,
+                    maxLines: 4,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  ),
           ],
         ),
         childHeroOnTap: () {
@@ -237,6 +268,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            ?landscapeWindow ? SubtitleText(
+              data: homeStrings.homeString_11,
+              fontSize: 20,
+              minFontSize: 10,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ) : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_12,
@@ -247,6 +287,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            ?landscapeWindow ? SubtitleText(
+              data: homeStrings.homeString_13,
+              fontSize: 20,
+              minFontSize: 10,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ) : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_14,
@@ -257,6 +306,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            ?landscapeWindow ? SubtitleText(
+              data: homeStrings.homeString_15,
+              fontSize: 20,
+              minFontSize: 10,
+              maxLines: 2,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ) : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_16,
@@ -267,6 +325,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            ?landscapeWindow ? SubtitleText(
+              data: homeStrings.homeString_17,
+              fontSize: 20,
+              minFontSize: 10,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ) : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_18,
@@ -277,6 +344,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            ?landscapeWindow ? SubtitleText(
+              data: homeStrings.homeString_19,
+              fontSize: 20,
+              minFontSize: 10,
+              maxLines: 1,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ) : null,
           ],
         ),
         childHeroOnTap: () {

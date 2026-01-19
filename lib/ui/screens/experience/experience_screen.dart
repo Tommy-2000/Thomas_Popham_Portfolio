@@ -8,6 +8,7 @@ import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 import '../../common/title_text.dart';
 import '../../../constants/hero_strings.dart' as heroStrings;
+import '../../../constants/experience_strings.dart' as experienceStrings;
 
 class ExperienceScreen extends StatefulWidget {
   const ExperienceScreen({super.key});
@@ -17,6 +18,7 @@ class ExperienceScreen extends StatefulWidget {
 }
 
 class _ExperienceScreenState extends State<ExperienceScreen> {
+  late ScrollController _experienceScrollController;
 
   bool landscapeWindow = false;
   bool foldableWindow = false;
@@ -24,11 +26,13 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   @override
   void initState() {
     super.initState();
+    _experienceScrollController = ScrollController();
   }
 
   @override
   void dispose() {
     super.dispose();
+    _experienceScrollController.dispose();
   }
 
   @override
@@ -41,7 +45,6 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     final colourScheme = Theme.of(context).colorScheme;
 
     return SelectionArea(
@@ -51,9 +54,11 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
             gridDelegate: landscapeWindow
                 ? buildSliverLandscapeGridDelegate()
                 : buildSliverPortraitGridDelegate(),
-            delegate: buildSliverChildListDelegate(context,
+            delegate: buildSliverChildListDelegate(
+              context,
               landscapeWindow,
-              colourScheme),
+              colourScheme,
+            ),
           ),
         ],
       ),
@@ -62,15 +67,15 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
 }
 
 SliverChildListDelegate buildSliverChildListDelegate(
-    BuildContext context,
-    bool landscapeWindow,
-    ColorScheme colourScheme
-    ) {
+  BuildContext context,
+  bool landscapeWindow,
+  ColorScheme colourScheme,
+) {
   return SliverChildListDelegate(
     <Widget>[
       StatelessRoundedCard(
         child: TitleText(
-          data: "Experience",
+          data: experienceStrings.experienceString_1,
           fontSize: 40,
           minFontSize: 20,
           maxLines: 1,
@@ -81,7 +86,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatelessRoundedCard(
         child: TitleText(
-          data: "Roles",
+          data: experienceStrings.experienceString_2,
           fontSize: 30,
           minFontSize: 20,
           maxLines: 1,
@@ -94,7 +99,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Image(
-            image: AssetImage('assets/Amazon_Image.png'),
+            image: AssetImage(experienceStrings.experienceString_3),
             fit: BoxFit.scaleDown,
           ),
         ),
@@ -103,43 +108,42 @@ SliverChildListDelegate buildSliverChildListDelegate(
         childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_1,
         childHeroOnTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              return StatefulHeroWindow(
-                childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_1,
-                child: Column(
-                  children: [
-                    HeaderText(
-                      data:
-                      "Amazon UK Services - Fulfilment Associate - September 2020-September 2021",
-                      fontSize: 30,
-                      minFontSize: 10,
-                      maxLines: 3,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    Gap(5),
-                    SubtitleText(
-                      data:
-                      "Checked, scanned and managed customer packages throughout the delivery process within Outbound area. Management of warehouse stock and stock rotations within Returns. Reported any damaged orders and potential chemical hazards to Operations Manager within Outbound. Operated within health and safety operations and guidelines established under the company. Met both team-based and individual KPI targets for orders within Outbound process. Operated with Linux-based system to check, scan and dispatch customer goods. Raised potential health and safety hazards to operations managers within all areas of Outbound. Demonstrated emotional resilience and cooperated with fellow goods associates throughout the role.",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 25,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                  ],
-                ),
-              );
-            })
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_1,
+                  child: Column(
+                    children: [
+                      HeaderText(
+                        data: experienceStrings.experienceString_4,
+                        fontSize: 30,
+                        minFontSize: 10,
+                        maxLines: 3,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_5,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 25,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           );
         },
         child: Column(
           children: [
             HeaderText(
-              data:
-                  "Amazon UK Services - Fulfilment Associate - September 2020-September 2021",
+              data: experienceStrings.experienceString_4,
               fontSize: 30,
               minFontSize: 10,
               maxLines: 3,
@@ -147,6 +151,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
+            Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_5,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 25,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
           ],
         ),
       ),
@@ -154,7 +170,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: Column(
           children: [
             TitleText(
-              data: "Education",
+              data: experienceStrings.experienceString_6,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -169,7 +185,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Image(
-            image: AssetImage('assets/TU_Image.png'),
+            image: AssetImage(experienceStrings.experienceString_7),
             fit: BoxFit.scaleDown,
           ),
         ),
@@ -178,108 +194,198 @@ SliverChildListDelegate buildSliverChildListDelegate(
         childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_2,
         childHeroOnTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              return StatefulHeroWindow(
-                childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_2,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    HeaderText(
-                      data:
-                      "Teesside University - MSc. Computer Science - January 2022-June 2023",
-                      fontSize: 30,
-                      minFontSize: 10,
-                      maxLines: 3,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    Gap(5),
-                    SubtitleText(
-                      data: "Research Methods",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Machine Learning",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Object-Oriented Programming",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Mobile Application Development",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Big Data and Business Intelligence",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Artificial Intelligence Foundations",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Computer Masters Project",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                  ],
-                ),
-              );
-            })
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      HeaderText(
+                        data: experienceStrings.experienceString_8,
+                        fontSize: 30,
+                        minFontSize: 10,
+                        maxLines: 3,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_9,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_10,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_11,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_12,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_13,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_14,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_15,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           );
         },
-        child: HeaderText(
-          data:
-              "Teesside University - MSc. Computer Science - January 2022-June 2023",
-          fontSize: 30,
-          minFontSize: 10,
-          maxLines: 3,
-          softWrap: true,
-          textAlign: TextAlign.end,
-          textOverflow: TextOverflow.fade,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_8,
+              fontSize: 30,
+              minFontSize: 10,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_9,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_10,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_11,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_12,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_13,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_14,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_15,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
         ),
       ),
       StatelessRoundedCard(
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Image(
-            image: AssetImage('assets/NCD_Image.png'),
+            image: AssetImage(experienceStrings.experienceString_16),
             fit: BoxFit.scaleDown,
           ),
         ),
@@ -288,618 +394,1207 @@ SliverChildListDelegate buildSliverChildListDelegate(
         childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_3,
         childHeroOnTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) {
-              return StatefulHeroWindow(
-                childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_3,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    HeaderText(
-                      data:
-                      "New College Durham - BSc. Business Computing (Honours) - September 2018-July 2019",
-                      fontSize: 30,
-                      minFontSize: 20,
-                      maxLines: 3,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    Gap(5),
-                    SubtitleText(
-                      data: "Research Methods",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Business Intelligence",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Project Management",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Mobile Application Development",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Social Media & SEO",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                    SubtitleText(
-                      data: "Computing Project",
-                      fontSize: 18,
-                      minFontSize: 12,
-                      maxLines: 1,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
-                  ],
-                ),
-              );
-            })
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      HeaderText(
+                        data: experienceStrings.experienceString_17,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 4,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_18,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_19,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_20,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_21,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_22,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_23,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           );
         },
-        child: HeaderText(
-          data:
-              "New College Durham - BSc. Business Computing (Honours) - September 2018-July 2019",
-          fontSize: 30,
-          minFontSize: 20,
-          maxLines: 3,
-          softWrap: true,
-          textAlign: TextAlign.end,
-          textOverflow: TextOverflow.fade,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_17,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_18,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_19,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_20,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_21,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_22,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_23,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
         ),
       ),
       StatefulHeroCard(
         childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_4,
         childHeroOnTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return StatefulHeroWindow(
-              childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_4,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  HeaderText(
-                    data:
-                    "New College Durham - FdSc. (Foundation Degree.) Applied Business Computing - September 2016-July 2018",
-                    fontSize: 30,
-                    minFontSize: 20,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_4,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      HeaderText(
+                        data: experienceStrings.experienceString_24,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 4,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_25,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_26,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_27,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_28,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_29,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_30,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_31,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_32,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_33,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_34,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_35,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_36,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
                   ),
-                  Gap(5),
-                  SubtitleText(
-                    data: "Personal and Professional Development IT",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Work Related Learning IT 1",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Introduction to Web Development",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Database Design and Development",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Work Related Learning IT 2",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Advanced Database Concepts",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Systems Analysis and Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Innovation, Idea Generation and Enterprise",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "E-Business",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Human Computer Interaction",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Advanced Web Development",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Mobile Application Development",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                ],
-              ),
-            );
-          }));
+                );
+              },
+            ),
+          );
         },
-        child: HeaderText(
-          data:
-              "New College Durham - FdSc. (Foundation Degree.) Applied Business Computing - September 2016-July 2018",
-          fontSize: 30,
-          minFontSize: 20,
-          maxLines: 3,
-          softWrap: true,
-          textAlign: TextAlign.end,
-          textOverflow: TextOverflow.fade,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_24,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_25,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_26,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_27,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_28,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_29,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_30,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_31,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_32,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_33,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_34,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_35,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_36,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
         ),
       ),
       StatefulHeroCard(
         childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_5,
         childHeroOnTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return StatefulHeroWindow(
-              childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_5,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  HeaderText(
-                    data:
-                    "New College Durham - BTEC Level 3 (Extended) Creative Media Diploma - September 2015-June 2016",
-                    fontSize: 30,
-                    minFontSize: 20,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      HeaderText(
+                        data: experienceStrings.experienceString_37,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 4,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_38,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_39,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_40,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_41,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_42,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_43,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_44,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_45,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_46,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_47,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_48,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_49,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_50,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_51,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_52,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_53,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_54,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
                   ),
-                  Gap(5),
-                  SubtitleText(
-                    data: "Visual Recording In Arts And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Materials, Techniques And Processes In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Ideas And Concepts In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Communication Through Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Contextual Influences In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data:
-                    "Application, Exploration And Realisation In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Personal And Professional Development In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Freelance Work In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Computers In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Lens-Based Image Making",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Multi-Camera Techniques",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Music-Based Programming",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Digital Storytelling",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Narrative Image Making",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Film And Video Editing Techniques",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Single Camera Techniques",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Digital Video Production For Interactive Media",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                ],
-              ),
-            );
-          }));
+                );
+              },
+            ),
+          );
         },
-        child: HeaderText(
-          data:
-              "New College Durham - BTEC Level 3 (Extended) Creative Media Diploma - September 2015-June 2016",
-          fontSize: 30,
-          minFontSize: 20,
-          maxLines: 3,
-          softWrap: true,
-          textAlign: TextAlign.end,
-          textOverflow: TextOverflow.fade,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_37,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_38,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_39,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_40,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_41,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_42,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_43,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_44,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_45,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_46,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_47,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_48,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_49,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_50,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_51,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_52,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_53,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_54,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
         ),
       ),
       StatefulHeroCard(
         childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_6,
         childHeroOnTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return StatefulHeroWindow(
-              childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_6,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  HeaderText(
-                    data:
-                    "New College Durham - BTEC Level 3 (Subsidiary) Creative Media Diploma - September 2014-July 2015",
-                    fontSize: 30,
-                    minFontSize: 20,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_6,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      HeaderText(
+                        data: experienceStrings.experienceString_55,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 4,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_56,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_57,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_58,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_59,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_60,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_61,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
                   ),
-                  Gap(5),
-                  SubtitleText(
-                    data: "Visual Recording In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Materials, Techniques And Processes In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Ideas And Concepts In Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Communication Through Art And Design",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Multi-Camera Techniques",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Digital Video Production For Interactive Media",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                ],
-              ),
-            );
-          }));
+                );
+              },
+            ),
+          );
         },
-        child: HeaderText(
-          data:
-              "New College Durham - BTEC Level 3 (Subsidiary) Creative Media Diploma - September 2014-July 2015",
-          fontSize: 30,
-          minFontSize: 20,
-          maxLines: 3,
-          softWrap: true,
-          textAlign: TextAlign.end,
-          textOverflow: TextOverflow.fade,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_55,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_56,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_57,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_58,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_59,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_60,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_61,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
         ),
       ),
       StatefulHeroCard(
         childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_7,
         childHeroOnTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return StatefulHeroWindow(
-              childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_7,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  HeaderText(
-                    data:
-                    "New College Durham - BTEC Level 2 Creative Media Diploma - September 2013-June 2014",
-                    fontSize: 30,
-                    minFontSize: 20,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return StatefulHeroWindow(
+                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_7,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      HeaderText(
+                        data: experienceStrings.experienceString_62,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 4,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_63,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data:
+                        experienceStrings.experienceString_64,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_65,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_66,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_67,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_68,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_69,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_70,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                    ],
                   ),
-                  Gap(5),
-                  SubtitleText(
-                    data: "Research For Creative Media Production",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Communication Techniques For Creative Media Production",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "The Creative Media Sector",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Media Audiences And Products",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Video Production",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Photography Techniques",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Factual Production For The Creative Media",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                  SubtitleText(
-                    data: "Creative Media Production Project",
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  ),
-                ],
-              ),
-            );
-          }));
+                );
+              },
+            ),
+          );
         },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_62,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_63,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data:
+                    experienceStrings.experienceString_64,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_65,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_66,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_67,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_68,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_69,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_70,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
+        ),
+      ),
+      StatelessRoundedCard(
         child: HeaderText(
-          data:
-              "New College Durham - BTEC Level 2 Creative Media Diploma - September 2013-June 2014",
+          data: experienceStrings.experienceString_71,
           fontSize: 30,
           minFontSize: 20,
           maxLines: 3,
@@ -910,7 +1605,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatelessRoundedCard(
         child: HeaderText(
-          data: "Entry Level Japanese - Short Course - October 2013-March 2014",
+          data: experienceStrings.experienceString_72,
           fontSize: 30,
           minFontSize: 20,
           maxLines: 3,
@@ -921,18 +1616,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatelessRoundedCard(
         child: HeaderText(
-          data: "GCSE English Literature - Grade C - September 2013-June 2014",
-          fontSize: 30,
-          minFontSize: 20,
-          maxLines: 3,
-          softWrap: true,
-          textAlign: TextAlign.end,
-          textOverflow: TextOverflow.fade,
-        ),
-      ),
-      StatelessRoundedCard(
-        child: HeaderText(
-          data: "GCSE Mathematics - Grade C - January 2013-March 2013",
+          data: experienceStrings.experienceString_73,
           fontSize: 30,
           minFontSize: 20,
           maxLines: 3,
@@ -961,10 +1645,10 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
       QuiltedGridTile(16, 32),
       QuiltedGridTile(16, 32),
       QuiltedGridTile(16, 32),
-      QuiltedGridTile(20, 64),
-      QuiltedGridTile(26, 64),
-      QuiltedGridTile(16, 64),
-      QuiltedGridTile(16, 64),
+      QuiltedGridTile(28, 32),
+      QuiltedGridTile(28, 32),
+      QuiltedGridTile(16, 32),
+      QuiltedGridTile(16, 32),
       QuiltedGridTile(4, 64),
       QuiltedGridTile(4, 64),
       QuiltedGridTile(4, 64),

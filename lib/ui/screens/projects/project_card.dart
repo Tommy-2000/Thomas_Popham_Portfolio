@@ -35,7 +35,7 @@ class ProjectCard extends StatefulWidget {
 }
 
 class _ProjectCardState extends State<ProjectCard> {
-
+  late ScrollController _projectChipScrollController;
   late bool landscapeWindow = false;
   late bool foldableWindow = false;
 
@@ -51,6 +51,7 @@ class _ProjectCardState extends State<ProjectCard> {
   @override
   void initState() {
     super.initState();
+    _projectChipScrollController = ScrollController();
     widget.projectHeaderMaxLines = 5;
     widget.projectDescriptionMaxLines = 8;
   }
@@ -59,6 +60,7 @@ class _ProjectCardState extends State<ProjectCard> {
   @override
   void dispose() {
     super.dispose();
+    _projectChipScrollController.dispose();
   }
 
   @override
@@ -88,25 +90,35 @@ class _ProjectCardState extends State<ProjectCard> {
             textAlign: TextAlign.end,
             textOverflow: TextOverflow.fade,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            spacing: 5,
-            children: widget.projectChipTopRow,
+          SingleChildScrollView(
+            controller: _projectChipScrollController,
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              spacing: 5,
+              children: widget.projectChipTopRow,
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            spacing: 5,
-            children: widget.projectChipBottomRow,
+          SingleChildScrollView(
+            controller: _projectChipScrollController,
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              spacing: 5,
+              children: widget.projectChipBottomRow,
+            ),
           ),
           Gap(5),
-          SubtitleText(
-            data: widget.projectDescription,
-            fontSize: 16,
-            minFontSize: 12,
-            maxLines: widget.projectDescriptionMaxLines,
-            softWrap: true,
-            textAlign: TextAlign.end,
-            textOverflow: TextOverflow.fade,
+          SelectionArea(
+            child: SubtitleText(
+              data: widget.projectDescription,
+              fontSize: 16,
+              minFontSize: 12,
+              maxLines: widget.projectDescriptionMaxLines,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
           ),
           ?widget.iconButton
         ],

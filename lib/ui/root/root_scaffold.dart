@@ -66,7 +66,7 @@ class _RootScaffoldState extends State<RootScaffold> {
         ],
       ),
       bottomNavigationBar: landscapeWindow
-          ? Container(color: Colors.transparent)
+          ? null
           : BottomNavBarScaffold(widget.navigationShell),
     );
   }
