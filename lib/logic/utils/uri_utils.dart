@@ -63,11 +63,14 @@ class UriUtils {
     }
   }
 
-  late final Uri dreamCareUri = Uri.parse(
-    uriStrings.GITHUB_DREAMCARE_URL,
+  late final Uri dreamStudyUri = Uri.parse(
+    uriStrings.GITHUB_DREAMSTUDY_URL,
   );
   late final Uri dreamTravelUri = Uri.parse(
     uriStrings.GITHUB_DREAMTRAVEL_URL,
+  );
+  late final Uri dreamCareUri = Uri.parse(
+    uriStrings.GITHUB_DREAMCARE_URL,
   );
   late final Uri madProjectUri = Uri.parse(
     uriStrings.GITHUB_MAD_URL,
@@ -81,6 +84,12 @@ class UriUtils {
   late final Uri oopProjectUri = Uri.parse(
     uriStrings.GITHUB_OOP_URL,
   );
+
+  Future<void> launchDreamStudyProject() async {
+    if (!await launchUrl(dreamStudyUri, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.GITHUB_URL_EXCEPTION);
+    }
+  }
 
   Future<void> launchDreamCareProject() async {
     if (!await launchUrl(dreamCareUri, mode: LaunchMode.externalApplication)) {

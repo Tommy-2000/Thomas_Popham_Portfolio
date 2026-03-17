@@ -49,6 +49,7 @@ class _StatefulHeroWindowState extends State<StatefulHeroWindow> {
           padding: const EdgeInsets.all(10.0),
           child: SingleChildScrollView(
             controller: _windowScrollController,
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
                 Row(

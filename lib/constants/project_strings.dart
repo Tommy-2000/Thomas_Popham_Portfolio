@@ -70,3 +70,16 @@ const projectString_57 = "Agile Project Management";
 const projectString_58 = "Team Working & Planning";
 const projectString_59 =
     "This desktop application was developed as a stock management application written in Java and Swing GUI as a part of a group-based project assignment, where roles and responsibilities were appropriately assigned and progress was recorded and shared during weekly meetings. The application itself was built to demonstrate best practices in Java development and testing.";
+const projectString_60 =
+    "dreamStudy - GCSE and A Level Revision Platform (Web and App) Built with Neurodiversity";
+const projectString_61 =
+    "This project is being developed as a proposed solution to supporting SEND students taking their GCSE and A Level examinations and is built into a cross-platform React Native application that implements state management with Redux, graphics rendering with Skia, Sentry for static coding analysis and support for Android, iOS and web. ASP.NET was used with C# to integrate with Azure Functions and Azure Cosmos DB.";
+const projectString_62 = "React Native";
+const projectString_63 = "Android";
+const projectString_64 = "Web";
+const projectString_65 = "TypeScript";
+const projectString_66 = "Skia";
+const projectString_67 = ".NET";
+const projectString_68 = "Azure Cosmos Db";
+const projectString_69 = "Azure Functions";
+const projectString_70 = "";

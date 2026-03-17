@@ -6,9 +6,11 @@ const String MEDIUM_URL = "https://medium.com/@tommy-2000";
 
 const String GITHUB_URL = "https://github.com/Tommy-2000";
 
-const String GITHUB_DREAMCARE_URL = "https://github.com/Tommy-2000/dreamCare";
+const String GITHUB_DREAMSTUDY_URL = "https://github.com/Tommy-2000/dreamStudy";
 
 const String GITHUB_DREAMTRAVEL_URL = "https://github.com/Tommy-2000/dreamTravel";
+
+const String GITHUB_DREAMCARE_URL = "https://github.com/Tommy-2000/dreamCare";
 
 const String GITHUB_MAD_URL = "https://github.com/Tommy-2000/TravelHopper_Android";
 

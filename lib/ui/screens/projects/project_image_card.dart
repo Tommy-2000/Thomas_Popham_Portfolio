@@ -1,14 +1,17 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../common/header_text.dart';
+import '../../common/image_not_found.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/subtitle_text.dart';
 
-class ProjectCard extends StatefulWidget {
-  ProjectCard({
+class ProjectImageCard extends StatefulWidget {
+  ProjectImageCard({
     super.key,
     required this.colourScheme,
+    required this.projectImage,
     required this.projectHeader,
     required this.projectHeaderMaxLines,
     required this.projectDescriptionMaxLines,
@@ -20,6 +23,7 @@ class ProjectCard extends StatefulWidget {
 
   final ColorScheme colourScheme;
 
+  final String projectImage;
   final String projectHeader;
   int projectHeaderMaxLines;
   int projectDescriptionMaxLines;
@@ -29,10 +33,10 @@ class ProjectCard extends StatefulWidget {
   final IconButton? iconButton;
 
   @override
-  State<ProjectCard> createState() => _ProjectCardState();
+  State<ProjectImageCard> createState() => _ProjectImageCardState();
 }
 
-class _ProjectCardState extends State<ProjectCard> {
+class _ProjectImageCardState extends State<ProjectImageCard> {
   late ScrollController _projectChipScrollController;
   late bool landscapeWindow = false;
   late bool foldableWindow = false;
@@ -67,6 +71,28 @@ class _ProjectCardState extends State<ProjectCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
+          StatelessRoundedCard(
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              child: Stack(
+                children: [
+                  Center(child: const CircularProgressIndicator()),
+                  CachedNetworkImage(
+                    placeholder: (context, url) =>
+                        Center(child: const CircularProgressIndicator()),
+                    errorWidget: (context, url, error) =>
+                        Center(child: SizedBox(child: ImageNotFound())),
+                    imageUrl: widget.projectImage,
+                    height: landscapeWindow ? 300 : 200,
+                    width: landscapeWindow ? 600 : 500,
+                    fit: BoxFit.cover,
+                    filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Gap(5),
           HeaderText(
             data: widget.projectHeader,
             fontSize: 25,

@@ -6,6 +6,7 @@ import 'package:thomas_popham_portfolio/constants/project_strings.dart'
     as projectStrings;
 import 'package:thomas_popham_portfolio/logic/utils/uri_utils.dart';
 import 'package:thomas_popham_portfolio/ui/screens/projects/project_card.dart';
+import 'package:thomas_popham_portfolio/ui/screens/projects/project_image_card.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/title_text.dart';
 
@@ -46,6 +47,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
     final colourScheme = Theme.of(context).colorScheme;
     return CustomScrollView(
       controller: _projectsScrollController,
+      physics: const BouncingScrollPhysics(),
       slivers: <Widget>[
         SliverGrid(
           gridDelegate: landscapeWindow
@@ -80,6 +82,65 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       ProjectCard(
+        colourScheme: colourScheme,
+        projectHeader: projectStrings.projectString_60,
+        projectHeaderMaxLines: 4,
+        projectDescriptionMaxLines: 12,
+        projectChipTopRow: [
+          Chip(
+            label: const Text(projectStrings.projectString_62),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_63),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_64),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_65),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+        ],
+        projectChipBottomRow: [
+          Chip(
+            label: const Text(projectStrings.projectString_66),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_67),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_68),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_69),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+        ],
+        projectDescription: projectStrings.projectString_61,
+        iconButton: IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchDreamStudyProject(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedGithub,
+            color: colourScheme.primary,
+          ),
+        ),
+      ),
+      ProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_2,
         projectHeader: projectStrings.projectString_3,
@@ -134,7 +195,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      ProjectCard(
+      ProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_12,
         projectHeader: projectStrings.projectString_13,
@@ -179,7 +240,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      ProjectCard(
+      ProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_20,
         projectHeader: projectStrings.projectString_21,
@@ -216,7 +277,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         projectDescription: projectStrings.projectString_27,
         projectDescriptionMaxLines: 12,
       ),
-      ProjectCard(
+      ProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_28,
         projectHeader: projectStrings.projectString_29,
@@ -266,7 +327,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      ProjectCard(
+      ProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_37,
         projectHeader: projectStrings.projectString_38,
@@ -311,7 +372,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      ProjectCard(
+      ProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_45,
         projectHeader: projectStrings.projectString_46,
@@ -351,11 +412,10 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      ProjectCard(
+      ProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_52,
-        projectHeader:
-        projectStrings.projectString_53,
+        projectHeader: projectStrings.projectString_53,
         projectHeaderMaxLines: 4,
         projectChipTopRow: [
           Chip(
@@ -411,13 +471,14 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(16, 64),
-      QuiltedGridTile(125, 64),
-      QuiltedGridTile(125, 64),
-      QuiltedGridTile(125, 64),
-      QuiltedGridTile(125, 64),
-      QuiltedGridTile(125, 64),
-      QuiltedGridTile(125, 64),
-      QuiltedGridTile(125, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
       QuiltedGridTile(16, 64),
     ],
   );

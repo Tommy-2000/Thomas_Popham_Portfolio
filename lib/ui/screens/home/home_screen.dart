@@ -55,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SelectionArea(
       child: CustomScrollView(
         controller: _homeScrollController,
+        physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverGrid(
             gridDelegate: landscapeWindow
@@ -96,9 +97,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
                     Center(child: SizedBox(child: ImageNotFound())),
-                height: landscapeWindow ? 500 : 200,
-                width: landscapeWindow ? 700 : 500,
-                fit: BoxFit.fill,
+                height: landscapeWindow ? 500 : 300,
+                width: landscapeWindow ? 700 : 400,
+                fit: BoxFit.cover,
               ),
             ),
             SubtitleText(
@@ -119,8 +120,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
           children: [
             TitleText(
               data: homeStrings.homeString_5,
-              fontSize: 40,
-              minFontSize: 20,
+              fontSize: 36,
+              minFontSize: 16,
               maxLines: 2,
               softWrap: true,
               textAlign: TextAlign.center,
@@ -141,7 +142,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     data: homeStrings.homeString_6,
                     fontSize: 16,
                     minFontSize: 14,
-                    maxLines: 4,
+                    maxLines: 3,
                     softWrap: true,
                     textAlign: TextAlign.end,
                     textOverflow: TextOverflow.ellipsis,
@@ -161,7 +162,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     data: homeStrings.homeString_7,
                     fontSize: 16,
                     minFontSize: 14,
-                    maxLines: 4,
+                    maxLines: 3,
                     softWrap: true,
                     textAlign: TextAlign.end,
                     textOverflow: TextOverflow.ellipsis,
@@ -181,7 +182,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     data: homeStrings.homeString_8,
                     fontSize: 16,
                     minFontSize: 14,
-                    maxLines: 4,
+                    maxLines: 3,
                     softWrap: true,
                     textAlign: TextAlign.end,
                     textOverflow: TextOverflow.ellipsis,
@@ -198,8 +199,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     children: [
                       TitleText(
                         data: homeStrings.homeString_5,
-                        fontSize: 40,
-                        minFontSize: 20,
+                        fontSize: 36,
+                        minFontSize: 16,
                         maxLines: 2,
                         softWrap: true,
                         textAlign: TextAlign.center,
@@ -251,8 +252,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
           children: [
             TitleText(
               data: homeStrings.homeString_9,
-              fontSize: 40,
-              minFontSize: 20,
+              fontSize: 36,
+              minFontSize: 16,
               maxLines: 2,
               softWrap: true,
               textAlign: TextAlign.end,
@@ -320,7 +321,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               data: homeStrings.homeString_16,
               fontSize: 30,
               minFontSize: 20,
-              maxLines: 1,
+              maxLines: 2,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
@@ -366,8 +367,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     children: [
                       TitleText(
                         data: homeStrings.homeString_9,
-                        fontSize: 40,
-                        minFontSize: 20,
+                        fontSize: 36,
+                        minFontSize: 16,
                         maxLines: 2,
                         softWrap: true,
                         textAlign: TextAlign.end,
@@ -482,7 +483,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: BorderRadius.all(Radius.circular(30)),
               child: CachedNetworkImage(
                 imageUrl:
                     "https://images.unsplash.com/photo-1513436539083-9d2127e742f1?q=80&force=true&w=1920",
@@ -490,9 +491,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
                     Center(child: SizedBox(child: ImageNotFound())),
-                height: landscapeWindow ? 500 : 200,
-                width: landscapeWindow ? 700 : 500,
-                fit: BoxFit.fill,
+                height: landscapeWindow ? 500 : 300,
+                width: landscapeWindow ? 700 : 400,
+                fit: BoxFit.cover,
               ),
             ),
             SubtitleText(
@@ -510,8 +511,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
       StatelessRoundedCard(
         child: TitleText(
           data: homeStrings.homeString_21,
-          fontSize: 40,
-          minFontSize: 20,
+          fontSize: 36,
+          minFontSize: 16,
           maxLines: 2,
           softWrap: true,
           textAlign: TextAlign.center,

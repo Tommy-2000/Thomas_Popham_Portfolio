@@ -41,10 +41,12 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
             child: SizedBox(
               height: 65,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 3,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    spacing: 3,
                     children: List.generate(navScreens.length, (navIndex) {
                       return Material(
                         type: MaterialType.button,
@@ -53,7 +55,7 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
                           mouseCursor: SystemMouseCursors.click,
                           splashColor: colourScheme.primary,
                           customBorder: RoundedSuperellipseBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(40),
                           ),
                           onTap: () {
                             if (kDebugMode) {
@@ -96,7 +98,7 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
                       mouseCursor: SystemMouseCursors.click,
                       splashColor: colourScheme.primary,
                       customBorder: RoundedSuperellipseBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(40),
                       ),
                       onTap: () {
                         setState(() {
@@ -104,12 +106,12 @@ class _BottomNavBarScaffoldState extends ConsumerState<BottomNavBarScaffold> {
                         });
                       },
                       child: SizedBox(
-                        height: 75,
+                        height: 50,
+                        width: 50,
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 2,
                           children: [
                             HugeIcon(
                               icon: HugeIcons.strokeRoundedMoon02,

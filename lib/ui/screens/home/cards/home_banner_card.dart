@@ -71,13 +71,14 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
           ),
           landscapeWindow ? Gap(100) : Gap(0),
           ClipRRect(
-            borderRadius: BorderRadius.circular(500),
-            clipBehavior: Clip.antiAlias,
+            borderRadius: BorderRadius.circular(600),
+            clipBehavior: Clip.hardEdge,
             child: Image(
               image: AssetImage(imageStrings.imageString_1),
               height: landscapeWindow ? 500 : 130,
               width: landscapeWindow ? 540 : 140,
               fit: BoxFit.fill,
+              filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
             ),
           ),
         ],

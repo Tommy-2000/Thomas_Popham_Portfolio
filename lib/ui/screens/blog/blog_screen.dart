@@ -51,6 +51,7 @@ class _BlogScreenState extends State<BlogScreen> {
     return SelectionArea(
       child: CustomScrollView(
         controller: _blogScrollController,
+        physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverGrid(
             gridDelegate: landscapeWindow
@@ -102,16 +103,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
         blogArticleHeader: blogStrings.BLOG_POST_1_H,
         blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
         blogArticleWidget: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: BorderRadius.all(Radius.circular(40)),
           child: CachedNetworkImage(
             imageUrl: blogStrings.BLOG_POST_1_I,
             placeholder: (context, url) =>
                 Center(child: const CircularProgressIndicator()),
             errorWidget: (context, url, error) =>
                 Center(child: SizedBox(child: ImageNotFound())),
-            height: landscapeWindow ? 400 : 200,
+            height: landscapeWindow ? 400 : 300,
             width: landscapeWindow ? 600 : 500,
             fit: BoxFit.fill,
+            filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
           ),
         ),
         blogArticleOnTap: () {
@@ -123,7 +125,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   blogArticleHeader: blogStrings.BLOG_POST_1_H,
                   blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
                   blogArticleWidget: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
                     child: CachedNetworkImage(
                       imageUrl: blogStrings.BLOG_POST_1_I,
                       placeholder: (context, url) =>
@@ -133,6 +135,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       height: landscapeWindow ? 700 : 300,
                       width: landscapeWindow ? 900 : 500,
                       fit: BoxFit.cover,
+                      filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
                     ),
                   ),
                 );
@@ -173,13 +176,13 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
     pattern: [
       QuiltedGridTile(16, 64),
       QuiltedGridTile(10, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(85, 64),
       QuiltedGridTile(16, 64),
     ],
   );

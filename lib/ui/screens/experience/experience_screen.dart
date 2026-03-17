@@ -49,6 +49,8 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
 
     return SelectionArea(
       child: CustomScrollView(
+        controller: _experienceScrollController,
+        physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverGrid(
             gridDelegate: landscapeWindow

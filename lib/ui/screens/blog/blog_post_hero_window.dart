@@ -111,6 +111,7 @@ class _BlogPostHeroWindowState extends State<BlogPostHeroWindow> {
                   ),
                 ],
               ),
+              Gap(75),
             ],
           ),
         ),
