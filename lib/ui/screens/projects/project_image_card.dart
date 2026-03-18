@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../common/header_text.dart';
-import '../../common/image_not_found.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/subtitle_text.dart';
 
@@ -74,21 +72,12 @@ class _ProjectImageCardState extends State<ProjectImageCard> {
           StatelessRoundedCard(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(20)),
-              child: Stack(
-                children: [
-                  Center(child: const CircularProgressIndicator()),
-                  CachedNetworkImage(
-                    placeholder: (context, url) =>
-                        Center(child: const CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        Center(child: SizedBox(child: ImageNotFound())),
-                    imageUrl: widget.projectImage,
-                    height: landscapeWindow ? 300 : 200,
-                    width: landscapeWindow ? 600 : 500,
-                    fit: BoxFit.cover,
-                    filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-                  ),
-                ],
+              child: Image.asset(
+                widget.projectImage,
+                height: landscapeWindow ? 300 : 200,
+                width: landscapeWindow ? 600 : 500,
+                fit: BoxFit.cover,
+                filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
               ),
             ),
           ),
