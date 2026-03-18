@@ -57,6 +57,5 @@ flutter:
   # Load assets here
   assets:
     - assets/
-    - assets/projects/
 
 
