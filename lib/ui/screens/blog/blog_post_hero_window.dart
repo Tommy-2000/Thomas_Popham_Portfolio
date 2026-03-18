@@ -46,73 +46,76 @@ class _BlogPostHeroWindowState extends State<BlogPostHeroWindow> {
 
     return SelectionArea(
       child: StatefulRoundedCard(
-        child: SingleChildScrollView(
-          controller: _windowScrollController,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    mouseCursor: SystemMouseCursors.click,
-                    splashColor: colourScheme.surface,
-                    icon: HugeIcon(icon: HugeIcons.strokeRoundedCancelSquare),
-                  ),
-                ],
-              ),
-              Hero(
-                tag: widget.blogArticleHeroTag,
-                child: widget.blogArticleWidget,
-              ),
-              HeaderText(
-                data: widget.blogArticleHeader,
-                fontSize: 30,
-                minFontSize: 10,
-                maxLines: 4,
-                softWrap: true,
-                textAlign: TextAlign.end,
-                textOverflow: TextOverflow.fade,
-              ),
-              Gap(5),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SubtitleText(
-                  data: widget.blogArticleSubtitle,
-                  fontSize: 18,
-                  minFontSize: 14,
-                  maxLines: 75,
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: SingleChildScrollView(
+            controller: _windowScrollController,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      mouseCursor: SystemMouseCursors.click,
+                      splashColor: colourScheme.surface,
+                      icon: HugeIcon(icon: HugeIcons.strokeRoundedCancelSquare),
+                    ),
+                  ],
+                ),
+                Hero(
+                  tag: widget.blogArticleHeroTag,
+                  child: widget.blogArticleWidget,
+                ),
+                HeaderText(
+                  data: widget.blogArticleHeader,
+                  fontSize: 30,
+                  minFontSize: 10,
+                  maxLines: 4,
                   softWrap: true,
                   textAlign: TextAlign.end,
                   textOverflow: TextOverflow.fade,
                 ),
-              ),
-              Gap(5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    highlightColor: colourScheme.primary,
-                    onPressed: () => UriUtils().launchLinkedIn(),
-                    icon: HugeIcon(
-                      icon: HugeIcons.strokeRoundedLinkedin01,
-                      color: colourScheme.primary,
-                    ),
+                Gap(5),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: SubtitleText(
+                    data: widget.blogArticleSubtitle,
+                    fontSize: 18,
+                    minFontSize: 14,
+                    maxLines: 75,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
                   ),
-                  IconButton(
-                    highlightColor: colourScheme.primary,
-                    onPressed: () => UriUtils().launchMedium(),
-                    icon: HugeIcon(
-                      icon: HugeIcons.strokeRoundedMedium,
-                      color: colourScheme.primary,
+                ),
+                Gap(5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      highlightColor: colourScheme.primary,
+                      onPressed: () => UriUtils().launchLinkedIn(),
+                      icon: HugeIcon(
+                        icon: HugeIcons.strokeRoundedLinkedin01,
+                        color: colourScheme.primary,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Gap(75),
-            ],
+                    IconButton(
+                      highlightColor: colourScheme.primary,
+                      onPressed: () => UriUtils().launchMedium(),
+                      icon: HugeIcon(
+                        icon: HugeIcons.strokeRoundedMedium,
+                        color: colourScheme.primary,
+                      ),
+                    ),
+                  ],
+                ),
+                Gap(75),
+              ],
+            ),
           ),
         ),
       ),

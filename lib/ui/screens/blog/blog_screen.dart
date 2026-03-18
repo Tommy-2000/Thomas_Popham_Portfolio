@@ -132,9 +132,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                           Center(child: const CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
                           Center(child: SizedBox(child: ImageNotFound())),
-                      height: landscapeWindow ? 700 : 300,
-                      width: landscapeWindow ? 900 : 500,
-                      fit: BoxFit.cover,
+                      height: landscapeWindow ? 500 : 300,
+                      fit: BoxFit.fitHeight,
                       filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
                     ),
                   ),
