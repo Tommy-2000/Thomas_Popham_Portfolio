@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
-import 'package:hugeicons/hugeicons.dart';
 import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_card_post_1.dart';
 import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_card_post_2.dart';
 import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_window_post_1.dart';
 import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_window_post_2.dart';
-import '../../../logic/utils/uri_utils.dart';
 import '../../common/image_not_found.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/title_text.dart';
@@ -102,51 +100,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
           textOverflow: TextOverflow.ellipsis,
         ),
       ),
-      BlogPostHeroCardPost1(
-        blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
-        blogArticleHeader: blogStrings.BLOG_POST_1_H,
-        blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
-        blogArticleWidget: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          child: CachedNetworkImage(
-            imageUrl: blogStrings.BLOG_POST_1_I,
-            placeholder: (context, url) =>
-                Center(child: const CircularProgressIndicator()),
-            errorWidget: (context, url, error) =>
-                Center(child: SizedBox(child: ImageNotFound())),
-            height: landscapeWindow ? 400 : 300,
-            width: landscapeWindow ? 600 : 500,
-            fit: BoxFit.fill,
-            filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-          ),
-        ),
-        blogArticleOnTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return BlogPostHeroWindowPost1(
-                  blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
-                  blogArticleHeader: blogStrings.BLOG_POST_1_H,
-                  blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
-                  blogArticleWidget: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    child: CachedNetworkImage(
-                      imageUrl: blogStrings.BLOG_POST_1_I,
-                      placeholder: (context, url) =>
-                          Center(child: const CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Center(child: SizedBox(child: ImageNotFound())),
-                      height: landscapeWindow ? 500 : 300,
-                      fit: BoxFit.fitHeight,
-                      filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
-        },
-      ),
       BlogPostHeroCardPost2(
         blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_2,
         blogArticleHeader: blogStrings.BLOG_POST_2_H,
@@ -177,6 +130,51 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     borderRadius: BorderRadius.all(Radius.circular(40)),
                     child: CachedNetworkImage(
                       imageUrl: blogStrings.BLOG_POST_2_I,
+                      placeholder: (context, url) =>
+                          Center(child: const CircularProgressIndicator()),
+                      errorWidget: (context, url, error) =>
+                          Center(child: SizedBox(child: ImageNotFound())),
+                      height: landscapeWindow ? 500 : 300,
+                      fit: BoxFit.fitHeight,
+                      filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
+      BlogPostHeroCardPost1(
+        blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
+        blogArticleHeader: blogStrings.BLOG_POST_1_H,
+        blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
+        blogArticleWidget: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+          child: CachedNetworkImage(
+            imageUrl: blogStrings.BLOG_POST_1_I,
+            placeholder: (context, url) =>
+                Center(child: const CircularProgressIndicator()),
+            errorWidget: (context, url, error) =>
+                Center(child: SizedBox(child: ImageNotFound())),
+            height: landscapeWindow ? 400 : 300,
+            width: landscapeWindow ? 600 : 500,
+            fit: BoxFit.fill,
+            filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+          ),
+        ),
+        blogArticleOnTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return BlogPostHeroWindowPost1(
+                  blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
+                  blogArticleHeader: blogStrings.BLOG_POST_1_H,
+                  blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
+                  blogArticleWidget: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                    child: CachedNetworkImage(
+                      imageUrl: blogStrings.BLOG_POST_1_I,
                       placeholder: (context, url) =>
                           Center(child: const CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
