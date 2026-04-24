@@ -7,8 +7,8 @@ import 'package:thomas_popham_portfolio/ui/common/stateful_rounded_card.dart';
 import '../../../logic/utils/uri_utils.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogPostHeroCard extends StatefulWidget {
-  BlogPostHeroCard({
+class BlogPostHeroCardPost2 extends StatefulWidget {
+  BlogPostHeroCardPost2({
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
@@ -24,10 +24,10 @@ class BlogPostHeroCard extends StatefulWidget {
   VoidCallback? blogArticleOnTap;
 
   @override
-  State<BlogPostHeroCard> createState() => _BlogPostHeroCardState();
+  State<BlogPostHeroCardPost2> createState() => _BlogPostHeroCardPost2State();
 }
 
-class _BlogPostHeroCardState extends State<BlogPostHeroCard> {
+class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
   bool landscapeWindow = false;
   bool foldableWindow = false;
 
@@ -89,7 +89,7 @@ class _BlogPostHeroCardState extends State<BlogPostHeroCard> {
                   children: [
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchLinkedIn(),
+                      onPressed: () => UriUtils().launchBlogPost2LinkedIn(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedLinkedin01,
                         color: colourScheme.primary,
@@ -97,9 +97,9 @@ class _BlogPostHeroCardState extends State<BlogPostHeroCard> {
                     ),
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchMedium(),
+                      onPressed: () => UriUtils().launchDreamStudyProject(),
                       icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedMedium,
+                        icon: HugeIcons.strokeRoundedGithub,
                         color: colourScheme.primary,
                       ),
                     ),

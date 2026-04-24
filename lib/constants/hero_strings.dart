@@ -23,6 +23,7 @@ const EXPERIENCE_HERO_TAG_8 = "EXPERIENCE_HERO_TAG_8";
 
 // Hero tags for the BlogScreen
 const BLOG_HERO_TAG_1 = "BLOG_POST_1";
+const BLOG_HERO_TAG_2 = "BLOG_POST_2";
 
 
 

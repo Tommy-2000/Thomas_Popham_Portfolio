@@ -1,4 +1,10 @@
 
+const String BLOG_POST_1_LINKEDIN = "https://www.linkedin.com/feed/update/urn:li:activity:7367126257026744320/";
+
+const String BLOG_POST_1_MEDIUM = "https://medium.com/@tommy-2000/my-online-portfolio-is-now-available-bcad68720733";
+
+const String BLOG_POST_2_LINKEDIN = "https://www.linkedin.com/feed/update/urn:li:activity:7439699587893800960/";
+
 
 const String LINKEDIN_URL = "https://www.linkedin.com/in/thomas-popham/";
 

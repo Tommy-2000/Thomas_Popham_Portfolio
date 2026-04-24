@@ -7,8 +7,8 @@ import '../../../logic/utils/uri_utils.dart';
 import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogPostHeroWindow extends StatefulWidget {
-  const BlogPostHeroWindow({
+class BlogPostHeroWindowPost1 extends StatefulWidget {
+  const BlogPostHeroWindowPost1({
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
@@ -22,10 +22,10 @@ class BlogPostHeroWindow extends StatefulWidget {
   final Widget blogArticleWidget;
 
   @override
-  State<BlogPostHeroWindow> createState() => _BlogPostHeroWindowState();
+  State<BlogPostHeroWindowPost1> createState() => _BlogPostHeroWindowPost1State();
 }
 
-class _BlogPostHeroWindowState extends State<BlogPostHeroWindow> {
+class _BlogPostHeroWindowPost1State extends State<BlogPostHeroWindowPost1> {
   late ScrollController _windowScrollController;
 
   @override
@@ -51,6 +51,7 @@ class _BlogPostHeroWindowState extends State<BlogPostHeroWindow> {
           child: SingleChildScrollView(
             controller: _windowScrollController,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -97,7 +98,7 @@ class _BlogPostHeroWindowState extends State<BlogPostHeroWindow> {
                   children: [
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchLinkedIn(),
+                      onPressed: () => UriUtils().launchBlogPost1LinkedIn(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedLinkedin01,
                         color: colourScheme.primary,
@@ -105,7 +106,7 @@ class _BlogPostHeroWindowState extends State<BlogPostHeroWindow> {
                     ),
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchMedium(),
+                      onPressed: () => UriUtils().launchBlogPost1Medium(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedMedium,
                         color: colourScheme.primary,
