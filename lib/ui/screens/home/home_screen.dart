@@ -637,14 +637,14 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(45, 64),
-      QuiltedGridTile(45, 64),
+      QuiltedGridTile(55, 64),
       QuiltedGridTile(65, 64),
       QuiltedGridTile(75, 64),
-      QuiltedGridTile(45, 64),
+      QuiltedGridTile(55, 64),
       QuiltedGridTile(12, 64),
       QuiltedGridTile(120, 64),
       QuiltedGridTile(35, 64),
-      QuiltedGridTile(16, 64),
+      QuiltedGridTile(30, 64),
     ],
   );
 }

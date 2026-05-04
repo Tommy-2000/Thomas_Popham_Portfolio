@@ -275,14 +275,14 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
     pattern: [
       QuiltedGridTile(16, 64),
       QuiltedGridTile(10, 64),
-      QuiltedGridTile(85, 64),
-      QuiltedGridTile(85, 64),
-      QuiltedGridTile(85, 64),
-      QuiltedGridTile(85, 64),
-      QuiltedGridTile(85, 64),
-      QuiltedGridTile(85, 64),
-      QuiltedGridTile(85, 64),
-      QuiltedGridTile(16, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(100, 64),
+      QuiltedGridTile(30, 64),
     ],
   );
 }

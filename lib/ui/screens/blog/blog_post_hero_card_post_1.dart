@@ -89,7 +89,7 @@ class _BlogPostHeroCardPost1State extends State<BlogPostHeroCardPost1> {
                   data: widget.blogArticleSubtitle,
                   fontSize: 18,
                   minFontSize: 14,
-                  maxLines: 7,
+                  maxLines: 4,
                   softWrap: true,
                   textAlign: TextAlign.end,
                   textOverflow: TextOverflow.fade,

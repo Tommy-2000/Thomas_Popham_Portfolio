@@ -130,7 +130,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         data: experienceStrings.experienceString_5,
                         fontSize: 18,
                         minFontSize: 12,
-                        maxLines: 25,
+                        maxLines: 30,
                         softWrap: true,
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
@@ -1679,7 +1679,7 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
       QuiltedGridTile(35, 64),
       QuiltedGridTile(35, 64),
       QuiltedGridTile(35, 64),
-      QuiltedGridTile(16, 64),
+      QuiltedGridTile(30, 64),
     ],
   );
 }
