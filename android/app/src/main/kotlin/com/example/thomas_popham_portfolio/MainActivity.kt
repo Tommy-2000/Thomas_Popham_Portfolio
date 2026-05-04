@@ -1,4 +1,4 @@
-package com.dreamdivers.thomas_popham_dream_portfolio
+package com.example.thomas_popham_portfolio
 
 import io.flutter.embedding.android.FlutterActivity
 
