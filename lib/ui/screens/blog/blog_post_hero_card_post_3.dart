@@ -7,8 +7,8 @@ import 'package:thomas_popham_portfolio/ui/common/stateful_rounded_card.dart';
 import '../../../logic/utils/uri_utils.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogPostHeroCardPost2 extends StatefulWidget {
-  BlogPostHeroCardPost2({
+class BlogPostHeroCardPost3 extends StatefulWidget {
+  BlogPostHeroCardPost3({
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
@@ -26,10 +26,10 @@ class BlogPostHeroCardPost2 extends StatefulWidget {
   VoidCallback? blogArticleOnTap;
 
   @override
-  State<BlogPostHeroCardPost2> createState() => _BlogPostHeroCardPost2State();
+  State<BlogPostHeroCardPost3> createState() => _BlogPostHeroCardPost3State();
 }
 
-class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
+class _BlogPostHeroCardPost3State extends State<BlogPostHeroCardPost3> {
   bool landscapeWindow = false;
   bool foldableWindow = false;
 
@@ -40,7 +40,6 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
     final double windowWidth = MediaQuery.of(context).size.width;
     landscapeWindow = windowWidth > 800;
   }
-
 
   @override
   void dispose() {
@@ -100,7 +99,7 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
                   children: [
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost2LinkedIn(),
+                      onPressed: () => UriUtils().launchBlogPost3LinkedIn(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedLinkedin01,
                         color: colourScheme.primary,
@@ -108,9 +107,9 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
                     ),
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchDreamStudyProject(),
+                      onPressed: () => UriUtils().launchMedium(),
                       icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedGithub,
+                        icon: HugeIcons.strokeRoundedMedium,
                         color: colourScheme.primary,
                       ),
                     ),

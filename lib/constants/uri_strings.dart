@@ -5,6 +5,7 @@ const String BLOG_POST_1_MEDIUM = "https://medium.com/@tommy-2000/my-online-port
 
 const String BLOG_POST_2_LINKEDIN = "https://www.linkedin.com/feed/update/urn:li:activity:7439699587893800960/";
 
+const String BLOG_POST_3_LINKEDIN = "https://www.linkedin.com/feed/update/urn:li:activity:7457017567430340608/";
 
 const String LINKEDIN_URL = "https://www.linkedin.com/in/thomas-popham/";
 

@@ -75,6 +75,10 @@ class UriUtils {
     uriStrings.BLOG_POST_2_LINKEDIN,
   );
 
+  late final Uri blogPost3LinkedIn = Uri.parse(
+    uriStrings.BLOG_POST_3_LINKEDIN,
+  );
+
   late final Uri dreamStudyUri = Uri.parse(
     uriStrings.GITHUB_DREAMSTUDY_URL,
   );
@@ -150,6 +154,12 @@ class UriUtils {
 
   Future<void> launchBlogPost2LinkedIn() async {
     if (!await launchUrl(blogPost2LinkedIn, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.LINKEDIN_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchBlogPost3LinkedIn() async {
+    if (!await launchUrl(blogPost3LinkedIn, mode: LaunchMode.externalApplication)) {
       throw Exception(uriStrings.LINKEDIN_URL_EXCEPTION);
     }
   }

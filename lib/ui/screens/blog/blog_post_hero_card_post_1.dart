@@ -12,6 +12,7 @@ class BlogPostHeroCardPost1 extends StatefulWidget {
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
+    required this.blogArticleImageCredit,
     required this.blogArticleSubtitle,
     required this.blogArticleWidget,
     this.blogArticleOnTap,
@@ -20,6 +21,7 @@ class BlogPostHeroCardPost1 extends StatefulWidget {
   final String blogArticleHeroTag;
   final String blogArticleHeader;
   final String blogArticleSubtitle;
+  final String blogArticleImageCredit;
   final Widget blogArticleWidget;
   VoidCallback? blogArticleOnTap;
 
@@ -64,6 +66,15 @@ class _BlogPostHeroCardPost1State extends State<BlogPostHeroCardPost1> {
             child: Column(
               children: [
                 widget.blogArticleWidget,
+                SubtitleText(
+                  data: widget.blogArticleImageCredit,
+                  fontSize: 10,
+                  minFontSize: 10,
+                  maxLines: 1,
+                  softWrap: true,
+                  textAlign: TextAlign.end,
+                  textOverflow: TextOverflow.fade,
+                ),
                 HeaderText(
                   data: widget.blogArticleHeader,
                   fontSize: 30,

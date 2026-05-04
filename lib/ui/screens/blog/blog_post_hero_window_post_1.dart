@@ -12,6 +12,7 @@ class BlogPostHeroWindowPost1 extends StatefulWidget {
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
+    required this.blogArticleImageCredit,
     required this.blogArticleSubtitle,
     required this.blogArticleWidget,
   });
@@ -19,6 +20,7 @@ class BlogPostHeroWindowPost1 extends StatefulWidget {
   final String blogArticleHeroTag;
   final String blogArticleHeader;
   final String blogArticleSubtitle;
+  final String blogArticleImageCredit;
   final Widget blogArticleWidget;
 
   @override
@@ -69,6 +71,15 @@ class _BlogPostHeroWindowPost1State extends State<BlogPostHeroWindowPost1> {
                 Hero(
                   tag: widget.blogArticleHeroTag,
                   child: widget.blogArticleWidget,
+                ),
+                SubtitleText(
+                  data: widget.blogArticleImageCredit,
+                  fontSize: 10,
+                  minFontSize: 10,
+                  maxLines: 1,
+                  softWrap: true,
+                  textAlign: TextAlign.end,
+                  textOverflow: TextOverflow.fade,
                 ),
                 HeaderText(
                   data: widget.blogArticleHeader,

@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:thomas_popham_portfolio/ui/common/header_text.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_rounded_card.dart';
 
 import '../../../logic/utils/uri_utils.dart';
+import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogPostHeroCardPost2 extends StatefulWidget {
-  BlogPostHeroCardPost2({
+class BlogPostHeroWindowPost3 extends StatefulWidget {
+  const BlogPostHeroWindowPost3({
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
     required this.blogArticleImageCredit,
     required this.blogArticleSubtitle,
     required this.blogArticleWidget,
-    this.blogArticleOnTap,
   });
 
   final String blogArticleHeroTag;
@@ -23,49 +22,56 @@ class BlogPostHeroCardPost2 extends StatefulWidget {
   final String blogArticleSubtitle;
   final String blogArticleImageCredit;
   final Widget blogArticleWidget;
-  VoidCallback? blogArticleOnTap;
 
   @override
-  State<BlogPostHeroCardPost2> createState() => _BlogPostHeroCardPost2State();
+  State<BlogPostHeroWindowPost3> createState() => _BlogPostHeroWindowPost3State();
 }
 
-class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
-  bool landscapeWindow = false;
-  bool foldableWindow = false;
+class _BlogPostHeroWindowPost3State extends State<BlogPostHeroWindowPost3> {
+  late ScrollController _windowScrollController;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // Check the width of the window using MediaQuery if greater than 800 in a state change
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 800;
+  void initState() {
+    super.initState();
+    _windowScrollController = ScrollController();
   }
-
 
   @override
   void dispose() {
     super.dispose();
+    _windowScrollController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
 
-    return StatefulRoundedCard(
-      child: Hero(
-        tag: widget.blogArticleHeroTag,
-        child: InkWell(
-          onTap: widget.blogArticleOnTap,
-          mouseCursor: SystemMouseCursors.click,
-          splashColor: colourScheme.surface,
-          customBorder: RoundedSuperellipseBorder(
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: Ink(
-            decoration: const BoxDecoration(color: Colors.transparent),
+    return SelectionArea(
+      child: StatefulRoundedCard(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: SingleChildScrollView(
+            controller: _windowScrollController,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                widget.blogArticleWidget,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      mouseCursor: SystemMouseCursors.click,
+                      splashColor: colourScheme.surface,
+                      icon: HugeIcon(icon: HugeIcons.strokeRoundedCancelSquare),
+                    ),
+                  ],
+                ),
+                Hero(
+                  tag: widget.blogArticleHeroTag,
+                  child: widget.blogArticleWidget,
+                ),
                 SubtitleText(
                   data: widget.blogArticleImageCredit,
                   fontSize: 10,
@@ -79,20 +85,23 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
                   data: widget.blogArticleHeader,
                   fontSize: 30,
                   minFontSize: 10,
-                  maxLines: 3,
+                  maxLines: 4,
                   softWrap: true,
                   textAlign: TextAlign.end,
                   textOverflow: TextOverflow.fade,
                 ),
                 Gap(5),
-                SubtitleText(
-                  data: widget.blogArticleSubtitle,
-                  fontSize: 18,
-                  minFontSize: 14,
-                  maxLines: 7,
-                  softWrap: true,
-                  textAlign: TextAlign.end,
-                  textOverflow: TextOverflow.fade,
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: SubtitleText(
+                    data: widget.blogArticleSubtitle,
+                    fontSize: 18,
+                    minFontSize: 14,
+                    maxLines: 75,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  ),
                 ),
                 Gap(5),
                 Row(
@@ -100,7 +109,7 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
                   children: [
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost2LinkedIn(),
+                      onPressed: () => UriUtils().launchBlogPost3LinkedIn(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedLinkedin01,
                         color: colourScheme.primary,
@@ -108,14 +117,15 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
                     ),
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchDreamStudyProject(),
+                      onPressed: () => UriUtils().launchMedium(),
                       icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedGithub,
+                        icon: HugeIcons.strokeRoundedMedium,
                         color: colourScheme.primary,
                       ),
                     ),
                   ],
                 ),
+                Gap(75),
               ],
             ),
           ),

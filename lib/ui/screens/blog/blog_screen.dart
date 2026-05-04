@@ -12,6 +12,8 @@ import '../../common/stateless_rounded_card.dart';
 import '../../common/title_text.dart';
 import '../../../constants/hero_strings.dart' as heroStrings;
 import '../../../constants/blog_strings.dart' as blogStrings;
+import 'blog_post_hero_card_post_3.dart';
+import 'blog_post_hero_window_post_3.dart';
 
 class BlogScreen extends StatefulWidget {
   const BlogScreen({super.key});
@@ -100,10 +102,58 @@ SliverChildListDelegate buildSliverChildListDelegate(
           textOverflow: TextOverflow.ellipsis,
         ),
       ),
+      BlogPostHeroCardPost3(
+        blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_3,
+        blogArticleHeader: blogStrings.BLOG_POST_3_H,
+        blogArticleSubtitle: blogStrings.BLOG_POST_3_P,
+        blogArticleImageCredit: blogStrings.BLOG_POST_3_IC,
+        blogArticleWidget: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+          child: CachedNetworkImage(
+            imageUrl: blogStrings.BLOG_POST_3_I,
+            placeholder: (context, url) =>
+                Center(child: const CircularProgressIndicator()),
+            errorWidget: (context, url, error) =>
+                Center(child: SizedBox(child: ImageNotFound())),
+            height: landscapeWindow ? 400 : 300,
+            width: landscapeWindow ? 600 : 500,
+            fit: BoxFit.fill,
+            filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+          ),
+        ),
+        blogArticleOnTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return BlogPostHeroWindowPost3(
+                  blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_3,
+                  blogArticleHeader: blogStrings.BLOG_POST_3_H,
+                  blogArticleSubtitle: blogStrings.BLOG_POST_3_P,
+                  blogArticleImageCredit: blogStrings.BLOG_POST_3_IC,
+                  blogArticleWidget: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                    child: CachedNetworkImage(
+                      imageUrl: blogStrings.BLOG_POST_3_I,
+                      placeholder: (context, url) =>
+                          Center(child: const CircularProgressIndicator()),
+                      errorWidget: (context, url, error) =>
+                          Center(child: SizedBox(child: ImageNotFound())),
+                      height: landscapeWindow ? 500 : 300,
+                      fit: BoxFit.fitHeight,
+                      filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+                    ),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
       BlogPostHeroCardPost2(
         blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_2,
         blogArticleHeader: blogStrings.BLOG_POST_2_H,
         blogArticleSubtitle: blogStrings.BLOG_POST_2_P,
+        blogArticleImageCredit: blogStrings.BLOG_POST_2_IC,
         blogArticleWidget: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(40)),
           child: CachedNetworkImage(
@@ -126,6 +176,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_2,
                   blogArticleHeader: blogStrings.BLOG_POST_2_H,
                   blogArticleSubtitle: blogStrings.BLOG_POST_2_P,
+                  blogArticleImageCredit: blogStrings.BLOG_POST_2_IC,
                   blogArticleWidget: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(40)),
                     child: CachedNetworkImage(
@@ -149,6 +200,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
         blogArticleHeader: blogStrings.BLOG_POST_1_H,
         blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
+        blogArticleImageCredit: blogStrings.BLOG_POST_1_IC,
         blogArticleWidget: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(40)),
           child: CachedNetworkImage(
@@ -171,6 +223,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
                   blogArticleHeader: blogStrings.BLOG_POST_1_H,
                   blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
+                  blogArticleImageCredit: blogStrings.BLOG_POST_1_IC,
                   blogArticleWidget: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(40)),
                     child: CachedNetworkImage(
