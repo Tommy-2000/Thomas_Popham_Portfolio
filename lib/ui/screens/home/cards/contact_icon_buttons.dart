@@ -10,6 +10,9 @@ class ContactIconButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final colourScheme = Theme.of(context).colorScheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,7 +28,7 @@ class ContactIconButtons extends StatelessWidget {
           icon: HugeIcon(
             icon: HugeIcons.strokeRoundedMail01,
             size: 24.0,
-            color: Colors.green,
+            color: colourScheme.primary,
             strokeWidth: 1.5,
           ),
         ),
@@ -40,7 +43,7 @@ class ContactIconButtons extends StatelessWidget {
           icon: HugeIcon(
             icon: HugeIcons.strokeRoundedLinkedin01,
             size: 24.0,
-            color: Colors.green,
+            color: colourScheme.primary,
             strokeWidth: 1.5,
           ),
         ),
@@ -55,7 +58,7 @@ class ContactIconButtons extends StatelessWidget {
           icon: HugeIcon(
             icon: HugeIcons.strokeRoundedGithub01,
             size: 24.0,
-            color: Colors.green,
+            color: colourScheme.primary,
             strokeWidth: 1.5,
           ),
         ),
@@ -70,7 +73,7 @@ class ContactIconButtons extends StatelessWidget {
           icon: HugeIcon(
             icon: HugeIcons.strokeRoundedMedium,
             size: 24.0,
-            color: Colors.green,
+            color: colourScheme.primary,
             strokeWidth: 1.5,
           ),
         ),

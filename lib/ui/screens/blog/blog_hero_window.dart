@@ -7,8 +7,8 @@ import '../../../logic/utils/uri_utils.dart';
 import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogPostHeroWindowPost3 extends StatefulWidget {
-  const BlogPostHeroWindowPost3({
+class BlogHeroWindow extends StatefulWidget {
+  const BlogHeroWindow({
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
@@ -24,10 +24,10 @@ class BlogPostHeroWindowPost3 extends StatefulWidget {
   final Widget blogArticleWidget;
 
   @override
-  State<BlogPostHeroWindowPost3> createState() => _BlogPostHeroWindowPost3State();
+  State<BlogHeroWindow> createState() => _BlogHeroWindowState();
 }
 
-class _BlogPostHeroWindowPost3State extends State<BlogPostHeroWindowPost3> {
+class _BlogHeroWindowState extends State<BlogHeroWindow> {
   late ScrollController _windowScrollController;
 
   @override
@@ -109,7 +109,7 @@ class _BlogPostHeroWindowPost3State extends State<BlogPostHeroWindowPost3> {
                   children: [
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost3LinkedIn(),
+                      onPressed: () => UriUtils().launchBlogPost1LinkedIn(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedLinkedin01,
                         color: colourScheme.primary,
@@ -117,7 +117,7 @@ class _BlogPostHeroWindowPost3State extends State<BlogPostHeroWindowPost3> {
                     ),
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchMedium(),
+                      onPressed: () => UriUtils().launchBlogPost1Medium(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedMedium,
                         color: colourScheme.primary,

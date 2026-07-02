@@ -7,8 +7,8 @@ import 'package:thomas_popham_portfolio/ui/common/stateful_rounded_card.dart';
 import '../../../logic/utils/uri_utils.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogPostHeroCardPost2 extends StatefulWidget {
-  BlogPostHeroCardPost2({
+class BlogHeroCardPost extends StatefulWidget {
+  BlogHeroCardPost({
     super.key,
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
@@ -26,10 +26,10 @@ class BlogPostHeroCardPost2 extends StatefulWidget {
   VoidCallback? blogArticleOnTap;
 
   @override
-  State<BlogPostHeroCardPost2> createState() => _BlogPostHeroCardPost2State();
+  State<BlogHeroCardPost> createState() => _BlogHeroCardPostState();
 }
 
-class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
+class _BlogHeroCardPostState extends State<BlogHeroCardPost> {
   bool landscapeWindow = false;
   bool foldableWindow = false;
 
@@ -100,7 +100,7 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
                   children: [
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost2LinkedIn(),
+                      onPressed: () => UriUtils().launchBlogPost1LinkedIn(),
                       icon: HugeIcon(
                         icon: HugeIcons.strokeRoundedLinkedin01,
                         color: colourScheme.primary,
@@ -108,9 +108,9 @@ class _BlogPostHeroCardPost2State extends State<BlogPostHeroCardPost2> {
                     ),
                     IconButton(
                       highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchDreamStudyProject(),
+                      onPressed: () => UriUtils().launchBlogPost1Medium(),
                       icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedGithub,
+                        icon: HugeIcons.strokeRoundedMedium,
                         color: colourScheme.primary,
                       ),
                     ),

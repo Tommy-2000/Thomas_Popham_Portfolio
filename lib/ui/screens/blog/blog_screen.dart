@@ -3,17 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
-import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_card_post_1.dart';
-import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_card_post_2.dart';
-import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_window_post_1.dart';
-import 'package:thomas_popham_portfolio/ui/screens/blog/blog_post_hero_window_post_2.dart';
+import 'package:thomas_popham_portfolio/ui/screens/blog/blog_hero_card_post.dart';
+import 'package:thomas_popham_portfolio/ui/screens/blog/blog_hero_window.dart';
 import '../../common/image_not_found.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/title_text.dart';
 import '../../../constants/hero_strings.dart' as heroStrings;
 import '../../../constants/blog_strings.dart' as blogStrings;
-import 'blog_post_hero_card_post_3.dart';
-import 'blog_post_hero_window_post_3.dart';
 
 class BlogScreen extends StatefulWidget {
   const BlogScreen({super.key});
@@ -23,7 +19,6 @@ class BlogScreen extends StatefulWidget {
 }
 
 class _BlogScreenState extends State<BlogScreen> {
-
   late ScrollController _blogScrollController;
 
   bool landscapeWindow = false;
@@ -102,151 +97,97 @@ SliverChildListDelegate buildSliverChildListDelegate(
           textOverflow: TextOverflow.ellipsis,
         ),
       ),
-      BlogPostHeroCardPost3(
-        blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_3,
-        blogArticleHeader: blogStrings.BLOG_POST_3_H,
-        blogArticleSubtitle: blogStrings.BLOG_POST_3_P,
-        blogArticleImageCredit: blogStrings.BLOG_POST_3_IC,
-        blogArticleWidget: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          child: CachedNetworkImage(
-            imageUrl: blogStrings.BLOG_POST_3_I,
-            placeholder: (context, url) =>
-                Center(child: const CircularProgressIndicator()),
-            errorWidget: (context, url, error) =>
-                Center(child: SizedBox(child: ImageNotFound())),
-            height: landscapeWindow ? 400 : 300,
-            width: landscapeWindow ? 600 : 500,
-            fit: BoxFit.fill,
-            filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-          ),
-        ),
-        blogArticleOnTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return BlogPostHeroWindowPost3(
-                  blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_3,
-                  blogArticleHeader: blogStrings.BLOG_POST_3_H,
-                  blogArticleSubtitle: blogStrings.BLOG_POST_3_P,
-                  blogArticleImageCredit: blogStrings.BLOG_POST_3_IC,
-                  blogArticleWidget: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    child: CachedNetworkImage(
-                      imageUrl: blogStrings.BLOG_POST_3_I,
-                      placeholder: (context, url) =>
-                          Center(child: const CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Center(child: SizedBox(child: ImageNotFound())),
-                      height: landscapeWindow ? 500 : 300,
-                      fit: BoxFit.fitHeight,
-                      filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
-        },
+      renderBlogHeroCardPost(
+        heroStrings.BLOG_HERO_TAG_3,
+        blogStrings.BLOG_POST_3_H,
+        blogStrings.BLOG_POST_3_S,
+        blogStrings.BLOG_POST_3_IC,
+        blogStrings.BLOG_POST_3_I,
+        landscapeWindow,
+        context,
       ),
-      BlogPostHeroCardPost2(
-        blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_2,
-        blogArticleHeader: blogStrings.BLOG_POST_2_H,
-        blogArticleSubtitle: blogStrings.BLOG_POST_2_P,
-        blogArticleImageCredit: blogStrings.BLOG_POST_2_IC,
-        blogArticleWidget: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          child: CachedNetworkImage(
-            imageUrl: blogStrings.BLOG_POST_2_I,
-            placeholder: (context, url) =>
-                Center(child: const CircularProgressIndicator()),
-            errorWidget: (context, url, error) =>
-                Center(child: SizedBox(child: ImageNotFound())),
-            height: landscapeWindow ? 400 : 300,
-            width: landscapeWindow ? 600 : 500,
-            fit: BoxFit.fill,
-            filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-          ),
-        ),
-        blogArticleOnTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return BlogPostHeroWindowPost2(
-                  blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_2,
-                  blogArticleHeader: blogStrings.BLOG_POST_2_H,
-                  blogArticleSubtitle: blogStrings.BLOG_POST_2_P,
-                  blogArticleImageCredit: blogStrings.BLOG_POST_2_IC,
-                  blogArticleWidget: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    child: CachedNetworkImage(
-                      imageUrl: blogStrings.BLOG_POST_2_I,
-                      placeholder: (context, url) =>
-                          Center(child: const CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Center(child: SizedBox(child: ImageNotFound())),
-                      height: landscapeWindow ? 500 : 300,
-                      fit: BoxFit.fitHeight,
-                      filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
-        },
+      renderBlogHeroCardPost(
+        heroStrings.BLOG_HERO_TAG_2,
+        blogStrings.BLOG_POST_2_H,
+        blogStrings.BLOG_POST_2_S,
+        blogStrings.BLOG_POST_2_IC,
+        blogStrings.BLOG_POST_2_I,
+        landscapeWindow,
+        context,
       ),
-      BlogPostHeroCardPost1(
-        blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
-        blogArticleHeader: blogStrings.BLOG_POST_1_H,
-        blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
-        blogArticleImageCredit: blogStrings.BLOG_POST_1_IC,
-        blogArticleWidget: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-          child: CachedNetworkImage(
-            imageUrl: blogStrings.BLOG_POST_1_I,
-            placeholder: (context, url) =>
-                Center(child: const CircularProgressIndicator()),
-            errorWidget: (context, url, error) =>
-                Center(child: SizedBox(child: ImageNotFound())),
-            height: landscapeWindow ? 400 : 300,
-            width: landscapeWindow ? 600 : 500,
-            fit: BoxFit.fill,
-            filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-          ),
-        ),
-        blogArticleOnTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return BlogPostHeroWindowPost1(
-                  blogArticleHeroTag: heroStrings.BLOG_HERO_TAG_1,
-                  blogArticleHeader: blogStrings.BLOG_POST_1_H,
-                  blogArticleSubtitle: blogStrings.BLOG_POST_1_P,
-                  blogArticleImageCredit: blogStrings.BLOG_POST_1_IC,
-                  blogArticleWidget: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    child: CachedNetworkImage(
-                      imageUrl: blogStrings.BLOG_POST_1_I,
-                      placeholder: (context, url) =>
-                          Center(child: const CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Center(child: SizedBox(child: ImageNotFound())),
-                      height: landscapeWindow ? 500 : 300,
-                      fit: BoxFit.fitHeight,
-                      filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
-        },
+      renderBlogHeroCardPost(
+        heroStrings.BLOG_HERO_TAG_1,
+        blogStrings.BLOG_POST_1_H,
+        blogStrings.BLOG_POST_1_S,
+        blogStrings.BLOG_POST_1_IC,
+        blogStrings.BLOG_POST_1_I,
+        landscapeWindow,
+        context,
       ),
       Gap(5),
     ],
     addAutomaticKeepAlives: false,
     addRepaintBoundaries: false,
+  );
+}
+
+BlogHeroCardPost renderBlogHeroCardPost(
+  String blogArticleHeroTag,
+  String blogArticleHeader,
+  String blogArticleSubtitle,
+  String blogArticleImageCredit,
+  String blogArticleImageUrl,
+  bool landscapeWindow,
+  BuildContext context,
+) {
+  return BlogHeroCardPost(
+    blogArticleHeroTag: blogArticleHeroTag,
+    blogArticleHeader: blogArticleHeader,
+    blogArticleSubtitle: blogArticleSubtitle,
+    blogArticleImageCredit: blogArticleImageCredit,
+    blogArticleWidget: ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(40)),
+      child: CachedNetworkImage(
+        imageUrl: blogArticleImageUrl,
+        placeholder: (context, url) =>
+            Center(child: const CircularProgressIndicator()),
+        errorWidget: (context, url, error) =>
+            Center(child: SizedBox(child: ImageNotFound())),
+        height: landscapeWindow ? 400 : 300,
+        width: landscapeWindow ? 600 : 500,
+        fit: BoxFit.fill,
+        filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+      ),
+    ),
+    blogArticleOnTap: () {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) {
+            return BlogHeroWindow(
+              blogArticleHeroTag: blogArticleHeroTag,
+              blogArticleHeader: blogArticleHeader,
+              blogArticleSubtitle: blogArticleSubtitle,
+              blogArticleImageCredit: blogArticleImageCredit,
+              blogArticleWidget: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                child: CachedNetworkImage(
+                  imageUrl: blogArticleImageUrl,
+                  placeholder: (context, url) =>
+                      Center(child: const CircularProgressIndicator()),
+                  errorWidget: (context, url, error) =>
+                      Center(child: SizedBox(child: ImageNotFound())),
+                  height: landscapeWindow ? 500 : 300,
+                  fit: BoxFit.fitHeight,
+                  filterQuality: landscapeWindow
+                      ? FilterQuality.high
+                      : FilterQuality.low,
+                ),
+              ),
+            );
+          },
+        ),
+      );
+    },
   );
 }
 
@@ -263,7 +204,6 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
       QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),
-
     ],
   );
 }

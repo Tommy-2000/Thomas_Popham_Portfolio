@@ -82,4 +82,3 @@ const projectString_66 = "Skia";
 const projectString_67 = ".NET";
 const projectString_68 = "Azure Cosmos Db";
 const projectString_69 = "Azure Functions";
-const projectString_70 = "";

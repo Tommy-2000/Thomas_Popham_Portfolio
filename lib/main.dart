@@ -18,7 +18,7 @@ Future<void> main() async {
     CachedNetworkImage.logLevel = CacheManagerLogLevel.debug;
   }
 
-  // Set the Url path strategy if the app is running in Web mode
+  // Set the Url path strategy if the app is running in Web mode, otherwise ignore
   if (kIsWeb) {
     usePathUrlStrategy();
   }

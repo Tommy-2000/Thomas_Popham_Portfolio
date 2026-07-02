@@ -81,7 +81,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ],
         ),
       ),
-      ProjectCard(
+      renderProjectCard(
         colourScheme: colourScheme,
         projectHeader: projectStrings.projectString_60,
         projectHeaderMaxLines: 4,
@@ -131,16 +131,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_61,
-        iconButton: IconButton(
-          highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchDreamStudyProject(),
-          icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedGithub,
-            color: colourScheme.primary,
-          ),
-        ),
+        iconButtonOnPressed: () => UriUtils().launchDreamStudyProject(),
       ),
-      ProjectImageCard(
+      renderProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_2,
         projectHeader: projectStrings.projectString_3,
@@ -186,16 +179,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_11,
         projectDescriptionMaxLines: 12,
-        iconButton: IconButton(
-          highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchDreamCareProject(),
-          icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedGithub,
-            color: colourScheme.primary,
-          ),
-        ),
+        iconButtonOnPressed: () => UriUtils().launchDreamCareProject(),
       ),
-      ProjectImageCard(
+      renderProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_12,
         projectHeader: projectStrings.projectString_13,
@@ -231,16 +217,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_19,
         projectDescriptionMaxLines: 12,
-        iconButton: IconButton(
-          highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchDreamTravelProject(),
-          icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedGithub,
-            color: colourScheme.primary,
-          ),
-        ),
+        iconButtonOnPressed: () => UriUtils().launchDreamTravelProject(),
       ),
-      ProjectImageCard(
+      renderProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_20,
         projectHeader: projectStrings.projectString_21,
@@ -277,7 +256,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         projectDescription: projectStrings.projectString_27,
         projectDescriptionMaxLines: 12,
       ),
-      ProjectImageCard(
+      renderProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_28,
         projectHeader: projectStrings.projectString_29,
@@ -318,16 +297,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_36,
         projectDescriptionMaxLines: 12,
-        iconButton: IconButton(
-          highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchMADProject(),
-          icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedGithub,
-            color: colourScheme.primary,
-          ),
-        ),
+        iconButtonOnPressed: () => UriUtils().launchMADProject(),
       ),
-      ProjectImageCard(
+      renderProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_37,
         projectHeader: projectStrings.projectString_38,
@@ -363,16 +335,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_44,
         projectDescriptionMaxLines: 12,
-        iconButton: IconButton(
-          highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchAIFProject(),
-          icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedGithub,
-            color: colourScheme.primary,
-          ),
-        ),
+        iconButtonOnPressed: () => UriUtils().launchAIFProject(),
       ),
-      ProjectImageCard(
+      renderProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_45,
         projectHeader: projectStrings.projectString_46,
@@ -403,16 +368,10 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_51,
         projectDescriptionMaxLines: 12,
-        iconButton: IconButton(
-          highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchMLProject(),
-          icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedGithub,
-            color: colourScheme.primary,
-          ),
-        ),
+        iconButtonOnPressed: () => UriUtils().launchMLProject(),
       ),
-      ProjectImageCard(
+
+      renderProjectImageCard(
         colourScheme: colourScheme,
         projectImage: projectStrings.projectString_52,
         projectHeader: projectStrings.projectString_53,
@@ -448,20 +407,72 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_59,
         projectDescriptionMaxLines: 12,
-        iconButton: IconButton(
-          highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchOOPProject(),
-          icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedGithub,
-            color: colourScheme.primary,
-          ),
-        ),
+        iconButtonOnPressed: () => UriUtils().launchOOPProject(),
       ),
-      // OOPProjectCard(),
       Gap(5),
     ],
     addAutomaticKeepAlives: false,
     addRepaintBoundaries: false,
+  );
+}
+
+ProjectCard renderProjectCard({
+  required ColorScheme colourScheme,
+  required String projectHeader,
+  required int projectHeaderMaxLines,
+  required List<Chip> projectChipTopRow,
+  required List<Chip> projectChipBottomRow,
+  required String projectDescription,
+  required int projectDescriptionMaxLines,
+  VoidCallback? iconButtonOnPressed,
+}) {
+  return ProjectCard(
+    colourScheme: colourScheme,
+    projectHeader: projectHeader,
+    projectHeaderMaxLines: projectHeaderMaxLines,
+    projectChipTopRow: projectChipTopRow,
+    projectChipBottomRow: projectChipBottomRow,
+    projectDescription: projectDescription,
+    projectDescriptionMaxLines: projectDescriptionMaxLines,
+    iconButton: IconButton(
+      highlightColor: colourScheme.primary,
+      onPressed: iconButtonOnPressed,
+      icon: HugeIcon(
+        icon: HugeIcons.strokeRoundedGithub,
+        color: colourScheme.primary,
+      ),
+    ),
+  );
+}
+
+ProjectImageCard renderProjectImageCard({
+  required ColorScheme colourScheme,
+  required String projectImage,
+  required String projectHeader,
+  required int projectHeaderMaxLines,
+  required List<Chip> projectChipTopRow,
+  required List<Chip> projectChipBottomRow,
+  required String projectDescription,
+  required int projectDescriptionMaxLines,
+  VoidCallback? iconButtonOnPressed,
+}) {
+  return ProjectImageCard(
+    colourScheme: colourScheme,
+    projectImage: projectImage,
+    projectHeader: projectHeader,
+    projectHeaderMaxLines: projectHeaderMaxLines,
+    projectChipTopRow: projectChipTopRow,
+    projectChipBottomRow: projectChipBottomRow,
+    projectDescription: projectDescription,
+    projectDescriptionMaxLines: projectDescriptionMaxLines,
+    iconButton: IconButton(
+      highlightColor: colourScheme.primary,
+      onPressed: iconButtonOnPressed,
+      icon: HugeIcon(
+        icon: HugeIcons.strokeRoundedGithub,
+        color: colourScheme.primary,
+      ),
+    ),
   );
 }
 

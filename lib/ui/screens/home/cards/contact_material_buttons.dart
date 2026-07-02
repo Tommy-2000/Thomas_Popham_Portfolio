@@ -11,6 +11,9 @@ class ContactMaterialButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final colourScheme = Theme.of(context).colorScheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,7 +30,7 @@ class ContactMaterialButtons extends StatelessWidget {
               HugeIcon(
                 icon: HugeIcons.strokeRoundedMail01,
                 size: 24.0,
-                color: Colors.green,
+                color: colourScheme.primary,
                 strokeWidth: 1.5,
               ),
               Gap(5),
@@ -48,7 +51,7 @@ class ContactMaterialButtons extends StatelessWidget {
               HugeIcon(
                 icon: HugeIcons.strokeRoundedLinkedin01,
                 size: 24.0,
-                color: Colors.green,
+                color: colourScheme.primary,
                 strokeWidth: 1.5,
               ),
               Gap(5),
@@ -69,7 +72,7 @@ class ContactMaterialButtons extends StatelessWidget {
               HugeIcon(
                 icon: HugeIcons.strokeRoundedGithub01,
                 size: 24.0,
-                color: Colors.green,
+                color: colourScheme.primary,
                 strokeWidth: 1.5,
               ),
               Gap(5),
@@ -90,7 +93,7 @@ class ContactMaterialButtons extends StatelessWidget {
               HugeIcon(
                 icon: HugeIcons.strokeRoundedMedium,
                 size: 24.0,
-                color: Colors.green,
+                color: colourScheme.primary,
                 strokeWidth: 1.5,
               ),
               Gap(5),

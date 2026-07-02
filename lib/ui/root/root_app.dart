@@ -17,8 +17,8 @@ class _RootAppState extends ConsumerState<RootApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Thomas Popham - Graduate Software Developer',
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.green, brightness: Brightness.light),
-      darkTheme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.green, brightness: Brightness.dark),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue, brightness: Brightness.light),
+      darkTheme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue, brightness: Brightness.dark),
       // Listen for changes to the theme through Riverpod
       themeMode: ref.watch(themeProvider) ? ThemeMode.dark : ThemeMode.light,
       routerConfig: NavRouter().goRouter,
