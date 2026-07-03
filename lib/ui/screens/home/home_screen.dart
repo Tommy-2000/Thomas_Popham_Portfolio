@@ -618,14 +618,14 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
   return SliverQuiltedGridDelegate(
     crossAxisCount: 64,
     pattern: [
-      QuiltedGridTile(32, 64),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
+      QuiltedGridTile(25, 64),
+      QuiltedGridTile(35, 32),
+      QuiltedGridTile(35, 32),
       QuiltedGridTile(26, 32),
       QuiltedGridTile(26, 32),
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(32, 32),
-      QuiltedGridTile(32, 32),
+      QuiltedGridTile(35, 32),
+      QuiltedGridTile(35, 32),
       QuiltedGridTile(6, 64),
     ],
   );
