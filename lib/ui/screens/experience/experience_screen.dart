@@ -1676,7 +1676,7 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
       QuiltedGridTile(35, 64),
       QuiltedGridTile(35, 64),
       QuiltedGridTile(35, 64),
-      QuiltedGridTile(30, 64),
+      QuiltedGridTile(20, 64),
     ],
   );
 }

@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
-import 'package:thomas_popham_portfolio/ui/screens/blog/blog_hero_card_post.dart';
-import 'package:thomas_popham_portfolio/ui/screens/blog/blog_hero_window.dart';
+import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/ui/screens/blog/blog_hero_article_window.dart';
+import '../../../logic/utils/uri_utils.dart';
 import '../../common/image_not_found.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/title_text.dart';
 import '../../../constants/hero_strings.dart' as heroStrings;
 import '../../../constants/blog_strings.dart' as blogStrings;
+import 'blog_hero_article_card.dart';
 
 class BlogScreen extends StatefulWidget {
   const BlogScreen({super.key});
@@ -96,30 +98,82 @@ SliverChildListDelegate buildSliverChildListDelegate(
           textOverflow: TextOverflow.ellipsis,
         ),
       ),
-      renderBlogHeroCardPost(
+      renderBlogHeroCardArticle(
+        heroStrings.BLOG_HERO_TAG_4,
+        blogStrings.BLOG_POST_4_H,
+        blogStrings.BLOG_POST_4_S,
+        blogStrings.BLOG_POST_4_IC,
+        blogStrings.BLOG_POST_4_I,
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost4LinkedIn(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
+        null,
+        landscapeWindow,
+        context,
+      ),
+      renderBlogHeroCardArticle(
         heroStrings.BLOG_HERO_TAG_3,
         blogStrings.BLOG_POST_3_H,
         blogStrings.BLOG_POST_3_S,
         blogStrings.BLOG_POST_3_IC,
         blogStrings.BLOG_POST_3_I,
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost3LinkedIn(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
+        null,
         landscapeWindow,
         context,
       ),
-      renderBlogHeroCardPost(
+      renderBlogHeroCardArticle(
         heroStrings.BLOG_HERO_TAG_2,
         blogStrings.BLOG_POST_2_H,
         blogStrings.BLOG_POST_2_S,
         blogStrings.BLOG_POST_2_IC,
         blogStrings.BLOG_POST_2_I,
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost2LinkedIn(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
+        null,
         landscapeWindow,
         context,
       ),
-      renderBlogHeroCardPost(
+      renderBlogHeroCardArticle(
         heroStrings.BLOG_HERO_TAG_1,
         blogStrings.BLOG_POST_1_H,
         blogStrings.BLOG_POST_1_S,
         blogStrings.BLOG_POST_1_IC,
         blogStrings.BLOG_POST_1_I,
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost1LinkedIn(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost1Medium(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
         landscapeWindow,
         context,
       ),
@@ -130,16 +184,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
   );
 }
 
-BlogHeroCardPost renderBlogHeroCardPost(
+BlogHeroCardArticle renderBlogHeroCardArticle(
   String blogArticleHeroTag,
   String blogArticleHeader,
   String blogArticleSubtitle,
   String blogArticleImageCredit,
   String blogArticleImageUrl,
+  IconButton? blogArticleLinkedInButton,
+  IconButton? blogArticleMediumButton,
   bool landscapeWindow,
   BuildContext context,
 ) {
-  return BlogHeroCardPost(
+  return BlogHeroCardArticle(
     blogArticleHeroTag: blogArticleHeroTag,
     blogArticleHeader: blogArticleHeader,
     blogArticleSubtitle: blogArticleSubtitle,
@@ -158,11 +214,13 @@ BlogHeroCardPost renderBlogHeroCardPost(
         filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
       ),
     ),
+    blogLinkedInButton: blogArticleLinkedInButton,
+    blogMediumButton: blogArticleMediumButton,
     blogArticleOnTap: () {
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) {
-            return BlogHeroWindow(
+            return BlogHeroArticleWindow(
               blogArticleHeroTag: blogArticleHeroTag,
               blogArticleHeader: blogArticleHeader,
               blogArticleSubtitle: blogArticleSubtitle,
@@ -182,6 +240,8 @@ BlogHeroCardPost renderBlogHeroCardPost(
                       : FilterQuality.low,
                 ),
               ),
+              blogLinkedInButton: blogArticleLinkedInButton,
+              blogMediumButton: blogArticleMediumButton,
             );
           },
         ),

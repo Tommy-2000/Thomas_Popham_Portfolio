@@ -7,27 +7,33 @@ import '../../../logic/utils/uri_utils.dart';
 import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogHeroWindow extends StatefulWidget {
-  const BlogHeroWindow({
-    super.key,
-    required this.blogArticleHeroTag,
-    required this.blogArticleHeader,
-    required this.blogArticleImageCredit,
-    required this.blogArticleSubtitle,
-    required this.blogArticleWidget,
-  });
+class BlogHeroArticleWindow extends StatefulWidget {
+
 
   final String blogArticleHeroTag;
   final String blogArticleHeader;
   final String blogArticleSubtitle;
   final String blogArticleImageCredit;
   final Widget blogArticleWidget;
+  final IconButton? blogLinkedInButton;
+  final IconButton? blogMediumButton;
+
+  const BlogHeroArticleWindow({
+    super.key,
+    required this.blogArticleHeroTag,
+    required this.blogArticleHeader,
+    required this.blogArticleImageCredit,
+    required this.blogArticleSubtitle,
+    required this.blogArticleWidget,
+    this.blogLinkedInButton,
+    this.blogMediumButton,
+  });
 
   @override
-  State<BlogHeroWindow> createState() => _BlogHeroWindowState();
+  State<BlogHeroArticleWindow> createState() => _BlogHeroArticleWindowState();
 }
 
-class _BlogHeroWindowState extends State<BlogHeroWindow> {
+class _BlogHeroArticleWindowState extends State<BlogHeroArticleWindow> {
   late ScrollController _windowScrollController;
 
   @override
@@ -107,22 +113,8 @@ class _BlogHeroWindowState extends State<BlogHeroWindow> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(
-                      highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost1LinkedIn(),
-                      icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedLinkedin01,
-                        color: colourScheme.primary,
-                      ),
-                    ),
-                    IconButton(
-                      highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost1Medium(),
-                      icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedMedium,
-                        color: colourScheme.primary,
-                      ),
-                    ),
+                    ?widget.blogLinkedInButton,
+                    ?widget.blogMediumButton,
                   ],
                 ),
                 Gap(75),

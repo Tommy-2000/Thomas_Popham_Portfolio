@@ -54,5 +54,6 @@ app.*.map.json
 /macos/
 /linux/
 
-# Ignore static files for Firebase hosting
+# Ignore files for Firebase hosting
 .firebase/
+/firebase-tools-instant-win.exe

@@ -475,25 +475,6 @@ ProjectImageCard renderProjectImageCard({
   );
 }
 
-SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
-  return SliverQuiltedGridDelegate(
-    repeatPattern: QuiltedGridRepeatPattern.same,
-    crossAxisCount: 64,
-    pattern: [
-      QuiltedGridTile(16, 64),
-      QuiltedGridTile(80, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(30, 64),
-    ],
-  );
-}
-
 SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
   return SliverQuiltedGridDelegate(
     repeatPattern: QuiltedGridRepeatPattern.same,
@@ -509,6 +490,25 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
       QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),
       QuiltedGridTile(6, 64),
+    ],
+  );
+}
+
+SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
+  return SliverQuiltedGridDelegate(
+    repeatPattern: QuiltedGridRepeatPattern.same,
+    crossAxisCount: 64,
+    pattern: [
+      QuiltedGridTile(16, 64),
+      QuiltedGridTile(80, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(120, 64),
+      QuiltedGridTile(20, 64),
     ],
   );
 }

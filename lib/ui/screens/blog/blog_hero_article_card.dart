@@ -7,29 +7,34 @@ import 'package:thomas_popham_portfolio/ui/common/stateful_rounded_card.dart';
 import '../../../logic/utils/uri_utils.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogHeroCardPost extends StatefulWidget {
-  BlogHeroCardPost({
-    super.key,
-    required this.blogArticleHeroTag,
-    required this.blogArticleHeader,
-    required this.blogArticleImageCredit,
-    required this.blogArticleSubtitle,
-    required this.blogArticleWidget,
-    this.blogArticleOnTap,
-  });
+class BlogHeroCardArticle extends StatefulWidget {
 
   final String blogArticleHeroTag;
   final String blogArticleHeader;
   final String blogArticleSubtitle;
   final String blogArticleImageCredit;
   final Widget blogArticleWidget;
-  VoidCallback? blogArticleOnTap;
+  final IconButton? blogLinkedInButton;
+  final IconButton? blogMediumButton;
+  final VoidCallback? blogArticleOnTap;
+
+  const BlogHeroCardArticle({
+    super.key,
+    required this.blogArticleHeroTag,
+    required this.blogArticleHeader,
+    required this.blogArticleImageCredit,
+    required this.blogArticleSubtitle,
+    required this.blogArticleWidget,
+    this.blogLinkedInButton,
+    this.blogMediumButton,
+    this.blogArticleOnTap,
+  });
 
   @override
-  State<BlogHeroCardPost> createState() => _BlogHeroCardPostState();
+  State<BlogHeroCardArticle> createState() => _BlogHeroCardArticleState();
 }
 
-class _BlogHeroCardPostState extends State<BlogHeroCardPost> {
+class _BlogHeroCardArticleState extends State<BlogHeroCardArticle> {
 
   @override
   void dispose() {
@@ -87,22 +92,8 @@ class _BlogHeroCardPostState extends State<BlogHeroCardPost> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(
-                      highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost1LinkedIn(),
-                      icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedLinkedin01,
-                        color: colourScheme.primary,
-                      ),
-                    ),
-                    IconButton(
-                      highlightColor: colourScheme.primary,
-                      onPressed: () => UriUtils().launchBlogPost1Medium(),
-                      icon: HugeIcon(
-                        icon: HugeIcons.strokeRoundedMedium,
-                        color: colourScheme.primary,
-                      ),
-                    ),
+                    ?widget.blogLinkedInButton,
+                    ?widget.blogMediumButton,
                   ],
                 ),
               ],
