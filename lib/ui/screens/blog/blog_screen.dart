@@ -170,7 +170,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchBlogPost1Medium(),
           icon: HugeIcon(
-            icon: HugeIcons.strokeRoundedLinkedin01,
+            icon: HugeIcons.strokeRoundedMedium,
             color: colourScheme.primary,
           ),
         ),
