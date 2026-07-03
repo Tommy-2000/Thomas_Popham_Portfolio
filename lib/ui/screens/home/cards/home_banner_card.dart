@@ -17,14 +17,13 @@ class HomeBannerCard extends StatefulWidget {
 
 class _HomeBannerCardState extends State<HomeBannerCard> {
   bool landscapeWindow = false;
-  bool foldableWindow = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Check the width of the window using MediaQuery if greater than 800 in a state change
+    // Rerender the UI if the width from MediaQuery is greater than 900
     final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 800;
+    landscapeWindow = windowWidth > 900;
   }
 
   @override
@@ -37,6 +36,19 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                landscapeWindow
+                    ? Gap(0)
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(600),
+                        clipBehavior: Clip.hardEdge,
+                        child: Image(
+                          image: AssetImage(imageStrings.imageString_1),
+                          height: 190,
+                          width: 210,
+                          fit: BoxFit.fill,
+                          filterQuality: FilterQuality.medium,
+                        ),
+                      ),
                 TitleText(
                   data: homeStrings.homeString_1,
                   fontSize: 40,
@@ -65,22 +77,26 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
                   textOverflow: TextOverflow.ellipsis,
                 ),
                 Gap(5),
-                landscapeWindow ? ContactMaterialButtons() : ContactIconButtons(),
+                landscapeWindow
+                    ? ContactMaterialButtons()
+                    : ContactIconButtons(),
               ],
             ),
           ),
           landscapeWindow ? Gap(100) : Gap(0),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(600),
-            clipBehavior: Clip.hardEdge,
-            child: Image(
-              image: AssetImage(imageStrings.imageString_1),
-              height: landscapeWindow ? 500 : 130,
-              width: landscapeWindow ? 540 : 140,
-              fit: BoxFit.fill,
-              filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
-            ),
-          ),
+          landscapeWindow
+              ? ClipRRect(
+                  borderRadius: BorderRadius.circular(600),
+                  clipBehavior: Clip.hardEdge,
+                  child: Image(
+                    image: AssetImage(imageStrings.imageString_1),
+                    height: 310,
+                    width: 340,
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ),
+                )
+              : Gap(0),
         ],
       ),
     );

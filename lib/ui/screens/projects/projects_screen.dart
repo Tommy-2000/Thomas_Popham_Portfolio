@@ -20,7 +20,6 @@ class ProjectsScreen extends StatefulWidget {
 class _ProjectsScreenState extends State<ProjectsScreen> {
   late ScrollController _projectsScrollController;
   late bool landscapeWindow = false;
-  late bool foldableWindow = false;
 
   @override
   void initState() {
@@ -37,9 +36,9 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Check the width of the window using MediaQuery if greater than 800 in a state change
+    // Rerender the UI if the width from MediaQuery is greater than 900
     final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 800;
+    landscapeWindow = windowWidth > 900;
   }
 
   @override

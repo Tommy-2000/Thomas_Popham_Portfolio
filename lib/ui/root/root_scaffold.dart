@@ -21,9 +21,9 @@ class _RootScaffoldState extends State<RootScaffold> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Check the width of the window using MediaQuery if greater than 800 in a state change
+// Rerender the UI if the width from MediaQuery is greater than 900
     final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 800;
+    landscapeWindow = windowWidth > 900;
   }
 
   @override
@@ -32,7 +32,10 @@ class _RootScaffoldState extends State<RootScaffold> {
       extendBody: true,
       body: Row(
         children: [
+          // Render the NavRailScaffold if landscapeWindow is true
+          // Otherwise render the BottomNavBarScaffold if false
           if (landscapeWindow) NavRailScaffold(widget.navigationShell),
+          // The navigationShell renders each screen according the StatefulShellRoute in GoRouter
           Expanded(child: widget.navigationShell),
         ],
       ),

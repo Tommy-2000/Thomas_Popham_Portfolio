@@ -21,7 +21,6 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   late ScrollController _experienceScrollController;
 
   bool landscapeWindow = false;
-  bool foldableWindow = false;
 
   @override
   void initState() {
@@ -38,9 +37,9 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Check the width of the window using MediaQuery if greater than 800 in a state change
+    // Rerender the UI if the width from MediaQuery is greater than 900
     final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 800;
+    landscapeWindow = windowWidth > 900;
   }
 
   @override
@@ -1419,8 +1418,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       SubtitleText(
-                        data:
-                        experienceStrings.experienceString_64,
+                        data: experienceStrings.experienceString_64,
                         fontSize: 18,
                         minFontSize: 12,
                         maxLines: 1,
@@ -1515,8 +1513,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 : null,
             ?landscapeWindow
                 ? SubtitleText(
-                    data:
-                    experienceStrings.experienceString_64,
+                    data: experienceStrings.experienceString_64,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,

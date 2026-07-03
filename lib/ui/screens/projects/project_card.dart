@@ -34,17 +34,6 @@ class ProjectCard extends StatefulWidget {
 
 class _ProjectCardState extends State<ProjectCard> {
   late ScrollController _projectChipScrollController;
-  late bool landscapeWindow = false;
-  late bool foldableWindow = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // Check the width of the window using MediaQuery if greater than 800 in a state change
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 800;
-  }
-
 
   @override
   void initState() {
@@ -53,7 +42,6 @@ class _ProjectCardState extends State<ProjectCard> {
     widget.projectHeaderMaxLines = 5;
     widget.projectDescriptionMaxLines = 8;
   }
-
 
   @override
   void dispose() {
@@ -106,7 +94,7 @@ class _ProjectCardState extends State<ProjectCard> {
               textOverflow: TextOverflow.fade,
             ),
           ),
-          ?widget.iconButton
+          ?widget.iconButton,
         ],
       ),
     );

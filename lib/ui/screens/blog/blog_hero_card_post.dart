@@ -30,17 +30,6 @@ class BlogHeroCardPost extends StatefulWidget {
 }
 
 class _BlogHeroCardPostState extends State<BlogHeroCardPost> {
-  bool landscapeWindow = false;
-  bool foldableWindow = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // Check the width of the window using MediaQuery if greater than 800 in a state change
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 800;
-  }
-
 
   @override
   void dispose() {
