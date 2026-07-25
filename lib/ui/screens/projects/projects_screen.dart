@@ -69,7 +69,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: Column(
           children: [
             TitleText(
-              data: projectStrings.projectString_1,
+              data: projectStrings.projectString_Title,
               fontSize: 40,
               minFontSize: 20,
               maxLines: 2,
@@ -82,37 +82,47 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       renderProjectCard(
         colourScheme: colourScheme,
-        projectHeader: projectStrings.projectString_60,
+        projectHeader: projectStrings.projectString_73,
         projectHeaderMaxLines: 4,
         projectDescriptionMaxLines: 12,
         projectChipTopRow: [
           Chip(
-            label: const Text(projectStrings.projectString_62),
+            label: const Text(projectStrings.projectString_74),
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
           Chip(
-            label: const Text(projectStrings.projectString_63),
+            label: const Text(projectStrings.projectString_75),
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
           Chip(
-            label: const Text(projectStrings.projectString_64),
-            labelStyle: TextStyle(color: colourScheme.primary),
-            side: BorderSide(color: colourScheme.primary),
-          ),
-          Chip(
-            label: const Text(projectStrings.projectString_65),
+            label: const Text(projectStrings.projectString_76),
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
         ],
         projectChipBottomRow: [
           Chip(
-            label: const Text(projectStrings.projectString_66),
+            label: const Text(projectStrings.projectString_77),
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
+          Chip(
+            label: const Text(projectStrings.projectString_78),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+        ],
+        projectDescription: projectStrings.projectString_79,
+
+      ),
+      renderProjectCard(
+        colourScheme: colourScheme,
+        projectHeader: projectStrings.projectString_66,
+        projectHeaderMaxLines: 4,
+        projectDescriptionMaxLines: 12,
+        projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_67),
             labelStyle: TextStyle(color: colourScheme.primary),
@@ -129,15 +139,74 @@ SliverChildListDelegate buildSliverChildListDelegate(
             side: BorderSide(color: colourScheme.primary),
           ),
         ],
-        projectDescription: projectStrings.projectString_61,
-        iconButtonOnPressed: () => UriUtils().launchDreamStudyProject(),
+        projectChipBottomRow: [
+          Chip(
+            label: const Text(projectStrings.projectString_70),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_71),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+        ],
+        projectDescription: projectStrings.projectString_72,
+        projectIconButton: IconButton(
+          onPressed: () => UriUtils().launchEmmaGotoVideo(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedYoutube,
+            color: colourScheme.primary,
+          ),
+        ),
       ),
-      renderProjectImageCard(
+      renderProjectCard(
         colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_2,
-        projectHeader: projectStrings.projectString_3,
+        projectHeader: projectStrings.projectString_60,
         projectHeaderMaxLines: 4,
+        projectDescriptionMaxLines: 12,
         projectChipTopRow: [
+          Chip(
+            label: const Text(projectStrings.projectString_61),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_62),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_63),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+        ],
+        projectChipBottomRow: [
+          Chip(
+            label: const Text(projectStrings.projectString_64),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+        ],
+        projectDescription: projectStrings.projectString_65,
+      ),
+      renderProjectCard(
+        colourScheme: colourScheme,
+        projectHeader: projectStrings.projectString_1,
+        projectHeaderMaxLines: 4,
+        projectDescriptionMaxLines: 12,
+        projectChipTopRow: [
+          Chip(
+            label: const Text(projectStrings.projectString_2),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
+          Chip(
+            label: const Text(projectStrings.projectString_3),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
           Chip(
             label: const Text(projectStrings.projectString_4),
             labelStyle: TextStyle(color: colourScheme.primary),
@@ -148,6 +217,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
+        ],
+        projectChipBottomRow: [
           Chip(
             label: const Text(projectStrings.projectString_6),
             labelStyle: TextStyle(color: colourScheme.primary),
@@ -163,29 +234,32 @@ SliverChildListDelegate buildSliverChildListDelegate(
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
-        ],
-        projectChipBottomRow: [
           Chip(
             label: const Text(projectStrings.projectString_9),
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
-          Chip(
-            label: const Text(projectStrings.projectString_10),
-            labelStyle: TextStyle(color: colourScheme.primary),
-            side: BorderSide(color: colourScheme.primary),
-          ),
         ],
-        projectDescription: projectStrings.projectString_11,
-        projectDescriptionMaxLines: 12,
-        iconButtonOnPressed: () => UriUtils().launchDreamCareProject(),
+        projectDescription: projectStrings.projectString_10,
+        projectIconButton: IconButton(
+          onPressed: () => UriUtils().launchDreamStudyProject(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedGithub,
+            color: colourScheme.primary,
+          ),
+        ),
       ),
       renderProjectImageCard(
         colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_12,
-        projectHeader: projectStrings.projectString_13,
+        projectImage: projectStrings.projectString_11,
+        projectHeader: projectStrings.projectString_12,
         projectHeaderMaxLines: 4,
         projectChipTopRow: [
+          Chip(
+            label: const Text(projectStrings.projectString_13),
+            labelStyle: TextStyle(color: colourScheme.primary),
+            side: BorderSide(color: colourScheme.primary),
+          ),
           Chip(
             label: const Text(projectStrings.projectString_14),
             labelStyle: TextStyle(color: colourScheme.primary),
@@ -196,13 +270,13 @@ SliverChildListDelegate buildSliverChildListDelegate(
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
+        ],
+        projectChipBottomRow: [
           Chip(
             label: const Text(projectStrings.projectString_16),
             labelStyle: TextStyle(color: colourScheme.primary),
             side: BorderSide(color: colourScheme.primary),
           ),
-        ],
-        projectChipBottomRow: [
           Chip(
             label: const Text(projectStrings.projectString_17),
             labelStyle: TextStyle(color: colourScheme.primary),
@@ -216,7 +290,13 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_19,
         projectDescriptionMaxLines: 12,
-        iconButtonOnPressed: () => UriUtils().launchDreamTravelProject(),
+        projectIconButton: IconButton(
+          onPressed: () => UriUtils().launchDreamTravelProject(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedGithub,
+            color: colourScheme.primary,
+          ),
+        ),
       ),
       renderProjectImageCard(
         colourScheme: colourScheme,
@@ -296,7 +376,13 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_36,
         projectDescriptionMaxLines: 12,
-        iconButtonOnPressed: () => UriUtils().launchMADProject(),
+        projectIconButton: IconButton(
+          onPressed: () => UriUtils().launchMADProject(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedGithub,
+            color: colourScheme.primary,
+          ),
+        ),
       ),
       renderProjectImageCard(
         colourScheme: colourScheme,
@@ -334,7 +420,13 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_44,
         projectDescriptionMaxLines: 12,
-        iconButtonOnPressed: () => UriUtils().launchAIFProject(),
+        projectIconButton: IconButton(
+          onPressed: () => UriUtils().launchAIFProject(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedGithub,
+            color: colourScheme.primary,
+          ),
+        ),
       ),
       renderProjectImageCard(
         colourScheme: colourScheme,
@@ -367,7 +459,14 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_51,
         projectDescriptionMaxLines: 12,
-        iconButtonOnPressed: () => UriUtils().launchMLProject(),
+        projectIconButton: IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchMLProject(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedGithub,
+            color: colourScheme.primary,
+          ),
+        ),
       ),
 
       renderProjectImageCard(
@@ -406,7 +505,14 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ],
         projectDescription: projectStrings.projectString_59,
         projectDescriptionMaxLines: 12,
-        iconButtonOnPressed: () => UriUtils().launchOOPProject(),
+        projectIconButton: IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchOOPProject(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedGithub,
+            color: colourScheme.primary,
+          ),
+        ),
       ),
       Gap(5),
     ],
@@ -423,7 +529,7 @@ ProjectCard renderProjectCard({
   required List<Chip> projectChipBottomRow,
   required String projectDescription,
   required int projectDescriptionMaxLines,
-  VoidCallback? iconButtonOnPressed,
+  IconButton? projectIconButton,
 }) {
   return ProjectCard(
     colourScheme: colourScheme,
@@ -433,14 +539,7 @@ ProjectCard renderProjectCard({
     projectChipBottomRow: projectChipBottomRow,
     projectDescription: projectDescription,
     projectDescriptionMaxLines: projectDescriptionMaxLines,
-    iconButton: IconButton(
-      highlightColor: colourScheme.primary,
-      onPressed: iconButtonOnPressed,
-      icon: HugeIcon(
-        icon: HugeIcons.strokeRoundedGithub,
-        color: colourScheme.primary,
-      ),
-    ),
+    iconButton: projectIconButton,
   );
 }
 
@@ -453,7 +552,7 @@ ProjectImageCard renderProjectImageCard({
   required List<Chip> projectChipBottomRow,
   required String projectDescription,
   required int projectDescriptionMaxLines,
-  VoidCallback? iconButtonOnPressed,
+  IconButton? projectIconButton,
 }) {
   return ProjectImageCard(
     colourScheme: colourScheme,
@@ -464,14 +563,7 @@ ProjectImageCard renderProjectImageCard({
     projectChipBottomRow: projectChipBottomRow,
     projectDescription: projectDescription,
     projectDescriptionMaxLines: projectDescriptionMaxLines,
-    iconButton: IconButton(
-      highlightColor: colourScheme.primary,
-      onPressed: iconButtonOnPressed,
-      icon: HugeIcon(
-        icon: HugeIcons.strokeRoundedGithub,
-        color: colourScheme.primary,
-      ),
-    ),
+    iconButton: projectIconButton,
   );
 }
 
@@ -481,6 +573,8 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(4, 64),
+      QuiltedGridTile(34, 32),
+      QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),

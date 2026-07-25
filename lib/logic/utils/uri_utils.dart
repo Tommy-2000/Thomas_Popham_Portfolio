@@ -13,10 +13,10 @@ class UriUtils {
   }
 
   late final Uri emailUri = Uri(
-    scheme: emailStrings.EMAIL_SCHEME,
-    path: emailStrings.DEVELOPER_EMAIL,
+    scheme: emailStrings.emailScheme,
+    path: emailStrings.developerEmail,
     query: encodeQueryParameters(<String, String>{
-      emailStrings.EMAIL_QUERY_KEY: emailStrings.EMAIL_QUERY_VALUE,
+      emailStrings.emailQueryKey: emailStrings.emailQueryValue,
     }),
   );
 
@@ -41,7 +41,7 @@ class UriUtils {
 
   Future<void> launchNewEmailInWindow() async {
     if (!await launchUrl(emailUri, mode: LaunchMode.externalApplication)) {
-      throw Exception(emailStrings.EMAIL_OPEN_EXCEPTION);
+      throw Exception(emailStrings.emailOpenException);
     }
   }
 
@@ -81,6 +81,8 @@ class UriUtils {
 
   late final Uri blogPost4LinkedIn = Uri.parse(uriStrings.BLOG_POST_4_LINKEDIN);
 
+  late final Uri emmaGotoVideo = Uri.parse(uriStrings.EMMA_GOTO_VIDEO_URL);
+
   late final Uri dreamStudyUri = Uri.parse(
     uriStrings.GITHUB_DREAMSTUDY_URL,
   );
@@ -102,6 +104,12 @@ class UriUtils {
   late final Uri oopProjectUri = Uri.parse(
     uriStrings.GITHUB_OOP_URL,
   );
+
+  Future<void> launchEmmaGotoVideo() async {
+    if (!await launchUrl(emmaGotoVideo, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.YOUTUBE_URL_EXCEPTION);
+    }
+  }
 
   Future<void> launchDreamStudyProject() async {
     if (!await launchUrl(dreamStudyUri, mode: LaunchMode.externalApplication)) {

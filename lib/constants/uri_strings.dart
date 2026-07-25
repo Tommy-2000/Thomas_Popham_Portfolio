@@ -15,6 +15,8 @@ const String MEDIUM_URL = "https://medium.com/@tommy-2000";
 
 const String GITHUB_URL = "https://github.com/Tommy-2000";
 
+const String EMMA_GOTO_VIDEO_URL = "https://www.youtube.com/watch?v=iwd7n3lgpaw";
+
 const String GITHUB_DREAMSTUDY_URL = "https://github.com/Tommy-2000/dreamStudy";
 
 const String GITHUB_DREAMTRAVEL_URL = "https://github.com/Tommy-2000/dreamTravel";
@@ -36,5 +38,7 @@ const String LINKEDIN_URL_EXCEPTION = 'Could not open LinkedIn page, please try 
 const String MEDIUM_URL_EXCEPTION = 'Could not open Medium page, please try again later';
 
 const String GITHUB_URL_EXCEPTION = 'Could not open GitHub page, please try again later';
+
+const String YOUTUBE_URL_EXCEPTION = 'Could not open YouTube page, please try again later';
 
 

@@ -50,7 +50,7 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
                         ),
                       ),
                 TitleText(
-                  data: homeStrings.homeString_1,
+                  data: homeStrings.homeString_Title,
                   fontSize: 40,
                   minFontSize: 18,
                   maxLines: 2,
@@ -59,7 +59,7 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
                   textOverflow: TextOverflow.ellipsis,
                 ),
                 SubtitleText(
-                  data: homeStrings.homeString_2,
+                  data: homeStrings.homeString_1,
                   fontSize: 18,
                   minFontSize: 8,
                   maxLines: 2,
@@ -68,7 +68,7 @@ class _HomeBannerCardState extends State<HomeBannerCard> {
                   textOverflow: TextOverflow.ellipsis,
                 ),
                 SubtitleText(
-                  data: homeStrings.homeString_3,
+                  data: homeStrings.homeString_2,
                   fontSize: 18,
                   minFontSize: 8,
                   maxLines: 2,

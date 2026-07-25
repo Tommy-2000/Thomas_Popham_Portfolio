@@ -102,7 +102,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ),
             ),
             SubtitleText(
-              data: homeStrings.homeString_4,
+              data: homeStrings.homeString_3,
               fontSize: 10,
               minFontSize: 10,
               maxLines: 2,
@@ -114,11 +114,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.HOME_HERO_TAG_1,
+        childHeroTag: heroStrings.homeHeroTag1,
         child: Column(
           children: [
             TitleText(
-              data: homeStrings.homeString_5,
+              data: homeStrings.homeString_4,
               fontSize: 36,
               minFontSize: 16,
               maxLines: 2,
@@ -129,6 +129,26 @@ SliverChildListDelegate buildSliverChildListDelegate(
             Gap(15),
             landscapeWindow
                 ? SubtitleText(
+                    data: homeStrings.homeString_5,
+                    fontSize: 16,
+                    minFontSize: 12,
+                    maxLines: 25,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  )
+                : SubtitleText(
+                    data: homeStrings.homeString_5,
+                    fontSize: 16,
+                    minFontSize: 14,
+                    maxLines: 3,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.ellipsis,
+                  ),
+            Gap(15),
+            landscapeWindow
+                ? SubtitleText(
                     data: homeStrings.homeString_6,
                     fontSize: 16,
                     minFontSize: 12,
@@ -159,26 +179,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   )
                 : SubtitleText(
                     data: homeStrings.homeString_7,
-                    fontSize: 16,
-                    minFontSize: 14,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  ),
-            Gap(15),
-            landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_8,
-                    fontSize: 16,
-                    minFontSize: 12,
-                    maxLines: 25,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  )
-                : SubtitleText(
-                    data: homeStrings.homeString_8,
                     fontSize: 16,
                     minFontSize: 14,
                     maxLines: 3,
@@ -193,16 +193,26 @@ SliverChildListDelegate buildSliverChildListDelegate(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.HOME_HERO_TAG_1,
+                  childHeroTag: heroStrings.homeHeroTag1,
                   child: Column(
                     children: [
                       TitleText(
-                        data: homeStrings.homeString_5,
+                        data: homeStrings.homeString_4,
                         fontSize: 36,
                         minFontSize: 16,
                         maxLines: 2,
                         softWrap: true,
                         textAlign: TextAlign.center,
+                        textOverflow: TextOverflow.ellipsis,
+                      ),
+                      Gap(15),
+                      SubtitleText(
+                        data: homeStrings.homeString_5,
+                        fontSize: 16,
+                        minFontSize: 12,
+                        maxLines: 25,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
                         textOverflow: TextOverflow.ellipsis,
                       ),
                       Gap(15),
@@ -225,16 +235,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.ellipsis,
                       ),
-                      Gap(15),
-                      SubtitleText(
-                        data: homeStrings.homeString_8,
-                        fontSize: 16,
-                        minFontSize: 12,
-                        maxLines: 25,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.ellipsis,
-                      ),
                     ],
                   ),
                 );
@@ -245,12 +245,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
 
       StatefulHeroCard(
-        childHeroTag: heroStrings.HOME_HERO_TAG_2,
+        childHeroTag: heroStrings.homeHeroTag2,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TitleText(
-              data: homeStrings.homeString_9,
+              data: homeStrings.homeString_8,
               fontSize: 36,
               minFontSize: 16,
               maxLines: 2,
@@ -260,73 +260,73 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(10),
             HeaderText(
+              data: homeStrings.homeString_9,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 2,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            ?landscapeWindow ? SubtitleText(
               data: homeStrings.homeString_10,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 2,
+              fontSize: 20,
+              minFontSize: 10,
+              maxLines: 1,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow ? SubtitleText(
+            ) : null,
+            Gap(5),
+            HeaderText(
               data: homeStrings.homeString_11,
-              fontSize: 20,
-              minFontSize: 10,
+              fontSize: 30,
+              minFontSize: 20,
               maxLines: 1,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
-            ) : null,
-            Gap(5),
-            HeaderText(
+            ),
+            ?landscapeWindow ? SubtitleText(
               data: homeStrings.homeString_12,
-              fontSize: 30,
-              minFontSize: 20,
+              fontSize: 20,
+              minFontSize: 10,
               maxLines: 1,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow ? SubtitleText(
+            ) : null,
+            Gap(5),
+            HeaderText(
               data: homeStrings.homeString_13,
-              fontSize: 20,
-              minFontSize: 10,
+              fontSize: 30,
+              minFontSize: 20,
               maxLines: 1,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
-            ) : null,
-            Gap(5),
-            HeaderText(
+            ),
+            ?landscapeWindow ? SubtitleText(
               data: homeStrings.homeString_14,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
+              fontSize: 20,
+              minFontSize: 10,
+              maxLines: 2,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow ? SubtitleText(
+            ) : null,
+            Gap(5),
+            HeaderText(
               data: homeStrings.homeString_15,
-              fontSize: 20,
-              minFontSize: 10,
+              fontSize: 30,
+              minFontSize: 20,
               maxLines: 2,
               softWrap: true,
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
-            ) : null,
-            Gap(5),
-            HeaderText(
+            ),
+            ?landscapeWindow ? SubtitleText(
               data: homeStrings.homeString_16,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow ? SubtitleText(
-              data: homeStrings.homeString_17,
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -336,7 +336,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ) : null,
             Gap(5),
             HeaderText(
-              data: homeStrings.homeString_18,
+              data: homeStrings.homeString_17,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -345,7 +345,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             ?landscapeWindow ? SubtitleText(
-              data: homeStrings.homeString_19,
+              data: homeStrings.homeString_18,
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -360,12 +360,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.HOME_HERO_TAG_2,
+                  childHeroTag: heroStrings.homeHeroTag2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       TitleText(
-                        data: homeStrings.homeString_9,
+                        data: homeStrings.homeString_8,
                         fontSize: 36,
                         minFontSize: 16,
                         maxLines: 2,
@@ -375,35 +375,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       ),
                       Gap(10),
                       HeaderText(
+                        data: homeStrings.homeString_9,
+                        fontSize: 30,
+                        minFontSize: 20,
+                        maxLines: 2,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      SubtitleText(
                         data: homeStrings.homeString_10,
-                        fontSize: 30,
-                        minFontSize: 20,
-                        maxLines: 2,
+                        fontSize: 20,
+                        minFontSize: 10,
+                        maxLines: 1,
                         softWrap: true,
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      SubtitleText(
+                      Gap(5),
+                      HeaderText(
                         data: homeStrings.homeString_11,
-                        fontSize: 20,
-                        minFontSize: 10,
+                        fontSize: 30,
+                        minFontSize: 20,
                         maxLines: 1,
                         softWrap: true,
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      Gap(5),
-                      HeaderText(
+                      SubtitleText(
                         data: homeStrings.homeString_12,
-                        fontSize: 30,
-                        minFontSize: 20,
-                        maxLines: 1,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.fade,
-                      ),
-                      SubtitleText(
-                        data: homeStrings.homeString_13,
                         fontSize: 20,
                         minFontSize: 10,
                         maxLines: 1,
@@ -413,7 +413,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       ),
                       Gap(5),
                       HeaderText(
-                        data: homeStrings.homeString_14,
+                        data: homeStrings.homeString_13,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 1,
@@ -422,7 +422,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       SubtitleText(
-                        data: homeStrings.homeString_15,
+                        data: homeStrings.homeString_14,
                         fontSize: 20,
                         minFontSize: 10,
                         maxLines: 2,
@@ -432,7 +432,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       ),
                       Gap(5),
                       HeaderText(
-                        data: homeStrings.homeString_16,
+                        data: homeStrings.homeString_15,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 1,
@@ -441,7 +441,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       SubtitleText(
-                        data: homeStrings.homeString_17,
+                        data: homeStrings.homeString_16,
                         fontSize: 20,
                         minFontSize: 10,
                         maxLines: 1,
@@ -451,7 +451,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       ),
                       Gap(5),
                       HeaderText(
-                        data: homeStrings.homeString_18,
+                        data: homeStrings.homeString_17,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 1,
@@ -460,7 +460,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       SubtitleText(
-                        data: homeStrings.homeString_19,
+                        data: homeStrings.homeString_18,
                         fontSize: 20,
                         minFontSize: 10,
                         maxLines: 1,
@@ -496,7 +496,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ),
             ),
             SubtitleText(
-              data: homeStrings.homeString_20,
+              data: homeStrings.homeString_19,
               fontSize: 10,
               minFontSize: 10,
               maxLines: 2,
@@ -509,7 +509,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatelessRoundedCard(
         child: TitleText(
-          data: homeStrings.homeString_21,
+          data: homeStrings.homeString_20,
           fontSize: 36,
           minFontSize: 16,
           maxLines: 2,
@@ -522,7 +522,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: Column(
           children: [
             HeaderText(
-              data: homeStrings.homeString_22,
+              data: homeStrings.homeString_21,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -532,7 +532,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
             Gap(30),
             SubtitleText(
-              data: homeStrings.homeString_23,
+              data: homeStrings.homeString_22,
               fontSize: 20,
               minFontSize: 10,
               maxLines: 2,
@@ -549,7 +549,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: Column(
           children: [
             HeaderText(
-              data: homeStrings.homeString_24,
+              data: homeStrings.homeString_23,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -558,7 +558,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             SubtitleText(
-              data: homeStrings.homeString_25,
+              data: homeStrings.homeString_24,
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -567,7 +567,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             SubtitleText(
-              data: homeStrings.homeString_26,
+              data: homeStrings.homeString_25,
               fontSize: 20,
               minFontSize: 10,
               maxLines: 1,
@@ -598,7 +598,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               ],
             ),
             SubtitleText(
-              data: homeStrings.homeString_27,
+              data: homeStrings.homeString_26,
               fontSize: 10,
               minFontSize: 10,
               maxLines: 1,

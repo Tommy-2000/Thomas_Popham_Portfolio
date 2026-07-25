@@ -1,25 +1,27 @@
-const projectString_1 = "Projects";
-const projectString_2 = "assets/dreamCare_Project.png";
-const projectString_3 = "dreamCare - EHR Healthcare Collaborative Platform";
-const projectString_4 = "Flutter";
-const projectString_5 = "Riverpod";
-const projectString_6 = ".NET";
-const projectString_7 = ".NET Aspire";
-const projectString_8 = "FHIR Data";
-const projectString_9 = "Azure Health Data Services";
-const projectString_10 = "Microsoft Entra Auth";
-const projectString_11 =
-    "This project is being developed as an novel approach to improving cross-collaboration for NHS workers working with EHR systems. Making effective use of Microsoft Entra for cloud-based authentication, Azure Health Data service to host FHIR health data, ASP.NET for building API architecture, and a Flutter client application that compiles to both Android, iOS and Web.";
-const projectString_12 = "assets/dreamTravel_Project.png";
-const projectString_13 =
-    "dreamTravel - Travel Booking and Social Media Full-Stack Platform";
-const projectString_14 = "Flutter";
-const projectString_15 = "Node.JS with TypeScript";
-const projectString_16 = "Riverpod";
-const projectString_17 = "Express";
-const projectString_18 = "Zod";
+const projectString_Title = "Projects";
+const projectString_1 =
+    "dreamStudy - GCSE and A Level Revision Platform (Web and App) Built To Support SEND Students";
+const projectString_2 = "React Native";
+const projectString_3 = "Android";
+const projectString_4 = "Web";
+const projectString_5 = "TypeScript";
+const projectString_6 = "Skia";
+const projectString_7 = ".NET";
+const projectString_8 = "Azure Cosmos Db";
+const projectString_9 = "Azure Functions";
+const projectString_10 =
+    "This project is being developed as a proposed solution to supporting SEND students taking their GCSE and A Level examinations and is built into a cross-platform React Native application that implements state management with Redux, graphics rendering with Skia, Sentry for static coding analysis and support for Android, iOS and web. ASP.NET was used with C# to integrate with Azure Functions and Azure Cosmos DB.";
+const projectString_11 = "assets/dreamTravel_Project.png";
+const projectString_12 =
+    "dreamTravel - Travel Booking and Social Media Platform Built For Personalisation And Community";
+const projectString_13 = "Flutter";
+const projectString_14 = "Spring Boot with Kotlin";
+const projectString_15 = "Riverpod";
+const projectString_16 = "Netflix Eureka";
+const projectString_17 = "Spring Data";
+const projectString_18 = "Graph QL";
 const projectString_19 =
-    "This project is being developed as a full-stack improvement on my TravelHopper Android project and is expanded with a Flutter application that implements state management with Riverpod, http networking with Dio and support for Android, iOS and web. While Node.JS was used with TypeScript to ensure type-checking, JWT-based authentication and REST-based queries with the Amadeus API to fetch travel data to the app.";
+    "This project is being developed as a full-stack improvement on my TravelHopper Android project and is expanded with a Flutter application that implements state management with Riverpod, http networking with Dio and support for Android, iOS and web. While Spring Boot was used with Kotlin to ensure null safety, Spring Security for authentication, service discovery with Netflix Eureka and REST-based and Graph QL queries to fetch travel data to the app.";
 const projectString_20 = "assets/CMP_Project.png";
 const projectString_21 =
     "Flow-Motion - An Audio-Visual, Video Game-Based Mental Wellbeing Software Based on Synaesthesia and Music Therapy - Computing Masters Project";
@@ -70,15 +72,24 @@ const projectString_57 = "Agile Project Management";
 const projectString_58 = "Team Working & Planning";
 const projectString_59 =
     "This desktop application was developed as a stock management application written in Java and Swing GUI as a part of a group-based project assignment, where roles and responsibilities were appropriately assigned and progress was recorded and shared during weekly meetings. The application itself was built to demonstrate best practices in Java development and testing.";
-const projectString_60 =
-    "dreamStudy - GCSE and A Level Revision Platform (Web and App) Built with Neurodiversity";
-const projectString_61 =
-    "This project is being developed as a proposed solution to supporting SEND students taking their GCSE and A Level examinations and is built into a cross-platform React Native application that implements state management with Redux, graphics rendering with Skia, Sentry for static coding analysis and support for Android, iOS and web. ASP.NET was used with C# to integrate with Azure Functions and Azure Cosmos DB.";
-const projectString_62 = "React Native";
-const projectString_63 = "Android";
-const projectString_64 = "Web";
-const projectString_65 = "TypeScript";
-const projectString_66 = "Skia";
-const projectString_67 = ".NET";
-const projectString_68 = "Azure Cosmos Db";
-const projectString_69 = "Azure Functions";
+const projectString_60 = "dreamStream - Movie and TV Streaming Platform Built For Personalisation And Community";
+const projectString_61 = "Android Compose";
+const projectString_62 = "Android TV";
+const projectString_63 = "Material 3 Expressive";
+const projectString_64 = ".NET with Microsoft Azure and Bitmovin Media Streaming";
+const projectString_65 = "This project is being built as an Android Compose application for mobile, web and Android TV devices and builds upon my experience with dreamTravel and TravelHopper. This project expands on my existing experience with Android and React Native to a different platform and allowed me to build a back-end intended for streaming content to the front-end website/app. Flutter and React Native were initially considered, but support is limited to newer LG TV's and React Native applications can run poorly on TV's and streaming sticks with limited memory.";
+const projectString_66 = "dreamBuilder - Educational game built for teaching computational logic and key STEM skills to children in primary school Years 3 to 6 built with Blender and Unity.";
+const projectString_67 = "Blender";
+const projectString_68 = "Unity";
+const projectString_69 = "3D Animation";
+const projectString_70 = "Character Rigging";
+const projectString_71 = "AR Game Development";
+const projectString_72 = "This project is being currently researched and built as a novel approach to teaching STEM skills to primary school children between Year 3 and Year 6 and is being built with Blender for character rigging animation and Unity for AR-based game development that will be ported to Android and iOS devices. This idea was inspired by Emma Goto's research into teaching computational thinking and pre-coding skills for children and how it was applied to the development of the Wonderblocks cartoon series on CBeebies. Click below to see the inspiration behind this project.";
+const projectString_73 = "Dreamdivers - 3D animated children’s fantasy short film based on a working children's book built with Blender and Unreal Engine.";
+const projectString_74 = "Blender";
+const projectString_75 = "Unreal Engine";
+const projectString_76 = "3D Animation";
+const projectString_77 = "Character Rigging";
+const projectString_78 = "USD Scene Management";
+const projectString_79 = "This is an ongoing personal project that builds upon my experience with Blender and Unreal Engine following my FlowMotion and dreamBuilder projects and applying it to a 3D animated short film based on a children's fantasy book I am also currently writing.";
+

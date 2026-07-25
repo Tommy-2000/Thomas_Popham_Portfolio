@@ -76,7 +76,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
     <Widget>[
       StatelessRoundedCard(
         child: TitleText(
-          data: experienceStrings.experienceString_1,
+          data: experienceStrings.experienceString_Title,
           fontSize: 40,
           minFontSize: 20,
           maxLines: 1,
@@ -87,7 +87,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatelessRoundedCard(
         child: TitleText(
-          data: experienceStrings.experienceString_2,
+          data: experienceStrings.experienceString_1,
           fontSize: 30,
           minFontSize: 20,
           maxLines: 1,
@@ -100,23 +100,23 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Image(
-            image: AssetImage(experienceStrings.experienceString_3),
+            image: AssetImage(experienceStrings.experienceString_2),
             fit: BoxFit.scaleDown,
           ),
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_1,
+        childHeroTag: heroStrings.experienceHeroTag1,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_1,
+                  childHeroTag: heroStrings.experienceHeroTag1,
                   child: Column(
                     children: [
                       HeaderText(
-                        data: experienceStrings.experienceString_4,
+                        data: experienceStrings.experienceString_3,
                         fontSize: 30,
                         minFontSize: 10,
                         maxLines: 3,
@@ -126,7 +126,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       ),
                       Gap(5),
                       SubtitleText(
-                        data: experienceStrings.experienceString_5,
+                        data: experienceStrings.experienceString_4,
                         fontSize: 18,
                         minFontSize: 12,
                         maxLines: 30,
@@ -144,7 +144,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: Column(
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_4,
+              data: experienceStrings.experienceString_3,
               fontSize: 30,
               minFontSize: 10,
               maxLines: 3,
@@ -155,7 +155,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             Gap(5),
             ?landscapeWindow
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_5,
+                    data: experienceStrings.experienceString_4,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 25,
@@ -171,7 +171,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: Column(
           children: [
             TitleText(
-              data: experienceStrings.experienceString_6,
+              data: experienceStrings.experienceString_5,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 1,
@@ -186,24 +186,24 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Image(
-            image: AssetImage(experienceStrings.experienceString_7),
+            image: AssetImage(experienceStrings.experienceString_6),
             fit: BoxFit.scaleDown,
           ),
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_2,
+        childHeroTag: heroStrings.experienceHeroTag2,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_2,
+                  childHeroTag: heroStrings.experienceHeroTag2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       HeaderText(
-                        data: experienceStrings.experienceString_8,
+                        data: experienceStrings.experienceString_7,
                         fontSize: 30,
                         minFontSize: 10,
                         maxLines: 3,
@@ -212,6 +212,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_8,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
                       SubtitleText(
                         data: experienceStrings.experienceString_9,
                         fontSize: 18,
@@ -266,15 +275,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      SubtitleText(
-                        data: experienceStrings.experienceString_15,
-                        fontSize: 18,
-                        minFontSize: 12,
-                        maxLines: 1,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.fade,
-                      ),
                     ],
                   ),
                 );
@@ -286,7 +286,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_8,
+              data: experienceStrings.experienceString_7,
               fontSize: 30,
               minFontSize: 10,
               maxLines: 4,
@@ -295,6 +295,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_8,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             ?landscapeWindow
                 ? SubtitleText(
                     data: experienceStrings.experienceString_9,
@@ -367,18 +379,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_15,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
           ],
         ),
       ),
@@ -386,24 +386,24 @@ SliverChildListDelegate buildSliverChildListDelegate(
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Image(
-            image: AssetImage(experienceStrings.experienceString_16),
+            image: AssetImage(experienceStrings.experienceString_15),
             fit: BoxFit.scaleDown,
           ),
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_3,
+        childHeroTag: heroStrings.experienceHeroTag3,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_3,
+                  childHeroTag: heroStrings.experienceHeroTag3,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       HeaderText(
-                        data: experienceStrings.experienceString_17,
+                        data: experienceStrings.experienceString_16,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 4,
@@ -412,6 +412,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_17,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
                       SubtitleText(
                         data: experienceStrings.experienceString_18,
                         fontSize: 18,
@@ -457,15 +466,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      SubtitleText(
-                        data: experienceStrings.experienceString_23,
-                        fontSize: 18,
-                        minFontSize: 12,
-                        maxLines: 1,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.fade,
-                      ),
                     ],
                   ),
                 );
@@ -477,7 +477,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_17,
+              data: experienceStrings.experienceString_16,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -486,6 +486,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_17,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             ?landscapeWindow
                 ? SubtitleText(
                     data: experienceStrings.experienceString_18,
@@ -541,33 +552,22 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_23,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
           ],
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_4,
+        childHeroTag: heroStrings.experienceHeroTag4,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_4,
+                  childHeroTag: heroStrings.experienceHeroTag4,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       HeaderText(
-                        data: experienceStrings.experienceString_24,
+                        data: experienceStrings.experienceString_23,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 4,
@@ -576,6 +576,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_24,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
                       SubtitleText(
                         data: experienceStrings.experienceString_25,
                         fontSize: 18,
@@ -675,15 +684,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      SubtitleText(
-                        data: experienceStrings.experienceString_36,
-                        fontSize: 18,
-                        minFontSize: 12,
-                        maxLines: 1,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.fade,
-                      ),
                     ],
                   ),
                 );
@@ -695,7 +695,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_24,
+              data: experienceStrings.experienceString_23,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -704,6 +704,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_24,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             ?landscapeWindow
                 ? SubtitleText(
                     data: experienceStrings.experienceString_25,
@@ -825,33 +836,22 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_36,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
           ],
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_5,
+        childHeroTag: heroStrings.experienceHeroTag5,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_5,
+                  childHeroTag: heroStrings.experienceHeroTag5,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       HeaderText(
-                        data: experienceStrings.experienceString_37,
+                        data: experienceStrings.experienceString_36,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 4,
@@ -860,6 +860,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_37,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
                       SubtitleText(
                         data: experienceStrings.experienceString_38,
                         fontSize: 18,
@@ -1004,15 +1013,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      SubtitleText(
-                        data: experienceStrings.experienceString_54,
-                        fontSize: 18,
-                        minFontSize: 12,
-                        maxLines: 1,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.fade,
-                      ),
                     ],
                   ),
                 );
@@ -1024,7 +1024,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_37,
+              data: experienceStrings.experienceString_36,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -1033,6 +1033,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_37,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             ?landscapeWindow
                 ? SubtitleText(
                     data: experienceStrings.experienceString_38,
@@ -1209,33 +1220,22 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_54,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
           ],
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_6,
+        childHeroTag: heroStrings.experienceHeroTag6,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_6,
+                  childHeroTag: heroStrings.experienceHeroTag6,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       HeaderText(
-                        data: experienceStrings.experienceString_55,
+                        data: experienceStrings.experienceString_54,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 4,
@@ -1244,6 +1244,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_55,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
                       SubtitleText(
                         data: experienceStrings.experienceString_56,
                         fontSize: 18,
@@ -1289,15 +1298,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      SubtitleText(
-                        data: experienceStrings.experienceString_61,
-                        fontSize: 18,
-                        minFontSize: 12,
-                        maxLines: 1,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.fade,
-                      ),
                     ],
                   ),
                 );
@@ -1309,7 +1309,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_55,
+              data: experienceStrings.experienceString_54,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -1318,6 +1318,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_55,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             ?landscapeWindow
                 ? SubtitleText(
                     data: experienceStrings.experienceString_56,
@@ -1373,33 +1384,22 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_61,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
           ],
         ),
       ),
       StatefulHeroCard(
-        childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_7,
+        childHeroTag: heroStrings.experienceHeroTag7,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
                 return StatefulHeroWindow(
-                  childHeroTag: heroStrings.EXPERIENCE_HERO_TAG_7,
+                  childHeroTag: heroStrings.experienceHeroTag7,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       HeaderText(
-                        data: experienceStrings.experienceString_62,
+                        data: experienceStrings.experienceString_61,
                         fontSize: 30,
                         minFontSize: 20,
                         maxLines: 4,
@@ -1408,6 +1408,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textOverflow: TextOverflow.fade,
                       ),
                       Gap(5),
+                      SubtitleText(
+                        data: experienceStrings.experienceString_62,
+                        fontSize: 18,
+                        minFontSize: 12,
+                        maxLines: 1,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
                       SubtitleText(
                         data: experienceStrings.experienceString_63,
                         fontSize: 18,
@@ -1471,15 +1480,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                         textAlign: TextAlign.end,
                         textOverflow: TextOverflow.fade,
                       ),
-                      SubtitleText(
-                        data: experienceStrings.experienceString_70,
-                        fontSize: 18,
-                        minFontSize: 12,
-                        maxLines: 1,
-                        softWrap: true,
-                        textAlign: TextAlign.end,
-                        textOverflow: TextOverflow.fade,
-                      ),
                     ],
                   ),
                 );
@@ -1491,7 +1491,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_62,
+              data: experienceStrings.experienceString_61,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -1500,6 +1500,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_62,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             ?landscapeWindow
                 ? SubtitleText(
                     data: experienceStrings.experienceString_63,
@@ -1577,18 +1588,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_70,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
           ],
+        ),
+      ),
+      StatelessRoundedCard(
+        child: HeaderText(
+          data: experienceStrings.experienceString_70,
+          fontSize: 30,
+          minFontSize: 20,
+          maxLines: 3,
+          softWrap: true,
+          textAlign: TextAlign.end,
+          textOverflow: TextOverflow.fade,
         ),
       ),
       StatelessRoundedCard(
@@ -1603,16 +1614,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       StatelessRoundedCard(
-        child: HeaderText(
-          data: experienceStrings.experienceString_72,
-          fontSize: 30,
-          minFontSize: 20,
-          maxLines: 3,
-          softWrap: true,
-          textAlign: TextAlign.end,
-          textOverflow: TextOverflow.fade,
-        ),
+      child: HeaderText(
+        data: experienceStrings.experienceString_72,
+        fontSize: 30,
+        minFontSize: 20,
+        maxLines: 3,
+        softWrap: true,
+        textAlign: TextAlign.end,
+        textOverflow: TextOverflow.fade,
       ),
+    ),
       StatelessRoundedCard(
         child: HeaderText(
           data: experienceStrings.experienceString_73,

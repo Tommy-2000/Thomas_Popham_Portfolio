@@ -78,7 +78,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
     <Widget>[
       StatelessRoundedCard(
         child: TitleText(
-          data: "Blog",
+          data: blogStrings.blogString_Title,
           fontSize: 40,
           minFontSize: 20,
           maxLines: 1,
@@ -99,11 +99,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       renderBlogHeroCardArticle(
-        heroStrings.BLOG_HERO_TAG_4,
-        blogStrings.BLOG_POST_4_H,
-        blogStrings.BLOG_POST_4_S,
-        blogStrings.BLOG_POST_4_IC,
-        blogStrings.BLOG_POST_4_I,
+        heroStrings.blogHeroTag4,
+        blogStrings.blogPost4Header,
+        blogStrings.blogPost4Subheader,
+        blogStrings.blogPost4ImageCredit,
+        blogStrings.blogPost4Image,
         IconButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchBlogPost4LinkedIn(),
@@ -117,11 +117,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
         context,
       ),
       renderBlogHeroCardArticle(
-        heroStrings.BLOG_HERO_TAG_3,
-        blogStrings.BLOG_POST_3_H,
-        blogStrings.BLOG_POST_3_S,
-        blogStrings.BLOG_POST_3_IC,
-        blogStrings.BLOG_POST_3_I,
+        heroStrings.blogHeroTag3,
+        blogStrings.blogPost3Header,
+        blogStrings.blogPost3Subheader,
+        blogStrings.blogPost3ImageCredit,
+        blogStrings.blogPost3Image,
         IconButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchBlogPost3LinkedIn(),
@@ -135,11 +135,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
         context,
       ),
       renderBlogHeroCardArticle(
-        heroStrings.BLOG_HERO_TAG_2,
-        blogStrings.BLOG_POST_2_H,
-        blogStrings.BLOG_POST_2_S,
-        blogStrings.BLOG_POST_2_IC,
-        blogStrings.BLOG_POST_2_I,
+        heroStrings.blogHeroTag2,
+        blogStrings.blogPost2Header,
+        blogStrings.blogPost2Subheader,
+        blogStrings.blogPost2ImageCredit,
+        blogStrings.blogPost2Image,
         IconButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchBlogPost2LinkedIn(),
@@ -153,11 +153,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
         context,
       ),
       renderBlogHeroCardArticle(
-        heroStrings.BLOG_HERO_TAG_1,
-        blogStrings.BLOG_POST_1_H,
-        blogStrings.BLOG_POST_1_S,
-        blogStrings.BLOG_POST_1_IC,
-        blogStrings.BLOG_POST_1_I,
+        heroStrings.blogHeroTag1,
+        blogStrings.blogPost1Header,
+        blogStrings.blogPost1Subheader,
+        blogStrings.blogPost1ImageCredit,
+        blogStrings.blogPost1Image,
         IconButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchBlogPost1LinkedIn(),
