@@ -121,7 +121,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         colourScheme: colourScheme,
         projectHeader: projectStrings.projectString_66,
         projectHeaderMaxLines: 4,
-        projectDescriptionMaxLines: 12,
+        projectDescriptionMaxLines: 20,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_67),
@@ -164,7 +164,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         colourScheme: colourScheme,
         projectHeader: projectStrings.projectString_60,
         projectHeaderMaxLines: 4,
-        projectDescriptionMaxLines: 12,
+        projectDescriptionMaxLines: 20,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_61),
@@ -289,7 +289,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_19,
-        projectDescriptionMaxLines: 12,
+        projectDescriptionMaxLines: 20,
         projectIconButton: IconButton(
           onPressed: () => UriUtils().launchDreamTravelProject(),
           icon: HugeIcon(
@@ -333,7 +333,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_27,
-        projectDescriptionMaxLines: 12,
+        projectDescriptionMaxLines: 15,
       ),
       renderProjectImageCard(
         colourScheme: colourScheme,
@@ -458,7 +458,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_51,
-        projectDescriptionMaxLines: 12,
+        projectDescriptionMaxLines: 15,
         projectIconButton: IconButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchMLProject(),
@@ -573,10 +573,10 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
+      QuiltedGridTile(25, 32),
+      QuiltedGridTile(25, 32),
+      QuiltedGridTile(25, 32),
+      QuiltedGridTile(25, 32),
       QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),
       QuiltedGridTile(34, 32),
@@ -595,8 +595,10 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
     pattern: [
       QuiltedGridTile(16, 64),
       QuiltedGridTile(80, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(120, 64),
+      QuiltedGridTile(90, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(85, 64),
+      QuiltedGridTile(125, 64),
       QuiltedGridTile(120, 64),
       QuiltedGridTile(120, 64),
       QuiltedGridTile(120, 64),

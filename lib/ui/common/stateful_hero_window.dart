@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class StatefulHeroWindow extends StatefulWidget {
@@ -66,6 +67,7 @@ class _StatefulHeroWindowState extends State<StatefulHeroWindow> {
                   ],
                 ),
                 Hero(tag: widget.childHeroTag, child: widget.child),
+                Gap(75),
               ],
             ),
           ),

@@ -40,7 +40,7 @@ class _ProjectCardState extends State<ProjectCard> {
     super.initState();
     _projectChipScrollController = ScrollController();
     widget.projectHeaderMaxLines = 5;
-    widget.projectDescriptionMaxLines = 8;
+    widget.projectDescriptionMaxLines = 12;
   }
 
   @override
