@@ -98,7 +98,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
           textOverflow: TextOverflow.ellipsis,
         ),
       ),
-      renderBlogHeroCardArticle(
+      renderBlogHeroCardArticleWithAssetImage(
         heroStrings.blogHeroTag5,
         blogStrings.blogPost5Header,
         blogStrings.blogPost5Body,
@@ -116,7 +116,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         landscapeWindow,
         context,
       ),
-      renderBlogHeroCardArticle(
+      renderBlogHeroCardArticleWithNetImage(
         heroStrings.blogHeroTag4,
         blogStrings.blogPost4Header,
         blogStrings.blogPost4Body,
@@ -134,7 +134,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         landscapeWindow,
         context,
       ),
-      renderBlogHeroCardArticle(
+      renderBlogHeroCardArticleWithNetImage(
         heroStrings.blogHeroTag3,
         blogStrings.blogPost3Header,
         blogStrings.blogPost3Body,
@@ -152,7 +152,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         landscapeWindow,
         context,
       ),
-      renderBlogHeroCardArticle(
+      renderBlogHeroCardArticleWithNetImage(
         heroStrings.blogHeroTag2,
         blogStrings.blogPost2Header,
         blogStrings.blogPost2Body,
@@ -170,7 +170,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         landscapeWindow,
         context,
       ),
-      renderBlogHeroCardArticle(
+      renderBlogHeroCardArticleWithNetImage(
         heroStrings.blogHeroTag1,
         blogStrings.blogPost1Header,
         blogStrings.blogPost1Body,
@@ -202,7 +202,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
   );
 }
 
-BlogHeroCardArticle renderBlogHeroCardArticle(
+BlogHeroCardArticle renderBlogHeroCardArticleWithNetImage(
   String blogArticleHeroTag,
   String blogArticleHeader,
   String blogArticleBody,
@@ -264,15 +264,94 @@ BlogHeroCardArticle renderBlogHeroCardArticle(
                   height: landscapeWindow ? 500 : 300,
                   width: landscapeWindow ? 700 : 500,
                   memCacheHeight:
-                  (landscapeWindow
-                      ? 500
-                      : 300 * MediaQuery.of(context).devicePixelRatio)
-                      .toInt(),
+                      (landscapeWindow
+                              ? 500
+                              : 300 * MediaQuery.of(context).devicePixelRatio)
+                          .toInt(),
                   memCacheWidth:
-                  (landscapeWindow
-                      ? 700
-                      : 500 * MediaQuery.of(context).devicePixelRatio)
-                      .toInt(),
+                      (landscapeWindow
+                              ? 700
+                              : 500 * MediaQuery.of(context).devicePixelRatio)
+                          .toInt(),
+                  fit: BoxFit.fitHeight,
+                  filterQuality: landscapeWindow
+                      ? FilterQuality.medium
+                      : FilterQuality.low,
+                ),
+              ),
+              blogLinkedInButton: blogArticleLinkedInButton,
+              blogMediumButton: blogArticleMediumButton,
+            );
+          },
+        ),
+      );
+    },
+  );
+}
+
+BlogHeroCardArticle renderBlogHeroCardArticleWithAssetImage(
+  String blogArticleHeroTag,
+  String blogArticleHeader,
+  String blogArticleBody,
+  String blogArticleImageCredit,
+  String blogArticleAssetImage,
+  IconButton? blogArticleLinkedInButton,
+  IconButton? blogArticleMediumButton,
+  bool landscapeWindow,
+  BuildContext context,
+) {
+  return BlogHeroCardArticle(
+    blogArticleHeroTag: blogArticleHeroTag,
+    blogArticleHeader: blogArticleHeader,
+    blogArticleBody: blogArticleBody,
+    blogArticleImageCredit: blogArticleImageCredit,
+    blogArticleWidget: ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(40)),
+      child: Image.asset(
+        blogArticleAssetImage,
+        height: landscapeWindow ? 400 : 300,
+        width: landscapeWindow ? 600 : 500,
+        cacheHeight:
+            (landscapeWindow
+                    ? 400
+                    : 300 * MediaQuery.of(context).devicePixelRatio)
+                .toInt(),
+        cacheWidth:
+            (landscapeWindow
+                    ? 600
+                    : 500 * MediaQuery.of(context).devicePixelRatio)
+                .toInt(),
+        fit: BoxFit.fill,
+        filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+      ),
+    ),
+    blogLinkedInButton: blogArticleLinkedInButton,
+    blogMediumButton: blogArticleMediumButton,
+    blogArticleOnTap: () {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) {
+            return BlogHeroArticleWindow(
+              blogArticleHeroTag: blogArticleHeroTag,
+              blogArticleHeader: blogArticleHeader,
+              blogArticleSubtitle: blogArticleBody,
+              blogArticleImageCredit: blogArticleImageCredit,
+              blogArticleWidget: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+                child: Image.asset(
+                  blogArticleAssetImage,
+                  height: landscapeWindow ? 500 : 300,
+                  width: landscapeWindow ? 700 : 500,
+                  cacheHeight:
+                      (landscapeWindow
+                              ? 500
+                              : 300 * MediaQuery.of(context).devicePixelRatio)
+                          .toInt(),
+                  cacheWidth:
+                      (landscapeWindow
+                              ? 700
+                              : 500 * MediaQuery.of(context).devicePixelRatio)
+                          .toInt(),
                   fit: BoxFit.fitHeight,
                   filterQuality: landscapeWindow
                       ? FilterQuality.medium
