@@ -4,7 +4,7 @@ This is my personal portfolio showcasing my skills, experience and my work withi
 
 - Languages: Java, Kotlin, C#, TypeScript, Dart
 - Front-end: React/React Native, Flutter and Android Compose
-- Back-end: .NET and Node.JS with Microsoft Azure
+- Back-end: .NET, Spring Boot and some Node.JS with Microsoft Azure
 - Databases: Microsoft SQL Server, PostgreSQL, MongoDb and Firestore on Google Firebase
 - 3D Animation Rigging and Rendering: Blender and Unreal Engine
 - Project Management: Jira and Trello
