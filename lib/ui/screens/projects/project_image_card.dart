@@ -73,7 +73,7 @@ class _ProjectImageCardState extends State<ProjectImageCard> {
                 widget.projectImage,
                 height: landscapeWindow ? 300 : 200,
                 width: landscapeWindow ? 600 : 500,
-                fit: BoxFit.cover,
+                fit: BoxFit.scaleDown,
                 filterQuality: landscapeWindow
                     ? FilterQuality.high
                     : FilterQuality.low,

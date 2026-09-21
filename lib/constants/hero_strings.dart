@@ -26,6 +26,7 @@ const blogHeroTag1 = "BLOG_POST_1";
 const blogHeroTag2 = "BLOG_POST_2";
 const blogHeroTag3 = "BLOG_POST_3";
 const blogHeroTag4 = "BLOG_POST_4";
+const blogHeroTag5 = "BLOG_POST_5";
 
 
 

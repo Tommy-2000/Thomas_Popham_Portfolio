@@ -9,7 +9,7 @@ class BlogHeroCardArticle extends StatefulWidget {
 
   final String blogArticleHeroTag;
   final String blogArticleHeader;
-  final String blogArticleSubtitle;
+  final String blogArticleBody;
   final String blogArticleImageCredit;
   final Widget blogArticleWidget;
   final IconButton? blogLinkedInButton;
@@ -21,7 +21,7 @@ class BlogHeroCardArticle extends StatefulWidget {
     required this.blogArticleHeroTag,
     required this.blogArticleHeader,
     required this.blogArticleImageCredit,
-    required this.blogArticleSubtitle,
+    required this.blogArticleBody,
     required this.blogArticleWidget,
     this.blogLinkedInButton,
     this.blogMediumButton,
@@ -78,7 +78,7 @@ class _BlogHeroCardArticleState extends State<BlogHeroCardArticle> {
                 ),
                 Gap(5),
                 SubtitleText(
-                  data: widget.blogArticleSubtitle,
+                  data: widget.blogArticleBody,
                   fontSize: 18,
                   minFontSize: 14,
                   maxLines: 4,

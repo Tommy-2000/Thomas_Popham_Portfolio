@@ -99,9 +99,27 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       renderBlogHeroCardArticle(
+        heroStrings.blogHeroTag5,
+        blogStrings.blogPost5Header,
+        blogStrings.blogPost5Body,
+        blogStrings.blogPost5ImageCredit,
+        blogStrings.blogPost5Image,
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost5LinkedIn(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
+        null,
+        landscapeWindow,
+        context,
+      ),
+      renderBlogHeroCardArticle(
         heroStrings.blogHeroTag4,
         blogStrings.blogPost4Header,
-        blogStrings.blogPost4Subheader,
+        blogStrings.blogPost4Body,
         blogStrings.blogPost4ImageCredit,
         blogStrings.blogPost4Image,
         IconButton(
@@ -119,7 +137,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       renderBlogHeroCardArticle(
         heroStrings.blogHeroTag3,
         blogStrings.blogPost3Header,
-        blogStrings.blogPost3Subheader,
+        blogStrings.blogPost3Body,
         blogStrings.blogPost3ImageCredit,
         blogStrings.blogPost3Image,
         IconButton(
@@ -137,7 +155,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       renderBlogHeroCardArticle(
         heroStrings.blogHeroTag2,
         blogStrings.blogPost2Header,
-        blogStrings.blogPost2Subheader,
+        blogStrings.blogPost2Body,
         blogStrings.blogPost2ImageCredit,
         blogStrings.blogPost2Image,
         IconButton(
@@ -155,7 +173,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
       renderBlogHeroCardArticle(
         heroStrings.blogHeroTag1,
         blogStrings.blogPost1Header,
-        blogStrings.blogPost1Subheader,
+        blogStrings.blogPost1Body,
         blogStrings.blogPost1ImageCredit,
         blogStrings.blogPost1Image,
         IconButton(
@@ -187,7 +205,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
 BlogHeroCardArticle renderBlogHeroCardArticle(
   String blogArticleHeroTag,
   String blogArticleHeader,
-  String blogArticleSubtitle,
+  String blogArticleBody,
   String blogArticleImageCredit,
   String blogArticleImageUrl,
   IconButton? blogArticleLinkedInButton,
@@ -198,7 +216,7 @@ BlogHeroCardArticle renderBlogHeroCardArticle(
   return BlogHeroCardArticle(
     blogArticleHeroTag: blogArticleHeroTag,
     blogArticleHeader: blogArticleHeader,
-    blogArticleSubtitle: blogArticleSubtitle,
+    blogArticleBody: blogArticleBody,
     blogArticleImageCredit: blogArticleImageCredit,
     blogArticleWidget: ClipRRect(
       borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -210,6 +228,16 @@ BlogHeroCardArticle renderBlogHeroCardArticle(
             Center(child: SizedBox(child: ImageNotFound())),
         height: landscapeWindow ? 400 : 300,
         width: landscapeWindow ? 600 : 500,
+        memCacheHeight:
+            (landscapeWindow
+                    ? 400
+                    : 300 * MediaQuery.of(context).devicePixelRatio)
+                .toInt(),
+        memCacheWidth:
+            (landscapeWindow
+                    ? 600
+                    : 500 * MediaQuery.of(context).devicePixelRatio)
+                .toInt(),
         fit: BoxFit.fill,
         filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
       ),
@@ -223,7 +251,7 @@ BlogHeroCardArticle renderBlogHeroCardArticle(
             return BlogHeroArticleWindow(
               blogArticleHeroTag: blogArticleHeroTag,
               blogArticleHeader: blogArticleHeader,
-              blogArticleSubtitle: blogArticleSubtitle,
+              blogArticleSubtitle: blogArticleBody,
               blogArticleImageCredit: blogArticleImageCredit,
               blogArticleWidget: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -234,9 +262,20 @@ BlogHeroCardArticle renderBlogHeroCardArticle(
                   errorWidget: (context, url, error) =>
                       Center(child: SizedBox(child: ImageNotFound())),
                   height: landscapeWindow ? 500 : 300,
+                  width: landscapeWindow ? 700 : 500,
+                  memCacheHeight:
+                  (landscapeWindow
+                      ? 500
+                      : 300 * MediaQuery.of(context).devicePixelRatio)
+                      .toInt(),
+                  memCacheWidth:
+                  (landscapeWindow
+                      ? 700
+                      : 500 * MediaQuery.of(context).devicePixelRatio)
+                      .toInt(),
                   fit: BoxFit.fitHeight,
                   filterQuality: landscapeWindow
-                      ? FilterQuality.high
+                      ? FilterQuality.medium
                       : FilterQuality.low,
                 ),
               ),

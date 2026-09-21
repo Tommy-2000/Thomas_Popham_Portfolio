@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-// Rerender the UI if the width from MediaQuery is greater than 900
+    // Rerender the UI if the width from MediaQuery is greater than 900
     final double windowWidth = MediaQuery.of(context).size.width;
     landscapeWindow = windowWidth > 900;
   }
@@ -98,6 +98,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     Center(child: SizedBox(child: ImageNotFound())),
                 height: landscapeWindow ? 500 : 300,
                 width: landscapeWindow ? 700 : 400,
+                memCacheHeight:
+                    (landscapeWindow
+                            ? 500
+                            : 300 * MediaQuery.of(context).devicePixelRatio)
+                        .toInt(),
+                memCacheWidth:
+                    (landscapeWindow
+                            ? 700
+                            : 400 * MediaQuery.of(context).devicePixelRatio)
+                        .toInt(),
                 fit: BoxFit.cover,
               ),
             ),
@@ -268,15 +278,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            ?landscapeWindow ? SubtitleText(
-              data: homeStrings.homeString_10,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ) : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_10,
+                    fontSize: 20,
+                    minFontSize: 10,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_11,
@@ -287,15 +299,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            ?landscapeWindow ? SubtitleText(
-              data: homeStrings.homeString_12,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ) : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_12,
+                    fontSize: 20,
+                    minFontSize: 10,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_13,
@@ -306,15 +320,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            ?landscapeWindow ? SubtitleText(
-              data: homeStrings.homeString_14,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ) : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_14,
+                    fontSize: 20,
+                    minFontSize: 10,
+                    maxLines: 2,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_15,
@@ -325,15 +341,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            ?landscapeWindow ? SubtitleText(
-              data: homeStrings.homeString_16,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ) : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_16,
+                    fontSize: 20,
+                    minFontSize: 10,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
             Gap(5),
             HeaderText(
               data: homeStrings.homeString_17,
@@ -344,15 +362,17 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textAlign: TextAlign.end,
               textOverflow: TextOverflow.fade,
             ),
-            ?landscapeWindow ? SubtitleText(
-              data: homeStrings.homeString_18,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ) : null,
+            ?landscapeWindow
+                ? SubtitleText(
+                    data: homeStrings.homeString_18,
+                    fontSize: 20,
+                    minFontSize: 10,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
           ],
         ),
         childHeroOnTap: () {
