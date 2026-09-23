@@ -84,11 +84,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
       HomeBannerCard(),
       StatelessRoundedCard(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: BorderRadius.all(Radius.circular(35)),
               child: CachedNetworkImage(
                 imageUrl:
                     "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&force=true&w=1920",
@@ -125,78 +125,81 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatefulHeroCard(
         childHeroTag: heroStrings.homeHeroTag1,
-        child: Column(
-          children: [
-            TitleText(
-              data: homeStrings.homeString_4,
-              fontSize: 36,
-              minFontSize: 16,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.center,
-              textOverflow: TextOverflow.ellipsis,
-            ),
-            Gap(15),
-            landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_5,
-                    fontSize: 16,
-                    minFontSize: 12,
-                    maxLines: 25,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  )
-                : SubtitleText(
-                    data: homeStrings.homeString_5,
-                    fontSize: 16,
-                    minFontSize: 14,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  ),
-            Gap(15),
-            landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_6,
-                    fontSize: 16,
-                    minFontSize: 12,
-                    maxLines: 25,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  )
-                : SubtitleText(
-                    data: homeStrings.homeString_6,
-                    fontSize: 16,
-                    minFontSize: 14,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  ),
-            Gap(15),
-            landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_7,
-                    fontSize: 16,
-                    minFontSize: 12,
-                    maxLines: 25,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  )
-                : SubtitleText(
-                    data: homeStrings.homeString_7,
-                    fontSize: 16,
-                    minFontSize: 14,
-                    maxLines: 3,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.ellipsis,
-                  ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              TitleText(
+                data: homeStrings.homeString_4,
+                fontSize: 36,
+                minFontSize: 16,
+                maxLines: 2,
+                softWrap: true,
+                textAlign: TextAlign.center,
+                textOverflow: TextOverflow.ellipsis,
+              ),
+              Gap(15),
+              landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_5,
+                      fontSize: 16,
+                      minFontSize: 12,
+                      maxLines: 25,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.ellipsis,
+                    )
+                  : SubtitleText(
+                      data: homeStrings.homeString_5,
+                      fontSize: 16,
+                      minFontSize: 14,
+                      maxLines: 3,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.ellipsis,
+                    ),
+              Gap(15),
+              landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_6,
+                      fontSize: 16,
+                      minFontSize: 12,
+                      maxLines: 25,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.ellipsis,
+                    )
+                  : SubtitleText(
+                      data: homeStrings.homeString_6,
+                      fontSize: 16,
+                      minFontSize: 14,
+                      maxLines: 3,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.ellipsis,
+                    ),
+              Gap(15),
+              landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_7,
+                      fontSize: 16,
+                      minFontSize: 12,
+                      maxLines: 25,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.ellipsis,
+                    )
+                  : SubtitleText(
+                      data: homeStrings.homeString_7,
+                      fontSize: 16,
+                      minFontSize: 14,
+                      maxLines: 3,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.ellipsis,
+                    ),
+            ],
+          ),
         ),
         childHeroOnTap: () {
           Navigator.of(context).push(
@@ -256,124 +259,127 @@ SliverChildListDelegate buildSliverChildListDelegate(
 
       StatefulHeroCard(
         childHeroTag: heroStrings.homeHeroTag2,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            TitleText(
-              data: homeStrings.homeString_8,
-              fontSize: 36,
-              minFontSize: 16,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.ellipsis,
-            ),
-            Gap(10),
-            HeaderText(
-              data: homeStrings.homeString_9,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_10,
-                    fontSize: 20,
-                    minFontSize: 10,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            Gap(5),
-            HeaderText(
-              data: homeStrings.homeString_11,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_12,
-                    fontSize: 20,
-                    minFontSize: 10,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            Gap(5),
-            HeaderText(
-              data: homeStrings.homeString_13,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_14,
-                    fontSize: 20,
-                    minFontSize: 10,
-                    maxLines: 2,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            Gap(5),
-            HeaderText(
-              data: homeStrings.homeString_15,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_16,
-                    fontSize: 20,
-                    minFontSize: 10,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            Gap(5),
-            HeaderText(
-              data: homeStrings.homeString_17,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: homeStrings.homeString_18,
-                    fontSize: 20,
-                    minFontSize: 10,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              TitleText(
+                data: homeStrings.homeString_8,
+                fontSize: 36,
+                minFontSize: 16,
+                maxLines: 2,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.ellipsis,
+              ),
+              Gap(10),
+              HeaderText(
+                data: homeStrings.homeString_9,
+                fontSize: 30,
+                minFontSize: 20,
+                maxLines: 2,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              ?landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_10,
+                      fontSize: 20,
+                      minFontSize: 10,
+                      maxLines: 1,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.fade,
+                    )
+                  : null,
+              Gap(5),
+              HeaderText(
+                data: homeStrings.homeString_11,
+                fontSize: 30,
+                minFontSize: 20,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              ?landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_12,
+                      fontSize: 20,
+                      minFontSize: 10,
+                      maxLines: 1,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.fade,
+                    )
+                  : null,
+              Gap(5),
+              HeaderText(
+                data: homeStrings.homeString_13,
+                fontSize: 30,
+                minFontSize: 20,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              ?landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_14,
+                      fontSize: 20,
+                      minFontSize: 10,
+                      maxLines: 2,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.fade,
+                    )
+                  : null,
+              Gap(5),
+              HeaderText(
+                data: homeStrings.homeString_15,
+                fontSize: 30,
+                minFontSize: 20,
+                maxLines: 2,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              ?landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_16,
+                      fontSize: 20,
+                      minFontSize: 10,
+                      maxLines: 1,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.fade,
+                    )
+                  : null,
+              Gap(5),
+              HeaderText(
+                data: homeStrings.homeString_17,
+                fontSize: 30,
+                minFontSize: 20,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              ?landscapeWindow
+                  ? SubtitleText(
+                      data: homeStrings.homeString_18,
+                      fontSize: 20,
+                      minFontSize: 10,
+                      maxLines: 1,
+                      softWrap: true,
+                      textAlign: TextAlign.end,
+                      textOverflow: TextOverflow.fade,
+                    )
+                  : null,
+            ],
+          ),
         ),
         childHeroOnTap: () {
           Navigator.of(context).push(
@@ -498,11 +504,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatelessRoundedCard(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(30)),
+              borderRadius: BorderRadius.all(Radius.circular(35)),
               child: CachedNetworkImage(
                 imageUrl:
                     "https://images.unsplash.com/photo-1513436539083-9d2127e742f1?q=80&force=true&w=1920",
@@ -528,105 +534,114 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       StatelessRoundedCard(
-        child: TitleText(
-          data: homeStrings.homeString_20,
-          fontSize: 36,
-          minFontSize: 16,
-          maxLines: 2,
-          softWrap: true,
-          textAlign: TextAlign.center,
-          textOverflow: TextOverflow.ellipsis,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: TitleText(
+            data: homeStrings.homeString_20,
+            fontSize: 36,
+            minFontSize: 16,
+            maxLines: 1,
+            softWrap: true,
+            textAlign: TextAlign.center,
+            textOverflow: TextOverflow.ellipsis,
+          ),
         ),
       ),
       StatelessRoundedCard(
-        child: Column(
-          children: [
-            HeaderText(
-              data: homeStrings.homeString_21,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Gap(30),
-            SubtitleText(
-              data: homeStrings.homeString_22,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Gap(5),
-            ContactFormCard(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              HeaderText(
+                data: homeStrings.homeString_21,
+                fontSize: 30,
+                minFontSize: 20,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              Gap(30),
+              SubtitleText(
+                data: homeStrings.homeString_22,
+                fontSize: 20,
+                minFontSize: 10,
+                maxLines: 2,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              Gap(5),
+              ContactFormCard(),
+            ],
+          ),
         ),
       ),
       StatelessRoundedCard(
-        child: Column(
-          children: [
-            HeaderText(
-              data: homeStrings.homeString_23,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data: homeStrings.homeString_24,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            SubtitleText(
-              data: homeStrings.homeString_25,
-              fontSize: 20,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Row(
-              children: [
-                IconButton(
-                  onPressed: UriUtils().launchLinkedIn,
-                  icon: HugeIcon(
-                    icon: HugeIcons.strokeRoundedLinkedin01,
-                    size: 24.0,
-                    color: colourScheme.primary,
-                    strokeWidth: 1.5,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              HeaderText(
+                data: homeStrings.homeString_23,
+                fontSize: 30,
+                minFontSize: 20,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              SubtitleText(
+                data: homeStrings.homeString_24,
+                fontSize: 20,
+                minFontSize: 10,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              SubtitleText(
+                data: homeStrings.homeString_25,
+                fontSize: 20,
+                minFontSize: 10,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.fade,
+              ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: UriUtils().launchLinkedIn,
+                    icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedLinkedin01,
+                      size: 24.0,
+                      color: colourScheme.primary,
+                      strokeWidth: 1.5,
+                    ),
                   ),
-                ),
-                IconButton(
-                  onPressed: UriUtils().launchGitHub,
-                  icon: HugeIcon(
-                    icon: HugeIcons.strokeRoundedGithub01,
-                    size: 24.0,
-                    color: colourScheme.primary,
-                    strokeWidth: 1.5,
+                  IconButton(
+                    onPressed: UriUtils().launchGitHub,
+                    icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedGithub01,
+                      size: 24.0,
+                      color: colourScheme.primary,
+                      strokeWidth: 1.5,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SubtitleText(
-              data: homeStrings.homeString_26,
-              fontSize: 10,
-              minFontSize: 10,
-              maxLines: 1,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.ellipsis,
-            ),
-          ],
+                ],
+              ),
+              SubtitleText(
+                data: homeStrings.homeString_26,
+                fontSize: 10,
+                minFontSize: 10,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.end,
+                textOverflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
       ),
       Gap(5),

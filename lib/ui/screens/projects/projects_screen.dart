@@ -1,12 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/constants/hero_strings.dart'
+    as heroStrings;
 import 'package:thomas_popham_portfolio/constants/project_strings.dart'
     as projectStrings;
 import 'package:thomas_popham_portfolio/logic/utils/uri_utils.dart';
-import 'package:thomas_popham_portfolio/ui/screens/projects/project_card.dart';
-import 'package:thomas_popham_portfolio/ui/screens/projects/project_image_card.dart';
+import 'package:thomas_popham_portfolio/ui/screens/projects/project_hero_card.dart';
+import 'package:thomas_popham_portfolio/ui/screens/projects/project_hero_window.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/title_text.dart';
 
@@ -52,7 +55,11 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
           gridDelegate: landscapeWindow
               ? buildSliverLandscapeGridDelegate()
               : buildSliverPortraitGridDelegate(),
-          delegate: buildSliverChildListDelegate(landscapeWindow, colourScheme),
+          delegate: buildSliverChildListDelegate(
+            landscapeWindow,
+            colourScheme,
+            context,
+          ),
         ),
       ],
     );
@@ -62,29 +69,32 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
 SliverChildListDelegate buildSliverChildListDelegate(
   bool landscapeWindow,
   ColorScheme colourScheme,
+  BuildContext context,
 ) {
   return SliverChildListDelegate(
     <Widget>[
       StatelessRoundedCard(
-        child: Column(
-          children: [
-            TitleText(
-              data: projectStrings.projectString_Title,
-              fontSize: 40,
-              minFontSize: 20,
-              maxLines: 2,
-              softWrap: true,
-              textAlign: TextAlign.center,
-              textOverflow: TextOverflow.ellipsis,
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              TitleText(
+                data: projectStrings.projectString_Title,
+                fontSize: 40,
+                minFontSize: 20,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.center,
+                textOverflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
       ),
       renderProjectCard(
-        colourScheme: colourScheme,
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag1,
         projectHeader: projectStrings.projectString_73,
-        projectHeaderMaxLines: 4,
-        projectDescriptionMaxLines: 12,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_74),
@@ -115,13 +125,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_79,
-
       ),
       renderProjectCard(
-        colourScheme: colourScheme,
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag2,
         projectHeader: projectStrings.projectString_66,
-        projectHeaderMaxLines: 4,
-        projectDescriptionMaxLines: 20,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_67),
@@ -161,10 +169,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       renderProjectCard(
-        colourScheme: colourScheme,
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag3,
         projectHeader: projectStrings.projectString_60,
-        projectHeaderMaxLines: 4,
-        projectDescriptionMaxLines: 20,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_61),
@@ -192,10 +199,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
         projectDescription: projectStrings.projectString_65,
       ),
       renderProjectCard(
-        colourScheme: colourScheme,
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag4,
         projectHeader: projectStrings.projectString_1,
-        projectHeaderMaxLines: 4,
-        projectDescriptionMaxLines: 12,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_2),
@@ -249,11 +255,27 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      renderProjectImageCard(
-        colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_11,
+      renderProjectCard(
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag5,
+        projectImage: StatelessRoundedCard(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.asset(
+                projectStrings.projectString_11,
+                height: landscapeWindow ? 300 : 200,
+                width: landscapeWindow ? 600 : 500,
+                fit: BoxFit.scaleDown,
+                filterQuality: landscapeWindow
+                    ? FilterQuality.high
+                    : FilterQuality.low,
+              ),
+            ),
+          ),
+        ),
         projectHeader: projectStrings.projectString_12,
-        projectHeaderMaxLines: 4,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_13),
@@ -289,7 +311,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_19,
-        projectDescriptionMaxLines: 20,
         projectIconButton: IconButton(
           onPressed: () => UriUtils().launchDreamTravelProject(),
           icon: HugeIcon(
@@ -298,11 +319,27 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      renderProjectImageCard(
-        colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_20,
+      renderProjectCard(
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag6,
+        projectImage: StatelessRoundedCard(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.asset(
+                projectStrings.projectString_20,
+                height: landscapeWindow ? 300 : 200,
+                width: landscapeWindow ? 600 : 500,
+                fit: BoxFit.scaleDown,
+                filterQuality: landscapeWindow
+                    ? FilterQuality.high
+                    : FilterQuality.low,
+              ),
+            ),
+          ),
+        ),
         projectHeader: projectStrings.projectString_21,
-        projectHeaderMaxLines: 4,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_22),
@@ -333,13 +370,28 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_27,
-        projectDescriptionMaxLines: 15,
       ),
-      renderProjectImageCard(
-        colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_28,
+      renderProjectCard(
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag7,
+        projectImage: StatelessRoundedCard(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.asset(
+                projectStrings.projectString_28,
+                height: landscapeWindow ? 300 : 200,
+                width: landscapeWindow ? 600 : 500,
+                fit: BoxFit.scaleDown,
+                filterQuality: landscapeWindow
+                    ? FilterQuality.high
+                    : FilterQuality.low,
+              ),
+            ),
+          ),
+        ),
         projectHeader: projectStrings.projectString_29,
-        projectHeaderMaxLines: 4,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_30),
@@ -375,7 +427,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_36,
-        projectDescriptionMaxLines: 12,
         projectIconButton: IconButton(
           onPressed: () => UriUtils().launchMADProject(),
           icon: HugeIcon(
@@ -384,11 +435,27 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      renderProjectImageCard(
-        colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_37,
+      renderProjectCard(
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag8,
+        projectImage: StatelessRoundedCard(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.asset(
+                projectStrings.projectString_37,
+                height: landscapeWindow ? 300 : 200,
+                width: landscapeWindow ? 600 : 500,
+                fit: BoxFit.scaleDown,
+                filterQuality: landscapeWindow
+                    ? FilterQuality.high
+                    : FilterQuality.low,
+              ),
+            ),
+          ),
+        ),
         projectHeader: projectStrings.projectString_38,
-        projectHeaderMaxLines: 4,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_39),
@@ -419,7 +486,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_44,
-        projectDescriptionMaxLines: 12,
         projectIconButton: IconButton(
           onPressed: () => UriUtils().launchAIFProject(),
           icon: HugeIcon(
@@ -428,11 +494,27 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
       ),
-      renderProjectImageCard(
-        colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_45,
+      renderProjectCard(
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag9,
+        projectImage: StatelessRoundedCard(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.asset(
+                projectStrings.projectString_45,
+                height: landscapeWindow ? 300 : 200,
+                width: landscapeWindow ? 600 : 500,
+                fit: BoxFit.scaleDown,
+                filterQuality: landscapeWindow
+                    ? FilterQuality.high
+                    : FilterQuality.low,
+              ),
+            ),
+          ),
+        ),
         projectHeader: projectStrings.projectString_46,
-        projectHeaderMaxLines: 4,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_47),
@@ -458,7 +540,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_51,
-        projectDescriptionMaxLines: 15,
         projectIconButton: IconButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchMLProject(),
@@ -469,11 +550,27 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
 
-      renderProjectImageCard(
-        colourScheme: colourScheme,
-        projectImage: projectStrings.projectString_52,
+      renderProjectCard(
+        context: context,
+        projectHeroTag: heroStrings.projectHeroTag10,
+        projectImage: StatelessRoundedCard(
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image.asset(
+                projectStrings.projectString_52,
+                height: landscapeWindow ? 300 : 200,
+                width: landscapeWindow ? 600 : 500,
+                fit: BoxFit.scaleDown,
+                filterQuality: landscapeWindow
+                    ? FilterQuality.high
+                    : FilterQuality.low,
+              ),
+            ),
+          ),
+        ),
         projectHeader: projectStrings.projectString_53,
-        projectHeaderMaxLines: 4,
         projectChipTopRow: [
           Chip(
             label: const Text(projectStrings.projectString_54),
@@ -504,7 +601,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ],
         projectDescription: projectStrings.projectString_59,
-        projectDescriptionMaxLines: 12,
         projectIconButton: IconButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchOOPProject(),
@@ -521,49 +617,27 @@ SliverChildListDelegate buildSliverChildListDelegate(
   );
 }
 
-ProjectCard renderProjectCard({
-  required ColorScheme colourScheme,
+Widget renderProjectCard({
+  required BuildContext context,
+  required String projectHeroTag,
   required String projectHeader,
-  required int projectHeaderMaxLines,
+  Widget? projectImage,
+  required String projectDescription,
   required List<Chip> projectChipTopRow,
   required List<Chip> projectChipBottomRow,
-  required String projectDescription,
-  required int projectDescriptionMaxLines,
   IconButton? projectIconButton,
 }) {
-  return ProjectCard(
-    colourScheme: colourScheme,
-    projectHeader: projectHeader,
-    projectHeaderMaxLines: projectHeaderMaxLines,
-    projectChipTopRow: projectChipTopRow,
-    projectChipBottomRow: projectChipBottomRow,
-    projectDescription: projectDescription,
-    projectDescriptionMaxLines: projectDescriptionMaxLines,
-    iconButton: projectIconButton,
-  );
-}
-
-ProjectImageCard renderProjectImageCard({
-  required ColorScheme colourScheme,
-  required String projectImage,
-  required String projectHeader,
-  required int projectHeaderMaxLines,
-  required List<Chip> projectChipTopRow,
-  required List<Chip> projectChipBottomRow,
-  required String projectDescription,
-  required int projectDescriptionMaxLines,
-  IconButton? projectIconButton,
-}) {
-  return ProjectImageCard(
-    colourScheme: colourScheme,
-    projectImage: projectImage,
-    projectHeader: projectHeader,
-    projectHeaderMaxLines: projectHeaderMaxLines,
-    projectChipTopRow: projectChipTopRow,
-    projectChipBottomRow: projectChipBottomRow,
-    projectDescription: projectDescription,
-    projectDescriptionMaxLines: projectDescriptionMaxLines,
-    iconButton: projectIconButton,
+  return Padding(
+    padding: const EdgeInsets.all(10.0),
+    child: ProjectHeroCard(
+      projectHeroTag: projectHeroTag,
+      projectHeader: projectHeader,
+      projectImage: projectImage,
+      projectDescription: projectDescription,
+      projectChipTopRow: projectChipTopRow,
+      projectChipBottomRow: projectChipBottomRow,
+      projectIconButton: projectIconButton,
+    ),
   );
 }
 

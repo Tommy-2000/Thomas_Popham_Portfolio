@@ -33,113 +33,111 @@ class _ContactFormCardState extends State<ContactFormCard> {
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
 
-    return StatelessRoundedCard(
-      child: SizedBox(
-        child: Padding(
-          padding: EdgeInsets.all(15),
-          child: Form(
-            key: _contactFormKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                TextFormField(
-                  controller: _fullNameController,
-                  validator: (fullNameValue) {
-                    if (fullNameValue == null || fullNameValue.isEmpty) {
-                      return 'Please enter your name';
-                    }
-                    return null;
-                  },
-                  style: TextStyle(color: colourScheme.primary),
-                  decoration: InputDecoration(
-                    label: const Text("Full Name"),
-                    labelStyle: TextStyle(color: colourScheme.primary),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: colourScheme.primary),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
+    return SizedBox(
+      child: Padding(
+        padding: EdgeInsets.all(15),
+        child: Form(
+          key: _contactFormKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextFormField(
+                controller: _fullNameController,
+                validator: (fullNameValue) {
+                  if (fullNameValue == null || fullNameValue.isEmpty) {
+                    return 'Please enter your name';
+                  }
+                  return null;
+                },
+                style: TextStyle(color: colourScheme.primary),
+                decoration: InputDecoration(
+                  label: const Text("Full Name"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: colourScheme.primary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
-                Gap(10),
-                TextFormField(
-                  controller: _emailController,
-                  validator: (emailValue) =>
-                      emailValue != null && !EmailValidator.validate(emailValue)
-                      ? 'Please enter a valid email address'
-                      : null,
-                  style: TextStyle(color: colourScheme.primary),
-                  decoration: InputDecoration(
-                    label: const Text("Email Address"),
-                    labelStyle: TextStyle(color: colourScheme.primary),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: colourScheme.primary),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
+              ),
+              Gap(10),
+              TextFormField(
+                controller: _emailController,
+                validator: (emailValue) =>
+                    emailValue != null && !EmailValidator.validate(emailValue)
+                    ? 'Please enter a valid email address'
+                    : null,
+                style: TextStyle(color: colourScheme.primary),
+                decoration: InputDecoration(
+                  label: const Text("Email Address"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: colourScheme.primary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
-                Gap(10),
-                TextFormField(
-                  controller: _messageController,
-                  validator: (messageValue) {
-                    if (messageValue == null || messageValue.isEmpty) {
-                      return 'Please enter your message';
-                    }
-                    return null;
-                  },
-                  maxLines: 10,
-                  style: TextStyle(color: colourScheme.primary),
-                  decoration: InputDecoration(
-                    label: const Text("Your Message"),
-                    labelStyle: TextStyle(color: colourScheme.primary),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: colourScheme.primary),
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
+              ),
+              Gap(10),
+              TextFormField(
+                controller: _messageController,
+                validator: (messageValue) {
+                  if (messageValue == null || messageValue.isEmpty) {
+                    return 'Please enter your message';
+                  }
+                  return null;
+                },
+                maxLines: 10,
+                style: TextStyle(color: colourScheme.primary),
+                decoration: InputDecoration(
+                  label: const Text("Your Message"),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: colourScheme.primary),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
-                Gap(10),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
+              ),
+              Gap(10),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                       ),
-                      onPressed: () => {
-                        if (_contactFormKey.currentState!.validate())
-                          {
-                            UriUtils().sendFormEmail(
-                              _emailController.text,
-                              _fullNameController.text,
-                              _messageController.text,
-                            ),
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text("Your form has been sent!"),
-                              ),
-                            ),
-                          },
-                      },
-                      child: Row(
-                        children: [
-                          HugeIcon(
-                            icon: HugeIcons.strokeRoundedMailSend01,
-                            size: 24.0,
-                            color: colourScheme.primary,
-                            strokeWidth: 1.5,
+                    ),
+                    onPressed: () => {
+                      if (_contactFormKey.currentState!.validate())
+                        {
+                          UriUtils().sendFormEmail(
+                            _emailController.text,
+                            _fullNameController.text,
+                            _messageController.text,
                           ),
-                          Gap(5),
-                          Text("Send"),
-                        ],
-                      ),
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Your form has been sent!"),
+                            ),
+                          ),
+                        },
+                    },
+                    child: Row(
+                      children: [
+                        HugeIcon(
+                          icon: HugeIcons.strokeRoundedMailSend01,
+                          size: 24.0,
+                          color: colourScheme.primary,
+                          strokeWidth: 1.5,
+                        ),
+                        Gap(5),
+                        Text("Send"),
+                      ],
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

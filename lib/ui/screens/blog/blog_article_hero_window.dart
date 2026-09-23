@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/ui/common/stateless_rounded_card.dart';
+
+import '../../common/header_text.dart';
+import '../../common/subtitle_text.dart';
+
+class BlogArticleHeroWindow extends StatefulWidget {
+  final String blogArticleHeroTag;
+  final String blogArticleHeader;
+  final String blogArticleSubtitle;
+  final String blogArticleImageCredit;
+  final Widget blogArticleWidget;
+  final IconButton? blogLinkedInButton;
+  final IconButton? blogMediumButton;
+
+  const BlogArticleHeroWindow({
+    super.key,
+    required this.blogArticleHeroTag,
+    required this.blogArticleHeader,
+    required this.blogArticleImageCredit,
+    required this.blogArticleSubtitle,
+    required this.blogArticleWidget,
+    this.blogLinkedInButton,
+    this.blogMediumButton,
+  });
+
+  @override
+  State<BlogArticleHeroWindow> createState() => _BlogArticleHeroWindowState();
+}
+
+class _BlogArticleHeroWindowState extends State<BlogArticleHeroWindow> {
+  late ScrollController _windowScrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _windowScrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _windowScrollController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final colourScheme = Theme.of(context).colorScheme;
+
+    return SelectionArea(
+      child: StatelessRoundedCard(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: SingleChildScrollView(
+            controller: _windowScrollController,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      mouseCursor: SystemMouseCursors.click,
+                      splashColor: colourScheme.surface,
+                      icon: HugeIcon(icon: HugeIcons.strokeRoundedCancelSquare),
+                    ),
+                  ],
+                ),
+                Hero(
+                  tag: widget.blogArticleHeroTag,
+                  child: widget.blogArticleWidget,
+                ),
+                SubtitleText(
+                  data: widget.blogArticleImageCredit,
+                  fontSize: 10,
+                  minFontSize: 10,
+                  maxLines: 1,
+                  softWrap: true,
+                  textAlign: TextAlign.end,
+                  textOverflow: TextOverflow.fade,
+                ),
+                HeaderText(
+                  data: widget.blogArticleHeader,
+                  fontSize: 30,
+                  minFontSize: 10,
+                  maxLines: 4,
+                  softWrap: true,
+                  textAlign: TextAlign.end,
+                  textOverflow: TextOverflow.fade,
+                ),
+                Gap(5),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: SubtitleText(
+                    data: widget.blogArticleSubtitle,
+                    fontSize: 18,
+                    minFontSize: 14,
+                    maxLines: 75,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  ),
+                ),
+                Gap(5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ?widget.blogLinkedInButton,
+                    ?widget.blogMediumButton,
+                  ],
+                ),
+                Gap(75),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

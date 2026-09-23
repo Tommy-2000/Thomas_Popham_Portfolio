@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:thomas_popham_portfolio/ui/common/stateless_rounded_card.dart';
 
 class StatefulHeroWindow extends StatefulWidget {
   const StatefulHeroWindow({
@@ -38,14 +39,7 @@ class _StatefulHeroWindowState extends State<StatefulHeroWindow> {
     final colourScheme = Theme.of(context).colorScheme;
 
     return SelectionArea(
-      child: Card(
-        color: colourScheme.surface,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-        ),
-        borderOnForeground: true,
-        semanticContainer: true,
-        elevation: 10,
+      child: StatelessRoundedCard(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(

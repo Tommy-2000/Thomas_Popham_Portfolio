@@ -5,10 +5,17 @@ const homeHeroTag2 = "HOME_HERO_TAG_2";
 const homeHeroTag3 = "HOME_HERO_TAG_3";
 
 // Hero tags for the ProjectsScreen
-const projectsHeroTag1 = "PROJECTS_HERO_TAG_1";
-const projectsHeroTag2 = "PROJECTS_HERO_TAG_2";
-const projectsHeroTag3 = "PROJECTS_HERO_TAG_3";
-const projectsHeroTag4 = "PROJECTS_HERO_TAG_4";
+const projectHeroTag1 = "PROJECT_HERO_TAG_1";
+const projectHeroTag2 = "PROJECT_HERO_TAG_2";
+const projectHeroTag3 = "PROJECT_HERO_TAG_3";
+const projectHeroTag4 = "PROJECT_HERO_TAG_4";
+const projectHeroTag5 = "PROJECT_HERO_TAG_5";
+const projectHeroTag6 = "PROJECT_HERO_TAG_6";
+const projectHeroTag7 = "PROJECT_HERO_TAG_7";
+const projectHeroTag8 = "PROJECT_HERO_TAG_8";
+const projectHeroTag9 = "PROJECT_HERO_TAG_9";
+const projectHeroTag10 = "PROJECT_HERO_TAG_10";
+
 
 // Hero tags for the ExperienceScreen
 const experienceHeroTag1 = "EXPERIENCE_HERO_TAG_1";

@@ -20,10 +20,7 @@ class StatelessRoundedCard extends StatelessWidget {
       borderOnForeground: true,
       semanticContainer: true,
       elevation: 10,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: child,
-      ),
+      child: child,
     );
   }
 }

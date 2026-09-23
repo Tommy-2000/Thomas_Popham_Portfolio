@@ -2,37 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_rounded_card.dart';
+import 'package:thomas_popham_portfolio/ui/common/stateless_rounded_card.dart';
 
 import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogHeroArticleWindow extends StatefulWidget {
+class ProjectHeroImageWindow extends StatefulWidget {
+  final String projectHeroTag;
+  final String projectHeader;
+  final String projectDescription;
+  final List<Chip> projectChipTopRow;
+  final List<Chip> projectChipBottomRow;
+  final Widget projectWidget;
+  final IconButton? projectIconButton;
+  final VoidCallback? projectOnTap;
 
-
-  final String blogArticleHeroTag;
-  final String blogArticleHeader;
-  final String blogArticleSubtitle;
-  final String blogArticleImageCredit;
-  final Widget blogArticleWidget;
-  final IconButton? blogLinkedInButton;
-  final IconButton? blogMediumButton;
-
-  const BlogHeroArticleWindow({
+  const ProjectHeroImageWindow({
     super.key,
-    required this.blogArticleHeroTag,
-    required this.blogArticleHeader,
-    required this.blogArticleImageCredit,
-    required this.blogArticleSubtitle,
-    required this.blogArticleWidget,
-    this.blogLinkedInButton,
-    this.blogMediumButton,
+    required this.projectHeroTag,
+    required this.projectHeader,
+    required this.projectDescription,
+    required this.projectChipTopRow,
+    required this.projectChipBottomRow,
+    required this.projectWidget,
+    this.projectIconButton,
+    this.projectOnTap,
   });
 
   @override
-  State<BlogHeroArticleWindow> createState() => _BlogHeroArticleWindowState();
+  State<ProjectHeroImageWindow> createState() => _ProjectHeroImageWindowState();
 }
 
-class _BlogHeroArticleWindowState extends State<BlogHeroArticleWindow> {
+class _ProjectHeroImageWindowState extends State<ProjectHeroImageWindow> {
   late ScrollController _windowScrollController;
 
   @override
@@ -52,7 +53,7 @@ class _BlogHeroArticleWindowState extends State<BlogHeroArticleWindow> {
     final colourScheme = Theme.of(context).colorScheme;
 
     return SelectionArea(
-      child: StatefulRoundedCard(
+      child: StatelessRoundedCard(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
@@ -74,20 +75,11 @@ class _BlogHeroArticleWindowState extends State<BlogHeroArticleWindow> {
                   ],
                 ),
                 Hero(
-                  tag: widget.blogArticleHeroTag,
-                  child: widget.blogArticleWidget,
-                ),
-                SubtitleText(
-                  data: widget.blogArticleImageCredit,
-                  fontSize: 10,
-                  minFontSize: 10,
-                  maxLines: 1,
-                  softWrap: true,
-                  textAlign: TextAlign.end,
-                  textOverflow: TextOverflow.fade,
+                  tag: widget.projectHeroTag,
+                  child: widget.projectWidget,
                 ),
                 HeaderText(
-                  data: widget.blogArticleHeader,
+                  data: widget.projectHeader,
                   fontSize: 30,
                   minFontSize: 10,
                   maxLines: 4,
@@ -99,7 +91,7 @@ class _BlogHeroArticleWindowState extends State<BlogHeroArticleWindow> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: SubtitleText(
-                    data: widget.blogArticleSubtitle,
+                    data: widget.projectDescription,
                     fontSize: 18,
                     minFontSize: 14,
                     maxLines: 75,
@@ -112,8 +104,7 @@ class _BlogHeroArticleWindowState extends State<BlogHeroArticleWindow> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ?widget.blogLinkedInButton,
-                    ?widget.blogMediumButton,
+                    ?widget.projectIconButton,
                   ],
                 ),
                 Gap(75),

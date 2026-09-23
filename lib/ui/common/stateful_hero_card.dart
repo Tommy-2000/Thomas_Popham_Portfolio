@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thomas_popham_portfolio/ui/common/stateless_rounded_card.dart';
 
 class StatefulHeroCard extends StatefulWidget {
   const StatefulHeroCard({
@@ -26,14 +27,7 @@ class _StatefulHeroCardState extends State<StatefulHeroCard> {
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
 
-    return Card(
-      color: colourScheme.surface,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-      ),
-      borderOnForeground: true,
-      semanticContainer: true,
-      elevation: 10,
+    return StatelessRoundedCard(
       child: Hero(
         tag: widget.childHeroTag,
         child: InkWell(
@@ -43,12 +37,9 @@ class _StatefulHeroCardState extends State<StatefulHeroCard> {
           customBorder: RoundedSuperellipseBorder(
             borderRadius: BorderRadius.circular(40),
           ),
-          child: Ink(
-            decoration: const BoxDecoration(color: Colors.transparent),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: widget.child,
-            ),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: widget.child,
           ),
         ),
       ),
