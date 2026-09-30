@@ -257,7 +257,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SubtitleText(
-                data: "Computational Thinking and CBeebies' Wonderblocks",
+                data: "Computational Thinking Video",
                 fontSize: 15,
                 minFontSize: 12,
                 maxLines: 2,
