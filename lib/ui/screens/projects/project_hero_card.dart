@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:thomas_popham_portfolio/ui/common/responsive_render.dart';
 
 import '../../common/header_text.dart';
 import '../../common/stateless_rounded_card.dart';
@@ -7,24 +8,26 @@ import '../../common/subtitle_text.dart';
 
 class ProjectHeroCard extends StatefulWidget {
   final String projectHeroTag;
-  final String projectHeader;
-  final String projectDescription;
+  final String projectTitle;
+  final String projectBody;
   final Widget? projectImage;
-  final List<Chip> projectChipTopRow;
-  final List<Chip> projectChipBottomRow;
-  final IconButton? projectIconButton;
-  final VoidCallback? projectOnTap;
+  final List<Chip> projectChipFirstRow;
+  final List<Chip> projectChipSecondRow;
+  final List<Chip> projectChipThirdRow;
+  final Widget? projectLinkButton;
+  final VoidCallback? projectExpandOnTap;
 
   const ProjectHeroCard({
     super.key,
     required this.projectHeroTag,
-    required this.projectHeader,
-    required this.projectDescription,
+    required this.projectTitle,
+    required this.projectBody,
     this.projectImage,
-    required this.projectChipTopRow,
-    required this.projectChipBottomRow,
-    this.projectIconButton,
-    this.projectOnTap,
+    required this.projectChipFirstRow,
+    required this.projectChipSecondRow,
+    required this.projectChipThirdRow,
+    this.projectExpandOnTap,
+    this.projectLinkButton,
   });
 
   @override
@@ -32,27 +35,18 @@ class ProjectHeroCard extends StatefulWidget {
 }
 
 class _ProjectHeroCardState extends State<ProjectHeroCard> {
-  late ScrollController _projectChipScrollController;
-  late bool landscapeWindow = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    // Rerender the UI if the width from MediaQuery is greater than 900
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 900;
-  }
+  late ResponsiveRender _responsiveRender;
 
   @override
   void initState() {
     super.initState();
-    _projectChipScrollController = ScrollController();
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    _projectChipScrollController.dispose();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // ResponsiveRender notifies this screen if any responsive screen changes are detected
+    _responsiveRender = ResponsiveRender(context);
   }
 
   @override
@@ -63,7 +57,7 @@ class _ProjectHeroCardState extends State<ProjectHeroCard> {
       child: Hero(
         tag: widget.projectHeroTag,
         child: InkWell(
-          onTap: widget.projectOnTap,
+          onTap: widget.projectExpandOnTap,
           mouseCursor: SystemMouseCursors.click,
           splashColor: colourScheme.surface,
           customBorder: RoundedSuperellipseBorder(
@@ -76,11 +70,11 @@ class _ProjectHeroCardState extends State<ProjectHeroCard> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  // If an image is passed render it
+                  // If an image is associated with the project, render it as an optional Widget
                   ?widget.projectImage,
-                  Gap(5),
+                  Gap(7),
                   HeaderText(
-                    data: widget.projectHeader,
+                    data: widget.projectTitle,
                     fontSize: 25,
                     minFontSize: 15,
                     maxLines: 5,
@@ -88,37 +82,56 @@ class _ProjectHeroCardState extends State<ProjectHeroCard> {
                     textAlign: TextAlign.end,
                     textOverflow: TextOverflow.fade,
                   ),
-                  SingleChildScrollView(
-                    controller: _projectChipScrollController,
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      spacing: 5,
-                      children: widget.projectChipTopRow,
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    controller: _projectChipScrollController,
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      spacing: 5,
-                      children: widget.projectChipBottomRow,
-                    ),
-                  ),
-                  Gap(5),
+                  Gap(7),
+                  // If any chips associated with a project overflow on to the next row render it, otherwise render nothing
+                  ?widget.projectChipFirstRow.isEmpty
+                      ? null
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          spacing: 5,
+                          children: widget.projectChipFirstRow,
+                        ),
+                  ?widget.projectChipSecondRow.isEmpty
+                      ? null
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          spacing: 5,
+                          children: widget.projectChipSecondRow,
+                        ),
+                  ?widget.projectChipThirdRow.isEmpty
+                      ? null
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          spacing: 5,
+                          children: widget.projectChipThirdRow,
+                        ),
+                  Gap(7),
                   SelectionArea(
-                    child: SubtitleText(
-                      data: widget.projectDescription,
-                      fontSize: 16,
-                      minFontSize: 12,
-                      maxLines: 12,
-                      softWrap: true,
-                      textAlign: TextAlign.end,
-                      textOverflow: TextOverflow.fade,
-                    ),
+                    child:
+                        _responsiveRender.screenIsExtraLarge &&
+                            _responsiveRender.screenIsLarge &&
+                            _responsiveRender.screenIsMedium
+                        ? SubtitleText(
+                            data: widget.projectBody,
+                            fontSize: 16,
+                            minFontSize: 12,
+                            maxLines: 12,
+                            softWrap: true,
+                            textAlign: TextAlign.end,
+                            textOverflow: TextOverflow.fade,
+                          )
+                        : SubtitleText(
+                            data: widget.projectBody,
+                            fontSize: 16,
+                            minFontSize: 14,
+                            maxLines: 6,
+                            softWrap: true,
+                            textAlign: TextAlign.end,
+                            textOverflow: TextOverflow.fade,
+                          ),
                   ),
-                  ?widget.projectIconButton,
+                  Gap(7),
+                  ?widget.projectLinkButton,
                 ],
               ),
             ),

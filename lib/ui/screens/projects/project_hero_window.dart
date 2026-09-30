@@ -1,39 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:thomas_popham_portfolio/ui/common/stateful_rounded_card.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateless_rounded_card.dart';
 
 import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 
-class ProjectHeroImageWindow extends StatefulWidget {
+class ProjectHeroWindow extends StatefulWidget {
   final String projectHeroTag;
-  final String projectHeader;
-  final String projectDescription;
-  final List<Chip> projectChipTopRow;
-  final List<Chip> projectChipBottomRow;
-  final Widget projectWidget;
-  final IconButton? projectIconButton;
-  final VoidCallback? projectOnTap;
+  final String projectTitle;
+  final String projectBody;
+  final List<Chip> projectChipFirstRow;
+  final List<Chip> projectChipSecondRow;
+  final List<Chip> projectChipThirdRow;
+  final Widget? projectLinkButton;
 
-  const ProjectHeroImageWindow({
+  const ProjectHeroWindow({
     super.key,
     required this.projectHeroTag,
-    required this.projectHeader,
-    required this.projectDescription,
-    required this.projectChipTopRow,
-    required this.projectChipBottomRow,
-    required this.projectWidget,
-    this.projectIconButton,
-    this.projectOnTap,
+    required this.projectTitle,
+    required this.projectBody,
+    required this.projectChipFirstRow,
+    required this.projectChipSecondRow,
+    required this.projectChipThirdRow,
+    this.projectLinkButton,
   });
 
   @override
-  State<ProjectHeroImageWindow> createState() => _ProjectHeroImageWindowState();
+  State<ProjectHeroWindow> createState() => _ProjectHeroWindowState();
 }
 
-class _ProjectHeroImageWindowState extends State<ProjectHeroImageWindow> {
+class _ProjectHeroWindowState extends State<ProjectHeroWindow> {
   late ScrollController _windowScrollController;
 
   @override
@@ -76,38 +73,62 @@ class _ProjectHeroImageWindowState extends State<ProjectHeroImageWindow> {
                 ),
                 Hero(
                   tag: widget.projectHeroTag,
-                  child: widget.projectWidget,
-                ),
-                HeaderText(
-                  data: widget.projectHeader,
-                  fontSize: 30,
-                  minFontSize: 10,
-                  maxLines: 4,
-                  softWrap: true,
-                  textAlign: TextAlign.end,
-                  textOverflow: TextOverflow.fade,
-                ),
-                Gap(5),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: SubtitleText(
-                    data: widget.projectDescription,
-                    fontSize: 18,
-                    minFontSize: 14,
-                    maxLines: 75,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
+                  child: Column(
+                    children: [
+                      HeaderText(
+                        data: widget.projectTitle,
+                        fontSize: 30,
+                        minFontSize: 10,
+                        maxLines: 4,
+                        softWrap: true,
+                        textAlign: TextAlign.end,
+                        textOverflow: TextOverflow.fade,
+                      ),
+                      Gap(5),
+                      // If any chips associated with a project overflow on to the next row render it, otherwise render nothing
+                      ?widget.projectChipFirstRow.isEmpty
+                          ? null
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              spacing: 5,
+                              children: widget.projectChipFirstRow,
+                            ),
+                      ?widget.projectChipSecondRow.isEmpty
+                          ? null
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              spacing: 5,
+                              children: widget.projectChipSecondRow,
+                            ),
+                      ?widget.projectChipThirdRow.isEmpty
+                          ? null
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              spacing: 5,
+                              children: widget.projectChipThirdRow,
+                            ),
+                      Gap(5),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: SubtitleText(
+                          data: widget.projectBody,
+                          fontSize: 18,
+                          minFontSize: 14,
+                          maxLines: 75,
+                          softWrap: true,
+                          textAlign: TextAlign.end,
+                          textOverflow: TextOverflow.fade,
+                        ),
+                      ),
+                      Gap(5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [?widget.projectLinkButton],
+                      ),
+                      Gap(5),
+                    ],
                   ),
                 ),
-                Gap(5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ?widget.projectIconButton,
-                  ],
-                ),
-                Gap(75),
               ],
             ),
           ),

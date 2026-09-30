@@ -27,19 +27,22 @@ class _StatefulHeroCardState extends State<StatefulHeroCard> {
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
 
-    return StatelessRoundedCard(
-      child: Hero(
-        tag: widget.childHeroTag,
-        child: InkWell(
-          onTap: widget.childHeroOnTap,
-          mouseCursor: SystemMouseCursors.click,
-          splashColor: colourScheme.surface,
-          customBorder: RoundedSuperellipseBorder(
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: widget.child,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: StatelessRoundedCard(
+        child: Hero(
+          tag: widget.childHeroTag,
+          child: InkWell(
+            onTap: widget.childHeroOnTap,
+            mouseCursor: SystemMouseCursors.click,
+            splashColor: colourScheme.surface,
+            customBorder: RoundedSuperellipseBorder(
+              borderRadius: BorderRadius.circular(40),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: widget.child,
+            ),
           ),
         ),
       ),

@@ -6,31 +6,33 @@ import 'package:thomas_popham_portfolio/ui/common/stateless_rounded_card.dart';
 import '../../common/header_text.dart';
 import '../../common/subtitle_text.dart';
 
-class BlogArticleHeroWindow extends StatefulWidget {
-  final String blogArticleHeroTag;
-  final String blogArticleTitle;
-  final String blogArticleBody;
-  final String blogArticleImageCredit;
-  final Widget blogArticleHeroImage;
-  final IconButton? blogLinkedInButton;
-  final IconButton? blogMediumButton;
+class ProjectHeroImageWindow extends StatefulWidget {
+  final String projectHeroTag;
+  final String projectTitle;
+  final String projectBody;
+  final List<Chip> projectChipFirstRow;
+  final List<Chip> projectChipSecondRow;
+  final List<Chip> projectChipThirdRow;
+  final Widget projectImage;
+  final Widget? projectLinkButton;
 
-  const BlogArticleHeroWindow({
+  const ProjectHeroImageWindow({
     super.key,
-    required this.blogArticleHeroTag,
-    required this.blogArticleTitle,
-    required this.blogArticleImageCredit,
-    required this.blogArticleBody,
-    required this.blogArticleHeroImage,
-    this.blogLinkedInButton,
-    this.blogMediumButton,
+    required this.projectHeroTag,
+    required this.projectTitle,
+    required this.projectBody,
+    required this.projectChipFirstRow,
+    required this.projectChipSecondRow,
+    required this.projectChipThirdRow,
+    required this.projectImage,
+    this.projectLinkButton,
   });
 
   @override
-  State<BlogArticleHeroWindow> createState() => _BlogArticleHeroWindowState();
+  State<ProjectHeroImageWindow> createState() => _ProjectHeroImageWindowState();
 }
 
-class _BlogArticleHeroWindowState extends State<BlogArticleHeroWindow> {
+class _ProjectHeroImageWindowState extends State<ProjectHeroImageWindow> {
   late ScrollController _windowScrollController;
 
   @override
@@ -71,21 +73,33 @@ class _BlogArticleHeroWindowState extends State<BlogArticleHeroWindow> {
                     ),
                   ],
                 ),
-                Hero(
-                  tag: widget.blogArticleHeroTag,
-                  child: widget.blogArticleHeroImage,
-                ),
-                SubtitleText(
-                  data: widget.blogArticleImageCredit,
-                  fontSize: 10,
-                  minFontSize: 10,
-                  maxLines: 1,
-                  softWrap: true,
-                  textAlign: TextAlign.end,
-                  textOverflow: TextOverflow.fade,
-                ),
+                Hero(tag: widget.projectHeroTag, child: widget.projectImage),
+                Gap(5),
+                // If any chips associated with a project overflow on to the next row render it, otherwise render nothing
+                ?widget.projectChipFirstRow.isEmpty
+                    ? null
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        spacing: 5,
+                        children: widget.projectChipFirstRow,
+                      ),
+                ?widget.projectChipSecondRow.isEmpty
+                    ? null
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        spacing: 5,
+                        children: widget.projectChipSecondRow,
+                      ),
+                ?widget.projectChipThirdRow.isEmpty
+                    ? null
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        spacing: 5,
+                        children: widget.projectChipThirdRow,
+                      ),
+                Gap(5),
                 HeaderText(
-                  data: widget.blogArticleTitle,
+                  data: widget.projectTitle,
                   fontSize: 30,
                   minFontSize: 10,
                   maxLines: 4,
@@ -97,7 +111,7 @@ class _BlogArticleHeroWindowState extends State<BlogArticleHeroWindow> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: SubtitleText(
-                    data: widget.blogArticleBody,
+                    data: widget.projectBody,
                     fontSize: 18,
                     minFontSize: 14,
                     maxLines: 75,
@@ -109,12 +123,9 @@ class _BlogArticleHeroWindowState extends State<BlogArticleHeroWindow> {
                 Gap(5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ?widget.blogLinkedInButton,
-                    ?widget.blogMediumButton,
-                  ],
+                  children: [?widget.projectLinkButton],
                 ),
-                Gap(75),
+                Gap(5),
               ],
             ),
           ),

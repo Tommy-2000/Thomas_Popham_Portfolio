@@ -12,15 +12,18 @@ class StatelessRoundedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colourScheme = Theme.of(context).colorScheme;
 
-    return Card(
-      color: colourScheme.surface,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Card(
+        color: colourScheme.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+        ),
+        borderOnForeground: true,
+        semanticContainer: true,
+        elevation: 10,
+        child: child,
       ),
-      borderOnForeground: true,
-      semanticContainer: true,
-      elevation: 10,
-      child: child,
     );
   }
 }
