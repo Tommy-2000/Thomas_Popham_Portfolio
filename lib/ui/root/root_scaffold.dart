@@ -5,9 +5,11 @@ import 'package:thomas_popham_portfolio/ui/common/navigation/nav_rail_scaffold.d
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../common/responsive_render.dart';
+
 class RootScaffold extends StatefulWidget {
   const RootScaffold({Key? key, required this.navigationShell})
-    : super(key: key ?? const ValueKey("NavScaffold"));
+    : super(key: key ?? const ValueKey("RootScaffold"));
 
   final StatefulNavigationShell navigationShell;
 
@@ -16,14 +18,13 @@ class RootScaffold extends StatefulWidget {
 }
 
 class _RootScaffoldState extends State<RootScaffold> {
-  bool landscapeWindow = false;
+  late ResponsiveRender _responsiveRender;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-// Rerender the UI if the width from MediaQuery is greater than 900
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 900;
+    // ResponsiveRender notifies this screen if any responsive screen changes are detected
+    _responsiveRender = ResponsiveRender(context);
   }
 
   @override
@@ -32,14 +33,22 @@ class _RootScaffoldState extends State<RootScaffold> {
       extendBody: true,
       body: Row(
         children: [
-          // Render the NavRailScaffold if landscapeWindow is true
-          // Otherwise render the BottomNavBarScaffold if false
-          if (landscapeWindow) NavRailScaffold(widget.navigationShell),
+          // Render the NavRailScaffold if the screen is either extra large, large or medium
+          // Otherwise don't render it
+          if (_responsiveRender.screenIsExtraLarge &&
+              _responsiveRender.screenIsLarge &&
+              _responsiveRender.screenIsMedium)
+            NavRailScaffold(widget.navigationShell),
           // The navigationShell renders each screen according the StatefulShellRoute in GoRouter
           Expanded(child: widget.navigationShell),
         ],
       ),
-      bottomNavigationBar: landscapeWindow
+      // Render the BottomNavBarScaffold if the screen is either small or extra small
+      // Otherwise don't render it
+      bottomNavigationBar:
+          _responsiveRender.screenIsExtraLarge &&
+              _responsiveRender.screenIsLarge &&
+              _responsiveRender.screenIsMedium && _responsiveRender.screenIsSmall
           ? null
           : BottomNavBarScaffold(widget.navigationShell),
     );

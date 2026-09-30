@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
+import 'package:thomas_popham_portfolio/main.dart';
+import 'package:thomas_popham_portfolio/ui/common/responsive_render.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_hero_card.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_hero_window.dart';
 import '../../common/stateless_rounded_card.dart';
@@ -18,9 +20,8 @@ class ExperienceScreen extends StatefulWidget {
 }
 
 class _ExperienceScreenState extends State<ExperienceScreen> {
+  late ResponsiveRender _responsiveRender;
   late ScrollController _experienceScrollController;
-
-  bool landscapeWindow = false;
 
   @override
   void initState() {
@@ -37,9 +38,8 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Rerender the UI if the width from MediaQuery is greater than 900
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 900;
+    // ResponsiveRender notifies this screen if any responsive screen changes are detected
+    _responsiveRender = ResponsiveRender(context);
   }
 
   @override
@@ -52,12 +52,18 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
         physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverGrid(
-            gridDelegate: landscapeWindow
-                ? buildSliverLandscapeGridDelegate()
-                : buildSliverPortraitGridDelegate(),
+            gridDelegate: _responsiveRender.screenIsExtraLarge
+                ? buildSliverLandscapeGridDelegate(35)
+                : _responsiveRender.screenIsLarge
+                ? buildSliverLandscapeGridDelegate(20)
+                : _responsiveRender.screenIsMedium
+                ? buildSliverPortraitGridDelegate(40)
+                : _responsiveRender.screenIsSmall
+                ? buildSliverPortraitGridDelegate(30)
+                : buildSliverPortraitGridDelegate(30),
             delegate: buildSliverChildListDelegate(
               context,
-              landscapeWindow,
+              _responsiveRender,
               colourScheme,
             ),
           ),
@@ -69,7 +75,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
 
 SliverChildListDelegate buildSliverChildListDelegate(
   BuildContext context,
-  bool landscapeWindow,
+  ResponsiveRender responsive,
   ColorScheme colourScheme,
 ) {
   return SliverChildListDelegate(
@@ -153,7 +159,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
                     data: experienceStrings.experienceString_4,
                     fontSize: 18,
@@ -187,12 +195,126 @@ SliverChildListDelegate buildSliverChildListDelegate(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Image(
             image: AssetImage(experienceStrings.experienceString_6),
+            height: responsive.hp(30),
             fit: BoxFit.scaleDown,
           ),
         ),
       ),
       StatefulHeroCard(
         childHeroTag: heroStrings.experienceHeroTag2,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_7,
+              fontSize: 30,
+              minFontSize: 10,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_8,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_9,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_10,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_11,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_12,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_13,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_14,
+
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
+        ),
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -282,105 +404,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           );
         },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            HeaderText(
-              data: experienceStrings.experienceString_7,
-              fontSize: 30,
-              minFontSize: 10,
-              maxLines: 4,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Gap(5),
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_8,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_9,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_10,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_11,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_12,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_13,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_14,
-
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-          ],
-        ),
       ),
       StatelessRoundedCard(
         child: ClipRRect(
@@ -393,6 +416,99 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       StatefulHeroCard(
         childHeroTag: heroStrings.experienceHeroTag3,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            HeaderText(
+              data: experienceStrings.experienceString_16,
+              fontSize: 30,
+              minFontSize: 20,
+              maxLines: 4,
+              softWrap: true,
+              textAlign: TextAlign.end,
+              textOverflow: TextOverflow.fade,
+            ),
+            Gap(5),
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_17,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_18,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_19,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_20,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_21,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_22,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+          ],
+        ),
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -473,11 +589,14 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           );
         },
+      ),
+      StatefulHeroCard(
+        childHeroTag: heroStrings.experienceHeroTag4,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_16,
+              data: experienceStrings.experienceString_23,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -486,9 +605,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_17,
+                    data: experienceStrings.experienceString_24,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -497,9 +618,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_18,
+                    data: experienceStrings.experienceString_25,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -508,9 +631,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_19,
+                    data: experienceStrings.experienceString_26,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -519,9 +644,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_20,
+                    data: experienceStrings.experienceString_27,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -530,9 +657,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_21,
+                    data: experienceStrings.experienceString_28,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -541,9 +670,89 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_22,
+                    data: experienceStrings.experienceString_29,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_30,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_31,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_32,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_33,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_34,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_35,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -554,9 +763,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 : null,
           ],
         ),
-      ),
-      StatefulHeroCard(
-        childHeroTag: heroStrings.experienceHeroTag4,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -691,11 +897,14 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           );
         },
+      ),
+      StatefulHeroCard(
+        childHeroTag: heroStrings.experienceHeroTag5,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_23,
+              data: experienceStrings.experienceString_36,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -704,9 +913,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_24,
+                    data: experienceStrings.experienceString_37,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -715,9 +926,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_25,
+                    data: experienceStrings.experienceString_38,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -726,9 +939,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_26,
+                    data: experienceStrings.experienceString_39,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -737,9 +952,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_27,
+                    data: experienceStrings.experienceString_40,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -748,9 +965,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_28,
+                    data: experienceStrings.experienceString_41,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -759,9 +978,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_29,
+                    data: experienceStrings.experienceString_42,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -770,9 +991,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_30,
+                    data: experienceStrings.experienceString_43,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -781,9 +1004,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_31,
+                    data: experienceStrings.experienceString_44,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -792,9 +1017,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_32,
+                    data: experienceStrings.experienceString_45,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -803,9 +1030,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_33,
+                    data: experienceStrings.experienceString_46,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -814,9 +1043,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_34,
+                    data: experienceStrings.experienceString_47,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -825,9 +1056,76 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_35,
+                    data: experienceStrings.experienceString_48,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_49,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_50,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_51,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_52,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_53,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -838,9 +1136,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 : null,
           ],
         ),
-      ),
-      StatefulHeroCard(
-        childHeroTag: heroStrings.experienceHeroTag5,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -1020,11 +1315,14 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           );
         },
+      ),
+      StatefulHeroCard(
+        childHeroTag: heroStrings.experienceHeroTag6,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_36,
+              data: experienceStrings.experienceString_54,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -1033,9 +1331,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_37,
+                    data: experienceStrings.experienceString_55,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1044,9 +1344,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_38,
+                    data: experienceStrings.experienceString_56,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1055,9 +1357,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_39,
+                    data: experienceStrings.experienceString_57,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1066,9 +1370,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_40,
+                    data: experienceStrings.experienceString_58,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1077,9 +1383,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_41,
+                    data: experienceStrings.experienceString_59,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1088,130 +1396,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_42,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_43,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_44,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_45,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_46,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_47,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_48,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_49,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_50,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_51,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_52,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_53,
+                    data: experienceStrings.experienceString_60,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1222,9 +1411,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 : null,
           ],
         ),
-      ),
-      StatefulHeroCard(
-        childHeroTag: heroStrings.experienceHeroTag6,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -1305,11 +1491,14 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           );
         },
+      ),
+      StatefulHeroCard(
+        childHeroTag: heroStrings.experienceHeroTag7,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             HeaderText(
-              data: experienceStrings.experienceString_54,
+              data: experienceStrings.experienceString_61,
               fontSize: 30,
               minFontSize: 20,
               maxLines: 4,
@@ -1318,9 +1507,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
               textOverflow: TextOverflow.fade,
             ),
             Gap(5),
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_55,
+                    data: experienceStrings.experienceString_62,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1329,9 +1520,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_56,
+                    data: experienceStrings.experienceString_63,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1340,9 +1533,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_57,
+                    data: experienceStrings.experienceString_64,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1351,9 +1546,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_58,
+                    data: experienceStrings.experienceString_65,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1362,9 +1559,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_59,
+                    data: experienceStrings.experienceString_66,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1373,9 +1572,37 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     textOverflow: TextOverflow.fade,
                   )
                 : null,
-            ?landscapeWindow
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
                 ? SubtitleText(
-                    data: experienceStrings.experienceString_60,
+                    data: experienceStrings.experienceString_67,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_68,
+                    fontSize: 18,
+                    minFontSize: 12,
+                    maxLines: 1,
+                    softWrap: true,
+                    textAlign: TextAlign.end,
+                    textOverflow: TextOverflow.fade,
+                  )
+                : null,
+            ?responsive.screenIsExtraLarge &&
+                    responsive.screenIsLarge &&
+                    responsive.screenIsMedium
+                ? SubtitleText(
+                    data: experienceStrings.experienceString_69,
                     fontSize: 18,
                     minFontSize: 12,
                     maxLines: 1,
@@ -1386,9 +1613,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 : null,
           ],
         ),
-      ),
-      StatefulHeroCard(
-        childHeroTag: heroStrings.experienceHeroTag7,
         childHeroOnTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -1487,109 +1711,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           );
         },
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            HeaderText(
-              data: experienceStrings.experienceString_61,
-              fontSize: 30,
-              minFontSize: 20,
-              maxLines: 4,
-              softWrap: true,
-              textAlign: TextAlign.end,
-              textOverflow: TextOverflow.fade,
-            ),
-            Gap(5),
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_62,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_63,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_64,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_65,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_66,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_67,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_68,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-            ?landscapeWindow
-                ? SubtitleText(
-                    data: experienceStrings.experienceString_69,
-                    fontSize: 18,
-                    minFontSize: 12,
-                    maxLines: 1,
-                    softWrap: true,
-                    textAlign: TextAlign.end,
-                    textOverflow: TextOverflow.fade,
-                  )
-                : null,
-          ],
-        ),
       ),
       StatelessRoundedCard(
         child: HeaderText(
@@ -1614,16 +1735,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       StatelessRoundedCard(
-      child: HeaderText(
-        data: experienceStrings.experienceString_72,
-        fontSize: 30,
-        minFontSize: 20,
-        maxLines: 3,
-        softWrap: true,
-        textAlign: TextAlign.end,
-        textOverflow: TextOverflow.fade,
+        child: HeaderText(
+          data: experienceStrings.experienceString_72,
+          fontSize: 30,
+          minFontSize: 20,
+          maxLines: 3,
+          softWrap: true,
+          textAlign: TextAlign.end,
+          textOverflow: TextOverflow.fade,
+        ),
       ),
-    ),
       StatelessRoundedCard(
         child: HeaderText(
           data: experienceStrings.experienceString_73,
@@ -1642,52 +1763,52 @@ SliverChildListDelegate buildSliverChildListDelegate(
   );
 }
 
-SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
+SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate(int mainCrossAxis) {
   return SliverQuiltedGridDelegate(
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(3, 64),
-      QuiltedGridTile(20, 32),
-      QuiltedGridTile(20, 32),
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(28, 32),
-      QuiltedGridTile(28, 32),
-      QuiltedGridTile(16, 32),
-      QuiltedGridTile(16, 32),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(4, 64),
-      QuiltedGridTile(4, 64),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(mainCrossAxis - 5, 32),
+      QuiltedGridTile(mainCrossAxis - 5, 32),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(6, 64),
+      QuiltedGridTile(6, 64),
+      QuiltedGridTile(6, 64),
       QuiltedGridTile(6, 64),
     ],
   );
 }
 
-SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
+SliverQuiltedGridDelegate buildSliverPortraitGridDelegate(int mainCrossAxis) {
   return SliverQuiltedGridDelegate(
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(16, 64),
       QuiltedGridTile(10, 64),
-      QuiltedGridTile(20, 64),
-      QuiltedGridTile(30, 64),
-      QuiltedGridTile(14, 64),
-      QuiltedGridTile(20, 64),
-      QuiltedGridTile(30, 64),
-      QuiltedGridTile(20, 64),
-      QuiltedGridTile(30, 64),
-      QuiltedGridTile(30, 64),
-      QuiltedGridTile(35, 64),
-      QuiltedGridTile(35, 64),
-      QuiltedGridTile(35, 64),
-      QuiltedGridTile(35, 64),
-      QuiltedGridTile(35, 64),
-      QuiltedGridTile(35, 64),
-      QuiltedGridTile(20, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis % 2, 64),
+      QuiltedGridTile(mainCrossAxis % 2, 64),
+      QuiltedGridTile(mainCrossAxis % 2, 64),
+      QuiltedGridTile(mainCrossAxis % 2, 64),
     ],
   );
 }

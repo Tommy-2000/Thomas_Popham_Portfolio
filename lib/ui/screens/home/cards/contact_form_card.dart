@@ -4,7 +4,6 @@ import 'package:hugeicons/hugeicons.dart';
 
 import '../../../../logic/utils/email_validator.dart';
 import '../../../../logic/utils/uri_utils.dart';
-import '../../../common/stateless_rounded_card.dart';
 
 class ContactFormCard extends StatefulWidget {
   const ContactFormCard({super.key});

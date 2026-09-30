@@ -4,6 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:thomas_popham_portfolio/logic/utils/uri_utils.dart';
+import 'package:thomas_popham_portfolio/ui/common/responsive_render.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_hero_card.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_hero_window.dart';
 import '../../common/header_text.dart';
@@ -24,8 +25,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late ResponsiveRender _responsiveRender;
   late ScrollController _homeScrollController;
-  bool landscapeWindow = false;
 
   @override
   void initState() {
@@ -42,9 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Rerender the UI if the width from MediaQuery is greater than 900
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 900;
+    // ResponsiveRender notifies this screen if any responsive screen changes are detected
+    _responsiveRender = ResponsiveRender(context);
   }
 
   @override
@@ -57,12 +57,18 @@ class _HomeScreenState extends State<HomeScreen> {
         physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverGrid(
-            gridDelegate: landscapeWindow
-                ? buildSliverLandscapeGridDelegate()
-                : buildSliverPortraitGridDelegate(),
+            gridDelegate: _responsiveRender.screenIsExtraLarge
+                ? buildSliverLandscapeGridDelegate(35)
+                : _responsiveRender.screenIsLarge
+                ? buildSliverLandscapeGridDelegate(20)
+                : _responsiveRender.screenIsMedium
+                ? buildSliverPortraitGridDelegate(40)
+                : _responsiveRender.screenIsSmall
+                ? buildSliverPortraitGridDelegate(30)
+                : buildSliverPortraitGridDelegate(30),
             delegate: buildSliverChildListDelegate(
               context,
-              landscapeWindow,
+              _responsiveRender,
               colourScheme,
             ),
           ),
@@ -74,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 SliverChildListDelegate buildSliverChildListDelegate(
   BuildContext context,
-  bool landscapeWindow,
+  ResponsiveRender responsive,
   ColorScheme colourScheme,
 ) {
   return SliverChildListDelegate(
@@ -96,18 +102,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
                     Center(child: SizedBox(child: ImageNotFound())),
-                height: landscapeWindow ? 500 : 300,
-                width: landscapeWindow ? 700 : 400,
-                memCacheHeight:
-                    (landscapeWindow
-                            ? 500
-                            : 300 * MediaQuery.of(context).devicePixelRatio)
-                        .toInt(),
-                memCacheWidth:
-                    (landscapeWindow
-                            ? 700
-                            : 400 * MediaQuery.of(context).devicePixelRatio)
-                        .toInt(),
+                width: responsive.wp(70),
+                memCacheWidth: (responsive.wp(70)).toInt(),
                 fit: BoxFit.cover,
               ),
             ),
@@ -139,12 +135,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 textOverflow: TextOverflow.ellipsis,
               ),
               Gap(15),
-              landscapeWindow
+              responsive.screenIsExtraLarge
                   ? SubtitleText(
                       data: homeStrings.homeString_5,
                       fontSize: 16,
                       minFontSize: 12,
-                      maxLines: 25,
+                      maxLines: 6,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,
@@ -159,12 +155,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       textOverflow: TextOverflow.ellipsis,
                     ),
               Gap(15),
-              landscapeWindow
+              responsive.screenIsExtraLarge
                   ? SubtitleText(
                       data: homeStrings.homeString_6,
                       fontSize: 16,
                       minFontSize: 12,
-                      maxLines: 25,
+                      maxLines: 6,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,
@@ -173,18 +169,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       data: homeStrings.homeString_6,
                       fontSize: 16,
                       minFontSize: 14,
-                      maxLines: 3,
+                      maxLines: 6,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,
                     ),
               Gap(15),
-              landscapeWindow
+              responsive.screenIsExtraLarge
                   ? SubtitleText(
                       data: homeStrings.homeString_7,
                       fontSize: 16,
                       minFontSize: 12,
-                      maxLines: 25,
+                      maxLines: 6,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,
@@ -283,7 +279,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 textAlign: TextAlign.end,
                 textOverflow: TextOverflow.fade,
               ),
-              ?landscapeWindow
+              ?responsive.screenIsExtraLarge &&
+                      responsive.screenIsLarge &&
+                      responsive.screenIsMedium
                   ? SubtitleText(
                       data: homeStrings.homeString_10,
                       fontSize: 20,
@@ -304,7 +302,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 textAlign: TextAlign.end,
                 textOverflow: TextOverflow.fade,
               ),
-              ?landscapeWindow
+              ?responsive.screenIsExtraLarge &&
+                      responsive.screenIsLarge &&
+                      responsive.screenIsMedium
                   ? SubtitleText(
                       data: homeStrings.homeString_12,
                       fontSize: 20,
@@ -325,7 +325,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 textAlign: TextAlign.end,
                 textOverflow: TextOverflow.fade,
               ),
-              ?landscapeWindow
+              ?responsive.screenIsExtraLarge &&
+                      responsive.screenIsLarge &&
+                      responsive.screenIsMedium
                   ? SubtitleText(
                       data: homeStrings.homeString_14,
                       fontSize: 20,
@@ -346,7 +348,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 textAlign: TextAlign.end,
                 textOverflow: TextOverflow.fade,
               ),
-              ?landscapeWindow
+              ?responsive.screenIsExtraLarge &&
+                      responsive.screenIsLarge &&
+                      responsive.screenIsMedium
                   ? SubtitleText(
                       data: homeStrings.homeString_16,
                       fontSize: 20,
@@ -367,7 +371,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 textAlign: TextAlign.end,
                 textOverflow: TextOverflow.fade,
               ),
-              ?landscapeWindow
+              ?responsive.screenIsExtraLarge &&
+                      responsive.screenIsLarge &&
+                      responsive.screenIsMedium
                   ? SubtitleText(
                       data: homeStrings.homeString_18,
                       fontSize: 20,
@@ -516,8 +522,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     Center(child: const CircularProgressIndicator()),
                 errorWidget: (context, url, error) =>
                     Center(child: SizedBox(child: ImageNotFound())),
-                height: landscapeWindow ? 500 : 300,
-                width: landscapeWindow ? 700 : 400,
+                width: responsive.wp(70),
+                memCacheWidth: (responsive.wp(70)).toInt(),
                 fit: BoxFit.cover,
               ),
             ),
@@ -649,35 +655,35 @@ SliverChildListDelegate buildSliverChildListDelegate(
   );
 }
 
-SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
+SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate(int mainAxisCount) {
   return SliverQuiltedGridDelegate(
     crossAxisCount: 64,
     pattern: [
-      QuiltedGridTile(25, 64),
-      QuiltedGridTile(35, 32),
-      QuiltedGridTile(35, 32),
-      QuiltedGridTile(26, 32),
-      QuiltedGridTile(26, 32),
+      QuiltedGridTile(mainAxisCount - 10, 64),
+      QuiltedGridTile(mainAxisCount - 10, 32),
+      QuiltedGridTile(mainAxisCount - 10, 32),
+      QuiltedGridTile(mainAxisCount - 10, 32),
+      QuiltedGridTile(mainAxisCount - 10, 32),
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(35, 32),
-      QuiltedGridTile(35, 32),
+      QuiltedGridTile(mainAxisCount, 32),
+      QuiltedGridTile(mainAxisCount, 32),
       QuiltedGridTile(6, 64),
     ],
   );
 }
 
-SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
+SliverQuiltedGridDelegate buildSliverPortraitGridDelegate(int mainAxisCount) {
   return SliverQuiltedGridDelegate(
     crossAxisCount: 64,
     pattern: [
-      QuiltedGridTile(70, 64),
-      QuiltedGridTile(60, 64),
-      QuiltedGridTile(65, 64),
-      QuiltedGridTile(75, 64),
-      QuiltedGridTile(60, 64),
-      QuiltedGridTile(12, 64),
-      QuiltedGridTile(120, 64),
-      QuiltedGridTile(35, 64),
+      QuiltedGridTile(mainAxisCount * 3, 64),
+      QuiltedGridTile(mainAxisCount + 10, 64),
+      QuiltedGridTile(mainAxisCount * 3, 64),
+      QuiltedGridTile(mainAxisCount * 3, 64),
+      QuiltedGridTile(mainAxisCount + 10, 64),
+      QuiltedGridTile(mainAxisCount - 10, 64),
+      QuiltedGridTile(mainAxisCount * 4, 64),
+      QuiltedGridTile(mainAxisCount + 10, 64),
       QuiltedGridTile(20, 64),
     ],
   );

@@ -7,6 +7,7 @@ import 'package:hugeicons/hugeicons.dart';
 import 'package:thomas_popham_portfolio/ui/screens/blog/blog_article_hero_window.dart';
 import '../../../logic/utils/uri_utils.dart';
 import '../../common/image_not_found.dart';
+import '../../common/responsive_render.dart';
 import '../../common/stateless_rounded_card.dart';
 import '../../common/title_text.dart';
 import '../../../constants/hero_strings.dart' as heroStrings;
@@ -21,9 +22,8 @@ class BlogScreen extends StatefulWidget {
 }
 
 class _BlogScreenState extends State<BlogScreen> {
+  late ResponsiveRender _responsiveRender;
   late ScrollController _blogScrollController;
-
-  bool landscapeWindow = false;
 
   @override
   void initState() {
@@ -40,9 +40,8 @@ class _BlogScreenState extends State<BlogScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Rerender the UI if the width from MediaQuery is greater than 900
-    final double windowWidth = MediaQuery.of(context).size.width;
-    landscapeWindow = windowWidth > 900;
+    // ResponsiveRender notifies this screen if any responsive screen changes are detected
+    _responsiveRender = ResponsiveRender(context);
   }
 
   @override
@@ -54,12 +53,18 @@ class _BlogScreenState extends State<BlogScreen> {
         physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverGrid(
-            gridDelegate: landscapeWindow
-                ? buildSliverLandscapeGridDelegate()
-                : buildSliverPortraitGridDelegate(),
+            gridDelegate: _responsiveRender.screenIsExtraLarge
+                ? buildSliverLandscapeGridDelegate(40)
+                : _responsiveRender.screenIsLarge
+                ? buildSliverLandscapeGridDelegate(25)
+                : _responsiveRender.screenIsMedium
+                ? buildSliverPortraitGridDelegate(40)
+                : _responsiveRender.screenIsSmall
+                ? buildSliverPortraitGridDelegate(30)
+                : buildSliverPortraitGridDelegate(20),
             delegate: buildSliverChildListDelegate(
               context,
-              landscapeWindow,
+              _responsiveRender,
               colourScheme,
             ),
           ),
@@ -71,7 +76,7 @@ class _BlogScreenState extends State<BlogScreen> {
 
 SliverChildListDelegate buildSliverChildListDelegate(
   BuildContext context,
-  bool landscapeWindow,
+  ResponsiveRender responsive,
   ColorScheme colourScheme,
 ) {
   return SliverChildListDelegate(
@@ -99,6 +104,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
       ),
       renderBlogHeroCardArticleWithAssetImage(
+        context,
         heroStrings.blogHeroTag5,
         blogStrings.blogPost5Header,
         blogStrings.blogPost5Body,
@@ -113,10 +119,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
         null,
-        landscapeWindow,
-        context,
+        responsive,
       ),
       renderBlogHeroCardArticleWithNetImage(
+        context,
+
         heroStrings.blogHeroTag4,
         blogStrings.blogPost4Header,
         blogStrings.blogPost4Body,
@@ -131,10 +138,10 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
         null,
-        landscapeWindow,
-        context,
+        responsive,
       ),
       renderBlogHeroCardArticleWithNetImage(
+        context,
         heroStrings.blogHeroTag3,
         blogStrings.blogPost3Header,
         blogStrings.blogPost3Body,
@@ -149,10 +156,10 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
         null,
-        landscapeWindow,
-        context,
+        responsive,
       ),
       renderBlogHeroCardArticleWithNetImage(
+        context,
         heroStrings.blogHeroTag2,
         blogStrings.blogPost2Header,
         blogStrings.blogPost2Body,
@@ -167,10 +174,10 @@ SliverChildListDelegate buildSliverChildListDelegate(
           ),
         ),
         null,
-        landscapeWindow,
-        context,
+        responsive,
       ),
       renderBlogHeroCardArticleWithNetImage(
+        context,
         heroStrings.blogHeroTag1,
         blogStrings.blogPost1Header,
         blogStrings.blogPost1Body,
@@ -192,8 +199,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             color: colourScheme.primary,
           ),
         ),
-        landscapeWindow,
-        context,
+        responsive,
       ),
       Gap(5),
     ],
@@ -203,6 +209,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
 }
 
 Widget renderBlogHeroCardArticleWithNetImage(
+  BuildContext context,
   String blogArticleHeroTag,
   String blogArticleHeader,
   String blogArticleBody,
@@ -210,38 +217,30 @@ Widget renderBlogHeroCardArticleWithNetImage(
   String blogArticleImageUrl,
   IconButton? blogArticleLinkedInButton,
   IconButton? blogArticleMediumButton,
-  bool landscapeWindow,
-  BuildContext context,
+  ResponsiveRender responsive,
 ) {
   return Padding(
     padding: const EdgeInsets.all(10.0),
     child: BlogArticleHeroCard(
       blogArticleHeroTag: blogArticleHeroTag,
-      blogArticleHeader: blogArticleHeader,
+      blogArticleTitle: blogArticleHeader,
       blogArticleBody: blogArticleBody,
       blogArticleImageCredit: blogArticleImageCredit,
-      blogArticleImage: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-        child: CachedNetworkImage(
-          imageUrl: blogArticleImageUrl,
-          placeholder: (context, url) =>
-              Center(child: const CircularProgressIndicator()),
-          errorWidget: (context, url, error) =>
-              Center(child: SizedBox(child: ImageNotFound())),
-          height: landscapeWindow ? 400 : 300,
-          width: landscapeWindow ? 600 : 500,
-          memCacheHeight:
-              (landscapeWindow
-                      ? 400
-                      : 300 * MediaQuery.of(context).devicePixelRatio)
-                  .toInt(),
-          memCacheWidth:
-              (landscapeWindow
-                      ? 600
-                      : 500 * MediaQuery.of(context).devicePixelRatio)
-                  .toInt(),
-          fit: BoxFit.fill,
-          filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+      blogArticleImage: StatelessRoundedCard(
+        child: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+          child: CachedNetworkImage(
+            imageUrl: blogArticleImageUrl,
+            placeholder: (context, url) =>
+                Center(child: const CircularProgressIndicator()),
+            errorWidget: (context, url, error) =>
+                Center(child: SizedBox(child: ImageNotFound())),
+            height: responsive.hp(60),
+            fit: BoxFit.fill,
+            filterQuality: responsive.screenIsExtraLarge
+                ? FilterQuality.high
+                : FilterQuality.low,
+          ),
         ),
       ),
       blogLinkedInButton: blogArticleLinkedInButton,
@@ -252,10 +251,10 @@ Widget renderBlogHeroCardArticleWithNetImage(
             builder: (context) {
               return BlogArticleHeroWindow(
                 blogArticleHeroTag: blogArticleHeroTag,
-                blogArticleHeader: blogArticleHeader,
-                blogArticleSubtitle: blogArticleBody,
+                blogArticleTitle: blogArticleHeader,
+                blogArticleBody: blogArticleBody,
                 blogArticleImageCredit: blogArticleImageCredit,
-                blogArticleWidget: ClipRRect(
+                blogArticleHeroImage: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(40)),
                   child: CachedNetworkImage(
                     imageUrl: blogArticleImageUrl,
@@ -263,21 +262,10 @@ Widget renderBlogHeroCardArticleWithNetImage(
                         Center(child: const CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
                         Center(child: SizedBox(child: ImageNotFound())),
-                    height: landscapeWindow ? 500 : 300,
-                    width: landscapeWindow ? 700 : 500,
-                    memCacheHeight:
-                        (landscapeWindow
-                                ? 500
-                                : 300 * MediaQuery.of(context).devicePixelRatio)
-                            .toInt(),
-                    memCacheWidth:
-                        (landscapeWindow
-                                ? 700
-                                : 500 * MediaQuery.of(context).devicePixelRatio)
-                            .toInt(),
-                    fit: BoxFit.fitHeight,
-                    filterQuality: landscapeWindow
-                        ? FilterQuality.medium
+                    height: responsive.hp(80),
+                    fit: BoxFit.fill,
+                    filterQuality: responsive.screenIsExtraLarge
+                        ? FilterQuality.high
                         : FilterQuality.low,
                   ),
                 ),
@@ -293,6 +281,7 @@ Widget renderBlogHeroCardArticleWithNetImage(
 }
 
 Widget renderBlogHeroCardArticleWithAssetImage(
+  BuildContext context,
   String blogArticleHeroTag,
   String blogArticleHeader,
   String blogArticleBody,
@@ -300,34 +289,26 @@ Widget renderBlogHeroCardArticleWithAssetImage(
   String blogArticleAssetImage,
   IconButton? blogArticleLinkedInButton,
   IconButton? blogArticleMediumButton,
-  bool landscapeWindow,
-  BuildContext context,
+  ResponsiveRender responsive,
 ) {
   return Padding(
     padding: const EdgeInsets.all(10.0),
     child: BlogArticleHeroCard(
       blogArticleHeroTag: blogArticleHeroTag,
-      blogArticleHeader: blogArticleHeader,
+      blogArticleTitle: blogArticleHeader,
       blogArticleBody: blogArticleBody,
       blogArticleImageCredit: blogArticleImageCredit,
-      blogArticleImage: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(40)),
-        child: Image.asset(
-          blogArticleAssetImage,
-          height: landscapeWindow ? 400 : 300,
-          width: landscapeWindow ? 600 : 500,
-          cacheHeight:
-              (landscapeWindow
-                      ? 400
-                      : 300 * MediaQuery.of(context).devicePixelRatio)
-                  .toInt(),
-          cacheWidth:
-              (landscapeWindow
-                      ? 600
-                      : 500 * MediaQuery.of(context).devicePixelRatio)
-                  .toInt(),
-          fit: BoxFit.fill,
-          filterQuality: landscapeWindow ? FilterQuality.high : FilterQuality.low,
+      blogArticleImage: StatelessRoundedCard(
+        child: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+          child: Image.asset(
+            blogArticleAssetImage,
+            height: responsive.hp(60),
+            fit: BoxFit.fill,
+            filterQuality: responsive.screenIsExtraLarge
+                ? FilterQuality.high
+                : FilterQuality.low,
+          ),
         ),
       ),
       blogLinkedInButton: blogArticleLinkedInButton,
@@ -338,28 +319,17 @@ Widget renderBlogHeroCardArticleWithAssetImage(
             builder: (context) {
               return BlogArticleHeroWindow(
                 blogArticleHeroTag: blogArticleHeroTag,
-                blogArticleHeader: blogArticleHeader,
-                blogArticleSubtitle: blogArticleBody,
+                blogArticleTitle: blogArticleHeader,
+                blogArticleBody: blogArticleBody,
                 blogArticleImageCredit: blogArticleImageCredit,
-                blogArticleWidget: ClipRRect(
+                blogArticleHeroImage: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(40)),
                   child: Image.asset(
                     blogArticleAssetImage,
-                    height: landscapeWindow ? 500 : 300,
-                    width: landscapeWindow ? 700 : 500,
-                    cacheHeight:
-                        (landscapeWindow
-                                ? 500
-                                : 300 * MediaQuery.of(context).devicePixelRatio)
-                            .toInt(),
-                    cacheWidth:
-                        (landscapeWindow
-                                ? 700
-                                : 500 * MediaQuery.of(context).devicePixelRatio)
-                            .toInt(),
-                    fit: BoxFit.fitHeight,
-                    filterQuality: landscapeWindow
-                        ? FilterQuality.medium
+                    height: responsive.hp(80),
+                    fit: BoxFit.fill,
+                    filterQuality: responsive.screenIsExtraLarge
+                        ? FilterQuality.high
                         : FilterQuality.low,
                   ),
                 ),
@@ -374,38 +344,38 @@ Widget renderBlogHeroCardArticleWithAssetImage(
   );
 }
 
-SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate() {
+SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate(int mainCrossAxis) {
   return SliverQuiltedGridDelegate(
     repeatPattern: QuiltedGridRepeatPattern.same,
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(4, 64),
       QuiltedGridTile(3, 64),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
-      QuiltedGridTile(34, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
     ],
   );
 }
 
-SliverQuiltedGridDelegate buildSliverPortraitGridDelegate() {
+SliverQuiltedGridDelegate buildSliverPortraitGridDelegate(int mainCrossAxis) {
   return SliverQuiltedGridDelegate(
     repeatPattern: QuiltedGridRepeatPattern.same,
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(16, 64),
       QuiltedGridTile(10, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(100, 64),
-      QuiltedGridTile(30, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis % 2, 64),
     ],
   );
 }

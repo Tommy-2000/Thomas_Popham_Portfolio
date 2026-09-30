@@ -31,6 +31,7 @@ class _StatefulHeroWindowState extends State<StatefulHeroWindow> {
   void dispose() {
     super.dispose();
     _windowScrollController.dispose();
+    widget.child;
   }
 
   @override
@@ -38,31 +39,34 @@ class _StatefulHeroWindowState extends State<StatefulHeroWindow> {
 
     final colourScheme = Theme.of(context).colorScheme;
 
-    return SelectionArea(
-      child: StatelessRoundedCard(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: SingleChildScrollView(
-            controller: _windowScrollController,
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      mouseCursor: SystemMouseCursors.click,
-                      splashColor: colourScheme.surface,
-                      icon: HugeIcon(icon: HugeIcons.strokeRoundedCancelSquare),
-                    ),
-                  ],
-                ),
-                Hero(tag: widget.childHeroTag, child: widget.child),
-                Gap(75),
-              ],
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: SelectionArea(
+        child: StatelessRoundedCard(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SingleChildScrollView(
+              controller: _windowScrollController,
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        mouseCursor: SystemMouseCursors.click,
+                        splashColor: colourScheme.surface,
+                        icon: HugeIcon(icon: HugeIcons.strokeRoundedCancelSquare),
+                      ),
+                    ],
+                  ),
+                  Hero(tag: widget.childHeroTag, child: widget.child),
+                  Gap(75),
+                ],
+              ),
             ),
           ),
         ),

@@ -7,7 +7,7 @@ import '../../common/subtitle_text.dart';
 
 class BlogArticleHeroCard extends StatefulWidget {
   final String blogArticleHeroTag;
-  final String blogArticleHeader;
+  final String blogArticleTitle;
   final String blogArticleBody;
   final String blogArticleImageCredit;
   final Widget blogArticleImage;
@@ -18,7 +18,7 @@ class BlogArticleHeroCard extends StatefulWidget {
   const BlogArticleHeroCard({
     super.key,
     required this.blogArticleHeroTag,
-    required this.blogArticleHeader,
+    required this.blogArticleTitle,
     required this.blogArticleImageCredit,
     required this.blogArticleBody,
     required this.blogArticleImage,
@@ -32,10 +32,6 @@ class BlogArticleHeroCard extends StatefulWidget {
 }
 
 class _BlogArticleHeroCardState extends State<BlogArticleHeroCard> {
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +64,7 @@ class _BlogArticleHeroCardState extends State<BlogArticleHeroCard> {
                     textOverflow: TextOverflow.fade,
                   ),
                   HeaderText(
-                    data: widget.blogArticleHeader,
+                    data: widget.blogArticleTitle,
                     fontSize: 30,
                     minFontSize: 10,
                     maxLines: 3,
