@@ -257,7 +257,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SubtitleText(
-                data: "Computational Thinking Video",
+                data: "Emma Goto Video",
                 fontSize: 15,
                 minFontSize: 12,
                 maxLines: 2,
