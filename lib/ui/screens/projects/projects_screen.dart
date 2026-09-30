@@ -508,8 +508,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
                         responsive.screenIsMedium
-                    ? BoxFit.fill
-                    : BoxFit.fitHeight,
+                    ? BoxFit.fitWidth
+                    : BoxFit.scaleDown,
                 filterQuality: responsive.screenIsExtraLarge
                     ? FilterQuality.high
                     : FilterQuality.medium,
@@ -642,8 +642,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
                         responsive.screenIsMedium
-                    ? BoxFit.fill
-                    : BoxFit.fitHeight,
+                    ? BoxFit.fitWidth
+                    : BoxFit.scaleDown,
                 filterQuality: responsive.screenIsExtraLarge
                     ? FilterQuality.high
                     : FilterQuality.medium,
@@ -743,8 +743,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
                         responsive.screenIsMedium
-                    ? BoxFit.fill
-                    : BoxFit.fitHeight,
+                    ? BoxFit.fitWidth
+                    : BoxFit.scaleDown,
                 filterQuality: responsive.screenIsExtraLarge
                     ? FilterQuality.high
                     : FilterQuality.medium,
@@ -878,8 +878,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
                         responsive.screenIsMedium
-                    ? BoxFit.fill
-                    : BoxFit.fitHeight,
+                    ? BoxFit.fitWidth
+                    : BoxFit.scaleDown,
                 filterQuality: responsive.screenIsExtraLarge
                     ? FilterQuality.high
                     : FilterQuality.medium,
@@ -1002,8 +1002,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
                         responsive.screenIsMedium
-                    ? BoxFit.fill
-                    : BoxFit.fitHeight,
+                    ? BoxFit.fitWidth
+                    : BoxFit.scaleDown,
                 filterQuality: responsive.screenIsExtraLarge
                     ? FilterQuality.high
                     : FilterQuality.medium,
@@ -1118,8 +1118,8 @@ SliverChildListDelegate buildSliverChildListDelegate(
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
                         responsive.screenIsMedium
-                    ? BoxFit.fill
-                    : BoxFit.fitHeight,
+                    ? BoxFit.fitWidth
+                    : BoxFit.scaleDown,
                 filterQuality: responsive.screenIsExtraLarge
                     ? FilterQuality.high
                     : FilterQuality.medium,
@@ -1294,8 +1294,8 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate(int mainAxisCount) {
     crossAxisCount: 64,
     pattern: [
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(mainAxisCount - 30, 32),
-      QuiltedGridTile(mainAxisCount - 30, 32),
+      QuiltedGridTile(mainAxisCount - 20, 32),
+      QuiltedGridTile(mainAxisCount - 20, 32),
       QuiltedGridTile(mainAxisCount - 30, 32),
       QuiltedGridTile(mainAxisCount - 30, 32),
       QuiltedGridTile(mainAxisCount - 10, 32),

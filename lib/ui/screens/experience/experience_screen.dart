@@ -1769,8 +1769,8 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate(int mainCrossAxis) {
     pattern: [
       QuiltedGridTile(4, 64),
       QuiltedGridTile(4, 64),
-      QuiltedGridTile(mainCrossAxis - 15, 32),
-      QuiltedGridTile(mainCrossAxis - 15, 32),
+      QuiltedGridTile(mainCrossAxis - 10, 32),
+      QuiltedGridTile(mainCrossAxis - 10, 32),
       QuiltedGridTile(4, 64),
       QuiltedGridTile(mainCrossAxis - 15, 32),
       QuiltedGridTile(mainCrossAxis - 15, 32),
