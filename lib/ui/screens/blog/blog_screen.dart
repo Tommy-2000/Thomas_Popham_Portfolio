@@ -60,8 +60,8 @@ class _BlogScreenState extends State<BlogScreen> {
                 : _responsiveRender.screenIsMedium
                 ? buildSliverPortraitGridDelegate(40)
                 : _responsiveRender.screenIsSmall
-                ? buildSliverPortraitGridDelegate(30)
-                : buildSliverPortraitGridDelegate(20),
+                ? buildSliverPortraitGridDelegate(50)
+                : buildSliverPortraitGridDelegate(75),
             delegate: buildSliverChildListDelegate(
               context,
               _responsiveRender,
@@ -123,7 +123,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
       ),
       renderBlogHeroCardArticleWithNetImage(
         context,
-
         heroStrings.blogHeroTag4,
         blogStrings.blogPost4Header,
         blogStrings.blogPost4Body,
@@ -235,7 +234,7 @@ Widget renderBlogHeroCardArticleWithNetImage(
                 Center(child: const CircularProgressIndicator()),
             errorWidget: (context, url, error) =>
                 Center(child: SizedBox(child: ImageNotFound())),
-            height: responsive.hp(60),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
             fit: BoxFit.fill,
             filterQuality: responsive.screenIsExtraLarge
                 ? FilterQuality.high
@@ -262,7 +261,7 @@ Widget renderBlogHeroCardArticleWithNetImage(
                         Center(child: const CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
                         Center(child: SizedBox(child: ImageNotFound())),
-                    height: responsive.hp(80),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
                     fit: BoxFit.fill,
                     filterQuality: responsive.screenIsExtraLarge
                         ? FilterQuality.high
@@ -303,7 +302,7 @@ Widget renderBlogHeroCardArticleWithAssetImage(
           borderRadius: BorderRadius.all(Radius.circular(40)),
           child: Image.asset(
             blogArticleAssetImage,
-            height: responsive.hp(60),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
             fit: BoxFit.fill,
             filterQuality: responsive.screenIsExtraLarge
                 ? FilterQuality.high
@@ -326,8 +325,7 @@ Widget renderBlogHeroCardArticleWithAssetImage(
                   borderRadius: BorderRadius.all(Radius.circular(40)),
                   child: Image.asset(
                     blogArticleAssetImage,
-                    height: responsive.hp(80),
-                    fit: BoxFit.fill,
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),                    fit: BoxFit.fill,
                     filterQuality: responsive.screenIsExtraLarge
                         ? FilterQuality.high
                         : FilterQuality.low,

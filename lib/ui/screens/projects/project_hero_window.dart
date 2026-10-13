@@ -112,8 +112,8 @@ class _ProjectHeroWindowState extends State<ProjectHeroWindow> {
                         padding: const EdgeInsets.all(10.0),
                         child: SubtitleText(
                           data: widget.projectBody,
-                          fontSize: 18,
-                          minFontSize: 14,
+                          fontSize: 15,
+                          minFontSize: 7,
                           maxLines: 75,
                           softWrap: true,
                           textAlign: TextAlign.end,

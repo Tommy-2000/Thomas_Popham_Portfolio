@@ -61,7 +61,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               : _responsiveRender.screenIsMedium
               ? buildSliverPortraitGridDelegate(50)
               : _responsiveRender.screenIsSmall
-              ? buildSliverPortraitGridDelegate(100)
+              ? buildSliverPortraitGridDelegate(75)
               : buildSliverPortraitGridDelegate(50),
           delegate: buildSliverChildListDelegate(
             context,
@@ -503,7 +503,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
                 projectStrings.projectString_11,
-                height: responsive.hp(50),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -637,7 +637,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
                 projectStrings.projectString_20,
-                height: responsive.hp(50),
+                   height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -738,7 +738,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
                 projectStrings.projectString_28,
-                height: responsive.hp(50),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -873,7 +873,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
                 projectStrings.projectString_37,
-                height: responsive.hp(50),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -997,7 +997,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
                 projectStrings.projectString_45,
-                height: responsive.hp(50),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -1113,7 +1113,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
                 projectStrings.projectString_52,
-                height: responsive.hp(50),
+            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
