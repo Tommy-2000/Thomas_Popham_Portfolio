@@ -351,7 +351,12 @@ Widget renderBlogHeroCardArticleWithNetImage(
                 : responsive.screenIsSmall
                 ? responsive.hp(25)
                 : responsive.hp(15),
-            fit: BoxFit.fill,
+            fit:
+            responsive.screenIsExtraLarge &&
+                responsive.screenIsLarge &&
+                responsive.screenIsMedium
+                ? BoxFit.fitWidth
+                : BoxFit.scaleDown,
             filterQuality: responsive.screenIsExtraLarge
                 ? FilterQuality.high
                 : FilterQuality.low,
@@ -407,7 +412,12 @@ Widget renderBlogHeroCardArticleWithAssetImage(
                 : responsive.screenIsSmall
                 ? responsive.hp(25)
                 : responsive.hp(15),
-            fit: BoxFit.fill,
+            fit:
+            responsive.screenIsExtraLarge &&
+                responsive.screenIsLarge &&
+                responsive.screenIsMedium
+                ? BoxFit.fitWidth
+                : BoxFit.scaleDown,
             filterQuality: responsive.screenIsExtraLarge
                 ? FilterQuality.high
                 : FilterQuality.low,

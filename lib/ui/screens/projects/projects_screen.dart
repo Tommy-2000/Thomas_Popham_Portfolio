@@ -333,6 +333,11 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
+                  label: const Text(projectStrings.projectString_64),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
                   label: const Text(projectStrings.projectString_65),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
@@ -354,18 +359,24 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
-                Chip(
-                  label: const Text(projectStrings.projectString_66),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
               ],
         projectChipThirdRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
-            ? []
+            ? [
+              Chip(
+                label: const Text(projectStrings.projectString_67),
+                labelStyle: TextStyle(color: colourScheme.primary),
+                side: BorderSide(color: colourScheme.primary),
+              ),
+            ]
             : [
+                Chip(
+                  label: const Text(projectStrings.projectString_66),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
                 Chip(
                   label: const Text(projectStrings.projectString_67),
                   labelStyle: TextStyle(color: colourScheme.primary),
