@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
-import 'package:thomas_popham_portfolio/main.dart';
 import 'package:thomas_popham_portfolio/ui/common/responsive_render.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_hero_card.dart';
 import 'package:thomas_popham_portfolio/ui/common/stateful_hero_window.dart';

@@ -84,27 +84,33 @@ class _ProjectHeroCardState extends State<ProjectHeroCard> {
                   ),
                   Gap(7),
                   // If any chips associated with a project overflow on to the next row render it, otherwise render nothing
-                  ?widget.projectChipFirstRow.isEmpty
-                      ? null
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          spacing: 5,
-                          children: widget.projectChipFirstRow,
-                        ),
-                  ?widget.projectChipSecondRow.isEmpty
-                      ? null
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          spacing: 5,
-                          children: widget.projectChipSecondRow,
-                        ),
-                  ?widget.projectChipThirdRow.isEmpty
-                      ? null
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          spacing: 5,
-                          children: widget.projectChipThirdRow,
-                        ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      ?widget.projectChipFirstRow.isEmpty
+                          ? null
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              spacing: 5,
+                              children: widget.projectChipFirstRow,
+                            ),
+                      ?widget.projectChipSecondRow.isEmpty
+                          ? null
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              spacing: 5,
+                              children: widget.projectChipSecondRow,
+                            ),
+                      ?widget.projectChipThirdRow.isEmpty
+                          ? null
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              spacing: 5,
+                              children: widget.projectChipThirdRow,
+                            ),
+                    ],
+                  ),
                   Gap(7),
                   SelectionArea(
                     child:

@@ -67,8 +67,8 @@ class UriUtils {
     uriStrings.BLOG_POST_1_LINKEDIN,
   );
 
-  late final Uri blogPost1Medium = Uri.parse(
-    uriStrings.BLOG_POST_1_MEDIUM,
+  late final Uri blogArticle1Medium = Uri.parse(
+    uriStrings.BLOG_ARTICLE_1_MEDIUM,
   );
 
   late final Uri blogPost2LinkedIn = Uri.parse(
@@ -83,6 +83,16 @@ class UriUtils {
 
   late final Uri blogPost5LinkedIn = Uri.parse(uriStrings.BLOG_POST_5_LINKEDIN);
 
+  late final Uri blogPost6LinkedIn = Uri.parse(uriStrings.BLOG_POST_6_LINKEDIN);
+
+  late final Uri blogArticle6Medium = Uri.parse(uriStrings.BLOG_ARTICLE_6_MEDIUM);
+
+  late final Uri blogPost7LinkedIn = Uri.parse(uriStrings.BLOG_POST_7_LINKEDIN);
+
+  late final Uri blogPost8LinkedIn = Uri.parse(uriStrings.BLOG_POST_8_LINKEDIN);
+
+  late final Uri blogArticle8Medium = Uri.parse(uriStrings.BLOG_ARTICLE_8_MEDIUM);
+
   late final Uri emmaGotoVideo = Uri.parse(uriStrings.EMMA_GOTO_VIDEO_URL);
 
   late final Uri dreamStudyUri = Uri.parse(
@@ -91,8 +101,8 @@ class UriUtils {
   late final Uri dreamTravelUri = Uri.parse(
     uriStrings.GITHUB_DREAMTRAVEL_URL,
   );
-  late final Uri dreamCareUri = Uri.parse(
-    uriStrings.GITHUB_DREAMCARE_URL,
+  late final Uri dreamCharterUri = Uri.parse(
+    uriStrings.GITHUB_DREAMCHARTER_URL,
   );
   late final Uri madProjectUri = Uri.parse(
     uriStrings.GITHUB_MAD_URL,
@@ -106,21 +116,31 @@ class UriUtils {
   late final Uri oopProjectUri = Uri.parse(
     uriStrings.GITHUB_OOP_URL,
   );
+  
+  late final Uri graduatesFirstUri = Uri.parse(uriStrings.GRADUATES_FIRST_URL);
+
+  late final Uri sovaAssessmentsUri = Uri.parse(uriStrings.SOVA_ASSESSMENTS_URL);
+
+  late final Uri assessmentDayUri = Uri.parse(uriStrings.ASSESSMENT_DAY_URL);
+
+  late final Uri hackerRankUri = Uri.parse(uriStrings.HACKERRANK_URL);
+
+  late final Uri brilliantUri = Uri.parse(uriStrings.BRILLIANT_URL);
 
   Future<void> launchEmmaGotoVideo() async {
     if (!await launchUrl(emmaGotoVideo, mode: LaunchMode.externalApplication)) {
-      throw Exception(uriStrings.YOUTUBE_URL_EXCEPTION);
+      throw Exception(uriStrings.WEBSITE_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchDreamCharterProject() async {
+    if (!await launchUrl(dreamCharterUri, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.GITHUB_URL_EXCEPTION);
     }
   }
 
   Future<void> launchDreamStudyProject() async {
     if (!await launchUrl(dreamStudyUri, mode: LaunchMode.externalApplication)) {
-      throw Exception(uriStrings.GITHUB_URL_EXCEPTION);
-    }
-  }
-
-  Future<void> launchDreamCareProject() async {
-    if (!await launchUrl(dreamCareUri, mode: LaunchMode.externalApplication)) {
       throw Exception(uriStrings.GITHUB_URL_EXCEPTION);
     }
   }
@@ -188,12 +208,70 @@ class UriUtils {
     }
   }
 
-  Future<void> launchBlogPost1Medium() async {
-    if (!await launchUrl(blogPost1Medium, mode: LaunchMode.externalApplication)) {
+  Future<void> launchBlogPost6LinkedIn() async {
+    if (!await launchUrl(blogPost6LinkedIn, mode: LaunchMode.externalApplication)) {
       throw Exception(uriStrings.LINKEDIN_URL_EXCEPTION);
     }
   }
 
+  Future<void> launchBlogPost7LinkedIn() async {
+    if (!await launchUrl(blogPost7LinkedIn, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.LINKEDIN_URL_EXCEPTION);
+    }
+  }
 
+  Future<void> launchBlogPost8LinkedIn() async {
+    if (!await launchUrl(blogPost8LinkedIn, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.LINKEDIN_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchBlogArticle1Medium() async {
+    if (!await launchUrl(blogArticle1Medium, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.MEDIUM_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchBlogArticle6Medium() async {
+    if (!await launchUrl(blogArticle6Medium, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.MEDIUM_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchBlogArticle8Medium() async {
+    if (!await launchUrl(blogArticle8Medium, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.MEDIUM_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchGraduatesFirst() async {
+    if (!await launchUrl(graduatesFirstUri, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.WEBSITE_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchSovaAssessments() async {
+    if (!await launchUrl(sovaAssessmentsUri, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.WEBSITE_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchAssessmentDay() async {
+    if (!await launchUrl(assessmentDayUri, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.WEBSITE_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchHackerRank() async {
+    if (!await launchUrl(hackerRankUri, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.WEBSITE_URL_EXCEPTION);
+    }
+  }
+
+  Future<void> launchBrilliant() async {
+    if (!await launchUrl(brilliantUri, mode: LaunchMode.externalApplication)) {
+      throw Exception(uriStrings.WEBSITE_URL_EXCEPTION);
+    }
+  }
 
 }

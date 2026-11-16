@@ -138,9 +138,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
               responsive.screenIsExtraLarge
                   ? SubtitleText(
                       data: homeStrings.homeString_5,
-                      fontSize: 16,
-                      minFontSize: 12,
-                      maxLines: 6,
+                      fontSize: 20,
+                      minFontSize: 16,
+                      maxLines: 5,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,
@@ -158,9 +158,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
               responsive.screenIsExtraLarge
                   ? SubtitleText(
                       data: homeStrings.homeString_6,
-                      fontSize: 16,
-                      minFontSize: 12,
-                      maxLines: 6,
+                      fontSize: 20,
+                      minFontSize: 16,
+                      maxLines: 5,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,
@@ -169,7 +169,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
                       data: homeStrings.homeString_6,
                       fontSize: 16,
                       minFontSize: 14,
-                      maxLines: 6,
+                      maxLines: 3,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,
@@ -178,9 +178,9 @@ SliverChildListDelegate buildSliverChildListDelegate(
               responsive.screenIsExtraLarge
                   ? SubtitleText(
                       data: homeStrings.homeString_7,
-                      fontSize: 16,
-                      minFontSize: 12,
-                      maxLines: 6,
+                      fontSize: 20,
+                      minFontSize: 16,
+                      maxLines: 5,
                       softWrap: true,
                       textAlign: TextAlign.end,
                       textOverflow: TextOverflow.ellipsis,

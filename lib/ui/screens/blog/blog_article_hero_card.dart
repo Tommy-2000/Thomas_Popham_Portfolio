@@ -11,8 +11,8 @@ class BlogArticleHeroCard extends StatefulWidget {
   final String blogArticleBody;
   final String blogArticleImageCredit;
   final Widget blogArticleImage;
-  final IconButton? blogLinkedInButton;
-  final IconButton? blogMediumButton;
+  final Widget? blogButtonTopRow;
+  final Widget? blogButtonBottomRow;
   final VoidCallback? blogArticleOnTap;
 
   const BlogArticleHeroCard({
@@ -22,8 +22,8 @@ class BlogArticleHeroCard extends StatefulWidget {
     required this.blogArticleImageCredit,
     required this.blogArticleBody,
     required this.blogArticleImage,
-    this.blogLinkedInButton,
-    this.blogMediumButton,
+    this.blogButtonTopRow,
+    this.blogButtonBottomRow,
     this.blogArticleOnTap,
   });
 
@@ -83,11 +83,13 @@ class _BlogArticleHeroCardState extends State<BlogArticleHeroCard> {
                     textOverflow: TextOverflow.fade,
                   ),
                   Gap(5),
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      ?widget.blogLinkedInButton,
-                      ?widget.blogMediumButton,
+                      // If any buttons associated with a blog article overflow on to the next row render it, otherwise render nothing
+                      ?widget.blogButtonTopRow,
+                      ?widget.blogButtonBottomRow,
                     ],
                   ),
                 ],

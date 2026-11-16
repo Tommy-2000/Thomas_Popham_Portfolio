@@ -1,7 +1,7 @@
 
-const homeString_Title = "Hi there! I'm Thomas Popham👍";
+const homeString_Title = "Hi there! I'm Thomas Popham";
 const homeString_1 = "(He/Him)";
-const homeString_2 = "Graduate Software Developer";
+const homeString_2 = "Aspiring Graduate Software Developer";
 const homeString_3 = "Photo by Mohammad Rahmani on Unsplash";
 const homeString_4 = "A little bit about me...";
 const homeString_5 = "I’m a postgraduate in MSc. Computer Science (June 2023) from Teesside University. I’d best describe myself as eager, curious and deeply supportive of other graduates like myself; looking to make their mark within software development. I firmly believe that creativity and imagination help form my overall approach to problem solving, project planning and software design and development. Enabling me to think outside-the-box and share a research-based perspective that I would love to bring to the workplace.";

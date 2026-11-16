@@ -12,8 +12,8 @@ class BlogArticleHeroWindow extends StatefulWidget {
   final String blogArticleBody;
   final String blogArticleImageCredit;
   final Widget blogArticleHeroImage;
-  final IconButton? blogLinkedInButton;
-  final IconButton? blogMediumButton;
+  final Widget? blogButtonTopRow;
+  final Widget? blogButtonBottomRow;
 
   const BlogArticleHeroWindow({
     super.key,
@@ -22,8 +22,8 @@ class BlogArticleHeroWindow extends StatefulWidget {
     required this.blogArticleImageCredit,
     required this.blogArticleBody,
     required this.blogArticleHeroImage,
-    this.blogLinkedInButton,
-    this.blogMediumButton,
+    this.blogButtonTopRow,
+    this.blogButtonBottomRow,
   });
 
   @override
@@ -107,11 +107,13 @@ class _BlogArticleHeroWindowState extends State<BlogArticleHeroWindow> {
                   ),
                 ),
                 Gap(5),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    ?widget.blogLinkedInButton,
-                    ?widget.blogMediumButton,
+                    // If any buttons associated with a blog article overflow on to the next row render it, otherwise render nothing
+                    ?widget.blogButtonTopRow,
+                    ?widget.blogButtonBottomRow,
                   ],
                 ),
                 Gap(75),

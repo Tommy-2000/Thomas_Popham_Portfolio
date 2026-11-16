@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widget_previews.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
@@ -95,41 +94,41 @@ SliverChildListDelegate buildSliverChildListDelegate(
       renderProjectCard(
         context: context,
         projectHeroTag: heroStrings.projectHeroTag1,
-        projectHeader: projectStrings.projectString_74,
+        projectHeader: projectStrings.projectString_77,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_75),
+                  label: const Text(projectStrings.projectString_78),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_76),
+                  label: const Text(projectStrings.projectString_79),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_77),
+                  label: const Text(projectStrings.projectString_80),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_75),
+                  label: const Text(projectStrings.projectString_78),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_76),
+                  label: const Text(projectStrings.projectString_79),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_77),
+                  label: const Text(projectStrings.projectString_80),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -140,24 +139,29 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_78),
+                  label: const Text(projectStrings.projectString_81),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_79),
+                  label: const Text(projectStrings.projectString_82),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_83),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_78),
+                  label: const Text(projectStrings.projectString_81),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_79),
+                  label: const Text(projectStrings.projectString_82),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -167,48 +171,54 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? []
-            : [],
+            : [
+                Chip(
+                  label: const Text(projectStrings.projectString_83),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
 
-        projectDescription: projectStrings.projectString_80,
+        projectDescription: projectStrings.projectString_84,
       ),
       renderProjectCard(
         context: context,
         projectHeroTag: heroStrings.projectHeroTag2,
-        projectHeader: projectStrings.projectString_67,
+        projectHeader: projectStrings.projectString_69,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_68),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
-                  label: const Text(projectStrings.projectString_69),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_70),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_71),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_72),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_68),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
-                  label: const Text(projectStrings.projectString_69),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_70),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_71),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_72),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -219,24 +229,24 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_71),
+                  label: const Text(projectStrings.projectString_73),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_72),
+                  label: const Text(projectStrings.projectString_74),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_71),
+                  label: const Text(projectStrings.projectString_73),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_72),
+                  label: const Text(projectStrings.projectString_74),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -246,9 +256,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? []
-            : [],
+            : [
+                Chip(
+                  label: const Text(projectStrings.projectString_75),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+              ],
 
-        projectDescription: projectStrings.projectString_73,
+        projectDescription: projectStrings.projectString_76,
         projectLinkButton: MaterialButton(
           onPressed: () => UriUtils().launchEmmaGotoVideo(),
           child: Row(
@@ -277,17 +293,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
       renderProjectCard(
         context: context,
         projectHeroTag: heroStrings.projectHeroTag3,
-        projectHeader: projectStrings.projectString_60,
+        projectHeader: projectStrings.projectString_61,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
-                Chip(
-                  label: const Text(projectStrings.projectString_61),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
                 Chip(
                   label: const Text(projectStrings.projectString_62),
                   labelStyle: TextStyle(color: colourScheme.primary),
@@ -298,15 +309,20 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
+                Chip(
+                  label: const Text(projectStrings.projectString_64),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_61),
+                  label: const Text(projectStrings.projectString_62),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_62),
+                  label: const Text(projectStrings.projectString_63),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -317,29 +333,29 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_64),
+                  label: const Text(projectStrings.projectString_65),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_65),
+                  label: const Text(projectStrings.projectString_66),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_63),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_64),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_65),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_66),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -351,13 +367,36 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ? []
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_65),
+                  label: const Text(projectStrings.projectString_67),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ],
-
-        projectDescription: projectStrings.projectString_66,
+        projectDescription: projectStrings.projectString_68,
+        projectLinkButton: MaterialButton(
+          onPressed: () => UriUtils().launchDreamCharterProject(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SubtitleText(
+                data: "View Project",
+                fontSize: 15,
+                minFontSize: 12,
+                maxLines: 1,
+                softWrap: true,
+                textAlign: TextAlign.center,
+                textOverflow: TextOverflow.visible,
+              ),
+              Gap(2),
+              HugeIcon(
+                icon: HugeIcons.strokeRoundedGithub,
+                color: colourScheme.primary,
+              ),
+            ],
+          ),
+        ),
       ),
       renderProjectCard(
         context: context,
@@ -503,7 +542,15 @@ SliverChildListDelegate buildSliverChildListDelegate(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
                 projectStrings.projectString_11,
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+                height: responsive.screenIsExtraLarge
+                    ? responsive.hp(55)
+                    : responsive.screenIsLarge
+                    ? responsive.hp(45)
+                    : responsive.screenIsMedium
+                    ? responsive.hp(35)
+                    : responsive.screenIsSmall
+                    ? responsive.hp(25)
+                    : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -546,12 +593,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_14),
+                  label: const Text(projectStrings.projectString_13),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_15),
+                  label: const Text(projectStrings.projectString_14),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -562,34 +609,34 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
+                  label: const Text(projectStrings.projectString_15),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
                   label: const Text(projectStrings.projectString_16),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_17),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
-                  label: const Text(projectStrings.projectString_18),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_16),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_17),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_18),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_19),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -601,7 +648,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ? []
             : [],
 
-        projectDescription: projectStrings.projectString_19,
+        projectDescription: projectStrings.projectString_20,
         projectLinkButton: MaterialButton(
           onPressed: () => UriUtils().launchDreamTravelProject(),
           child: Row(
@@ -636,8 +683,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
-                projectStrings.projectString_20,
-                   height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+                projectStrings.projectString_21,
+                height: responsive.screenIsExtraLarge
+                    ? responsive.hp(55)
+                    : responsive.screenIsLarge
+                    ? responsive.hp(45)
+                    : responsive.screenIsMedium
+                    ? responsive.hp(35)
+                    : responsive.screenIsSmall
+                    ? responsive.hp(25)
+                    : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -651,41 +706,41 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           ),
         ),
-        projectHeader: projectStrings.projectString_21,
+        projectHeader: projectStrings.projectString_22,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_22),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_23),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_24),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_25),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_22),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_23),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_24),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_25),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -696,19 +751,19 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_25),
+                  label: const Text(projectStrings.projectString_26),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_26),
+                  label: const Text(projectStrings.projectString_27),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_25),
+                  label: const Text(projectStrings.projectString_26),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -720,13 +775,13 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ? []
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_26),
+                  label: const Text(projectStrings.projectString_27),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ],
 
-        projectDescription: projectStrings.projectString_27,
+        projectDescription: projectStrings.projectString_28,
       ),
       renderProjectCard(
         context: context,
@@ -737,8 +792,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
-                projectStrings.projectString_28,
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+                projectStrings.projectString_29,
+                height: responsive.screenIsExtraLarge
+                    ? responsive.hp(55)
+                    : responsive.screenIsLarge
+                    ? responsive.hp(45)
+                    : responsive.screenIsMedium
+                    ? responsive.hp(35)
+                    : responsive.screenIsSmall
+                    ? responsive.hp(25)
+                    : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -752,17 +815,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           ),
         ),
-        projectHeader: projectStrings.projectString_29,
+        projectHeader: projectStrings.projectString_30,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
-                Chip(
-                  label: const Text(projectStrings.projectString_30),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
                 Chip(
                   label: const Text(projectStrings.projectString_31),
                   labelStyle: TextStyle(color: colourScheme.primary),
@@ -773,15 +831,20 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
+                Chip(
+                  label: const Text(projectStrings.projectString_33),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_30),
+                  label: const Text(projectStrings.projectString_31),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_31),
+                  label: const Text(projectStrings.projectString_32),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -792,11 +855,6 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_33),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_34),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
@@ -806,15 +864,20 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
+                Chip(
+                  label: const Text(projectStrings.projectString_36),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_32),
+                  label: const Text(projectStrings.projectString_33),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_33),
+                  label: const Text(projectStrings.projectString_34),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -826,18 +889,18 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ? []
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_34),
+                  label: const Text(projectStrings.projectString_35),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_35),
+                  label: const Text(projectStrings.projectString_36),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ],
 
-        projectDescription: projectStrings.projectString_36,
+        projectDescription: projectStrings.projectString_37,
         projectLinkButton: MaterialButton(
           onPressed: () => UriUtils().launchMADProject(),
           child: Row(
@@ -872,8 +935,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
-                projectStrings.projectString_37,
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+                projectStrings.projectString_38,
+                height: responsive.screenIsExtraLarge
+                    ? responsive.hp(55)
+                    : responsive.screenIsLarge
+                    ? responsive.hp(45)
+                    : responsive.screenIsMedium
+                    ? responsive.hp(35)
+                    : responsive.screenIsSmall
+                    ? responsive.hp(25)
+                    : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -887,17 +958,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           ),
         ),
-        projectHeader: projectStrings.projectString_38,
+        projectHeader: projectStrings.projectString_39,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
-                Chip(
-                  label: const Text(projectStrings.projectString_39),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
                 Chip(
                   label: const Text(projectStrings.projectString_40),
                   labelStyle: TextStyle(color: colourScheme.primary),
@@ -908,15 +974,20 @@ SliverChildListDelegate buildSliverChildListDelegate(
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
+                Chip(
+                  label: const Text(projectStrings.projectString_42),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_39),
+                  label: const Text(projectStrings.projectString_40),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_40),
+                  label: const Text(projectStrings.projectString_41),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -927,29 +998,29 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_42),
+                  label: const Text(projectStrings.projectString_43),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_43),
+                  label: const Text(projectStrings.projectString_44),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_41),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_42),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_43),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_44),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -961,7 +1032,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ? []
             : [],
 
-        projectDescription: projectStrings.projectString_44,
+        projectDescription: projectStrings.projectString_45,
         projectLinkButton: MaterialButton(
           onPressed: () => UriUtils().launchAIFProject(),
           child: Row(
@@ -996,8 +1067,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
-                projectStrings.projectString_45,
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+                projectStrings.projectString_46,
+                height: responsive.screenIsExtraLarge
+                    ? responsive.hp(55)
+                    : responsive.screenIsLarge
+                    ? responsive.hp(45)
+                    : responsive.screenIsMedium
+                    ? responsive.hp(35)
+                    : responsive.screenIsSmall
+                    ? responsive.hp(25)
+                    : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -1011,31 +1090,31 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           ),
         ),
-        projectHeader: projectStrings.projectString_46,
+        projectHeader: projectStrings.projectString_47,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_47),
+                  label: const Text(projectStrings.projectString_48),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_48),
+                  label: const Text(projectStrings.projectString_49),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_47),
+                  label: const Text(projectStrings.projectString_48),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_48),
+                  label: const Text(projectStrings.projectString_49),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -1046,24 +1125,24 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_49),
+                  label: const Text(projectStrings.projectString_50),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_50),
+                  label: const Text(projectStrings.projectString_51),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_49),
+                  label: const Text(projectStrings.projectString_50),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_50),
+                  label: const Text(projectStrings.projectString_51),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -1075,7 +1154,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ? []
             : [],
 
-        projectDescription: projectStrings.projectString_51,
+        projectDescription: projectStrings.projectString_52,
         projectLinkButton: MaterialButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchMLProject(),
@@ -1112,8 +1191,16 @@ SliverChildListDelegate buildSliverChildListDelegate(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(40)),
               child: Image.asset(
-                projectStrings.projectString_52,
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+                projectStrings.projectString_53,
+                height: responsive.screenIsExtraLarge
+                    ? responsive.hp(55)
+                    : responsive.screenIsLarge
+                    ? responsive.hp(45)
+                    : responsive.screenIsMedium
+                    ? responsive.hp(35)
+                    : responsive.screenIsSmall
+                    ? responsive.hp(25)
+                    : responsive.hp(15),
                 fit:
                     responsive.screenIsExtraLarge &&
                         responsive.screenIsLarge &&
@@ -1127,41 +1214,41 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ),
           ),
         ),
-        projectHeader: projectStrings.projectString_53,
+        projectHeader: projectStrings.projectString_54,
         projectChipFirstRow:
             responsive.screenIsExtraLarge &&
                 responsive.screenIsLarge &&
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_54),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_55),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_56),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_57),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_54),
-                  labelStyle: TextStyle(color: colourScheme.primary),
-                  side: BorderSide(color: colourScheme.primary),
-                ),
-                Chip(
                   label: const Text(projectStrings.projectString_55),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
                   label: const Text(projectStrings.projectString_56),
+                  labelStyle: TextStyle(color: colourScheme.primary),
+                  side: BorderSide(color: colourScheme.primary),
+                ),
+                Chip(
+                  label: const Text(projectStrings.projectString_57),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -1172,19 +1259,19 @@ SliverChildListDelegate buildSliverChildListDelegate(
                 responsive.screenIsMedium
             ? [
                 Chip(
-                  label: const Text(projectStrings.projectString_57),
+                  label: const Text(projectStrings.projectString_58),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
                 Chip(
-                  label: const Text(projectStrings.projectString_58),
+                  label: const Text(projectStrings.projectString_59),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ]
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_57),
+                  label: const Text(projectStrings.projectString_58),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
@@ -1196,12 +1283,12 @@ SliverChildListDelegate buildSliverChildListDelegate(
             ? []
             : [
                 Chip(
-                  label: const Text(projectStrings.projectString_58),
+                  label: const Text(projectStrings.projectString_59),
                   labelStyle: TextStyle(color: colourScheme.primary),
                   side: BorderSide(color: colourScheme.primary),
                 ),
               ],
-        projectDescription: projectStrings.projectString_59,
+        projectDescription: projectStrings.projectString_60,
         projectLinkButton: MaterialButton(
           highlightColor: colourScheme.primary,
           onPressed: () => UriUtils().launchOOPProject(),
@@ -1255,37 +1342,61 @@ Widget renderProjectCard({
     projectChipSecondRow: projectChipSecondRow,
     projectChipThirdRow: projectChipThirdRow,
     projectLinkButton: projectLinkButton,
-    projectExpandOnTap: () {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) {
-            if (projectImage != null) {
-              return ProjectHeroImageWindow(
-                projectHeroTag: projectHeroTag,
-                projectTitle: projectHeader,
-                projectBody: projectDescription,
-                projectImage: projectImage,
-                projectChipFirstRow: projectChipFirstRow,
-                projectChipSecondRow: projectChipSecondRow,
-                projectChipThirdRow: projectChipThirdRow,
-                projectLinkButton: projectLinkButton,
-              );
-            } else {
-              return ProjectHeroWindow(
-                projectHeroTag: projectHeroTag,
-                projectTitle: projectHeader,
-                projectBody: projectDescription,
-                projectChipFirstRow: projectChipFirstRow,
-                projectChipSecondRow: projectChipSecondRow,
-                projectChipThirdRow: projectChipThirdRow,
-                projectLinkButton: projectLinkButton,
-              );
-            }
-          },
-        ),
-      );
-    },
+    projectExpandOnTap: () => expandProjectCard(
+      context,
+      projectHeroTag,
+      projectHeader,
+      projectDescription,
+      projectImage,
+      projectChipFirstRow,
+      projectChipSecondRow,
+      projectChipThirdRow,
+      projectLinkButton,
+    ),
   );
+}
+
+void expandProjectCard(
+  BuildContext context,
+  String projectHeroTag,
+  String projectHeader,
+  String projectDescription,
+  Widget? projectImage,
+  List<Chip> projectChipFirstRow,
+  List<Chip> projectChipSecondRow,
+  List<Chip> projectChipThirdRow,
+  Widget? projectLinkButton,
+) {
+  {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          if (projectImage != null) {
+            return ProjectHeroImageWindow(
+              projectHeroTag: projectHeroTag,
+              projectTitle: projectHeader,
+              projectBody: projectDescription,
+              projectImage: projectImage,
+              projectChipFirstRow: projectChipFirstRow,
+              projectChipSecondRow: projectChipSecondRow,
+              projectChipThirdRow: projectChipThirdRow,
+              projectLinkButton: projectLinkButton,
+            );
+          } else {
+            return ProjectHeroWindow(
+              projectHeroTag: projectHeroTag,
+              projectTitle: projectHeader,
+              projectBody: projectDescription,
+              projectChipFirstRow: projectChipFirstRow,
+              projectChipSecondRow: projectChipSecondRow,
+              projectChipThirdRow: projectChipThirdRow,
+              projectLinkButton: projectLinkButton,
+            );
+          }
+        },
+      ),
+    );
+  }
 }
 
 SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate(int mainAxisCount) {

@@ -103,6 +103,114 @@ SliverChildListDelegate buildSliverChildListDelegate(
           textOverflow: TextOverflow.ellipsis,
         ),
       ),
+      renderBlogHeroCardArticleWithNetImage(
+        context,
+        heroStrings.blogHeroTag8,
+        blogStrings.blogPost8Header,
+        blogStrings.blogPost8Body,
+        blogStrings.blogPost8ImageCredit,
+        blogStrings.blogPost8Image,
+        Row(
+          children: [
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().launchBlogPost8LinkedIn(),
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedLinkedin01,
+                color: colourScheme.primary,
+              ),
+            ),
+            IconButton(
+              highlightColor: colourScheme.primary,
+              onPressed: () => UriUtils().launchBlogArticle8Medium(),
+              icon: HugeIcon(
+                icon: HugeIcons.strokeRoundedMedium,
+                color: colourScheme.primary,
+              ),
+            ),
+            MaterialButton(
+              highlightColor: colourScheme.primary,
+              splashColor: colourScheme.onPrimaryContainer,
+              focusColor: colourScheme.onPrimary,
+              onPressed: () => UriUtils().launchGraduatesFirst(),
+              child: Text("Graduates First"),
+            ),
+            MaterialButton(
+              highlightColor: colourScheme.primary,
+              splashColor: colourScheme.onPrimaryContainer,
+              focusColor: colourScheme.onPrimary,              onPressed: () => UriUtils().launchSovaAssessments(),
+              child: Text("Sova Assessments - Practice Hub"),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            MaterialButton(
+              highlightColor: colourScheme.primary,
+              splashColor: colourScheme.onPrimaryContainer,
+              focusColor: colourScheme.onPrimary,
+              onPressed: () => UriUtils().launchAssessmentDay(),
+              child: Text("Assessment Day"),
+            ),
+            MaterialButton(
+              highlightColor: colourScheme.primary,
+              splashColor: colourScheme.onPrimaryContainer,
+              focusColor: colourScheme.onPrimary,              onPressed: () => UriUtils().launchHackerRank(),
+              child: Text("HackerRank"),
+            ),
+            MaterialButton(
+              highlightColor: colourScheme.primary,
+              splashColor: colourScheme.onPrimaryContainer,
+              focusColor: colourScheme.onPrimary,              onPressed: () => UriUtils().launchBrilliant(),
+              child: Text("Brilliant"),
+            ),
+          ],
+        ),
+        responsive,
+      ),
+      renderBlogHeroCardArticleWithNetImage(
+        context,
+        heroStrings.blogHeroTag7,
+        blogStrings.blogPost7Header,
+        blogStrings.blogPost7Body,
+        blogStrings.blogPost7ImageCredit,
+        blogStrings.blogPost7Image,
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost7LinkedIn(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
+        null,
+        responsive,
+      ),
+      renderBlogHeroCardArticleWithNetImage(
+        context,
+        heroStrings.blogHeroTag6,
+        blogStrings.blogPost6Header,
+        blogStrings.blogPost6Body,
+        blogStrings.blogPost6ImageCredit,
+        blogStrings.blogPost6Image,
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogPost6LinkedIn(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedLinkedin01,
+            color: colourScheme.primary,
+          ),
+        ),
+        IconButton(
+          highlightColor: colourScheme.primary,
+          onPressed: () => UriUtils().launchBlogArticle6Medium(),
+          icon: HugeIcon(
+            icon: HugeIcons.strokeRoundedMedium,
+            color: colourScheme.primary,
+          ),
+        ),
+        responsive,
+      ),
       renderBlogHeroCardArticleWithAssetImage(
         context,
         heroStrings.blogHeroTag5,
@@ -192,7 +300,7 @@ SliverChildListDelegate buildSliverChildListDelegate(
         ),
         IconButton(
           highlightColor: colourScheme.primary,
-          onPressed: () => UriUtils().launchBlogPost1Medium(),
+          onPressed: () => UriUtils().launchBlogArticle1Medium(),
           icon: HugeIcon(
             icon: HugeIcons.strokeRoundedMedium,
             color: colourScheme.primary,
@@ -214,8 +322,8 @@ Widget renderBlogHeroCardArticleWithNetImage(
   String blogArticleBody,
   String blogArticleImageCredit,
   String blogArticleImageUrl,
-  IconButton? blogArticleLinkedInButton,
-  IconButton? blogArticleMediumButton,
+  Widget? blogArticleButtonTopRow,
+  Widget? blogArticleButtonBottomRow,
   ResponsiveRender responsive,
 ) {
   return Padding(
@@ -234,7 +342,15 @@ Widget renderBlogHeroCardArticleWithNetImage(
                 Center(child: const CircularProgressIndicator()),
             errorWidget: (context, url, error) =>
                 Center(child: SizedBox(child: ImageNotFound())),
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+            height: responsive.screenIsExtraLarge
+                ? responsive.hp(55)
+                : responsive.screenIsLarge
+                ? responsive.hp(45)
+                : responsive.screenIsMedium
+                ? responsive.hp(35)
+                : responsive.screenIsSmall
+                ? responsive.hp(25)
+                : responsive.hp(15),
             fit: BoxFit.fill,
             filterQuality: responsive.screenIsExtraLarge
                 ? FilterQuality.high
@@ -242,39 +358,19 @@ Widget renderBlogHeroCardArticleWithNetImage(
           ),
         ),
       ),
-      blogLinkedInButton: blogArticleLinkedInButton,
-      blogMediumButton: blogArticleMediumButton,
-      blogArticleOnTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) {
-              return BlogArticleHeroWindow(
-                blogArticleHeroTag: blogArticleHeroTag,
-                blogArticleTitle: blogArticleHeader,
-                blogArticleBody: blogArticleBody,
-                blogArticleImageCredit: blogArticleImageCredit,
-                blogArticleHeroImage: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(40)),
-                  child: CachedNetworkImage(
-                    imageUrl: blogArticleImageUrl,
-                    placeholder: (context, url) =>
-                        Center(child: const CircularProgressIndicator()),
-                    errorWidget: (context, url, error) =>
-                        Center(child: SizedBox(child: ImageNotFound())),
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
-                    fit: BoxFit.fill,
-                    filterQuality: responsive.screenIsExtraLarge
-                        ? FilterQuality.high
-                        : FilterQuality.low,
-                  ),
-                ),
-                blogLinkedInButton: blogArticleLinkedInButton,
-                blogMediumButton: blogArticleMediumButton,
-              );
-            },
-          ),
-        );
-      },
+      blogButtonTopRow: blogArticleButtonTopRow,
+      blogButtonBottomRow: blogArticleButtonBottomRow,
+      blogArticleOnTap: () => expandBlogArticleWithNetImage(
+        context,
+        blogArticleHeroTag,
+        blogArticleHeader,
+        blogArticleBody,
+        blogArticleImageCredit,
+        blogArticleImageUrl,
+        responsive,
+        blogArticleButtonTopRow,
+        blogArticleButtonBottomRow,
+      ),
     ),
   );
 }
@@ -286,8 +382,8 @@ Widget renderBlogHeroCardArticleWithAssetImage(
   String blogArticleBody,
   String blogArticleImageCredit,
   String blogArticleAssetImage,
-  IconButton? blogArticleLinkedInButton,
-  IconButton? blogArticleMediumButton,
+  Widget? blogArticleButtonTopRow,
+  Widget? blogArticleButtonBottomRow,
   ResponsiveRender responsive,
 ) {
   return Padding(
@@ -302,7 +398,15 @@ Widget renderBlogHeroCardArticleWithAssetImage(
           borderRadius: BorderRadius.all(Radius.circular(40)),
           child: Image.asset(
             blogArticleAssetImage,
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),
+            height: responsive.screenIsExtraLarge
+                ? responsive.hp(55)
+                : responsive.screenIsLarge
+                ? responsive.hp(45)
+                : responsive.screenIsMedium
+                ? responsive.hp(35)
+                : responsive.screenIsSmall
+                ? responsive.hp(25)
+                : responsive.hp(15),
             fit: BoxFit.fill,
             filterQuality: responsive.screenIsExtraLarge
                 ? FilterQuality.high
@@ -310,32 +414,113 @@ Widget renderBlogHeroCardArticleWithAssetImage(
           ),
         ),
       ),
-      blogLinkedInButton: blogArticleLinkedInButton,
-      blogMediumButton: blogArticleMediumButton,
-      blogArticleOnTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) {
-              return BlogArticleHeroWindow(
-                blogArticleHeroTag: blogArticleHeroTag,
-                blogArticleTitle: blogArticleHeader,
-                blogArticleBody: blogArticleBody,
-                blogArticleImageCredit: blogArticleImageCredit,
-                blogArticleHeroImage: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(40)),
-                  child: Image.asset(
-                    blogArticleAssetImage,
-            height: responsive.screenIsExtraLarge ? responsive.hp(55) : responsive.screenIsLarge ? responsive.hp(45) : responsive.screenIsMedium ? responsive.hp(35) : responsive.screenIsSmall ? responsive.hp(25) : responsive.hp(15),                    fit: BoxFit.fill,
-                    filterQuality: responsive.screenIsExtraLarge
-                        ? FilterQuality.high
-                        : FilterQuality.low,
-                  ),
-                ),
-                blogLinkedInButton: blogArticleLinkedInButton,
-                blogMediumButton: blogArticleMediumButton,
-              );
-            },
+      blogButtonTopRow: blogArticleButtonTopRow,
+      blogButtonBottomRow: blogArticleButtonBottomRow,
+      blogArticleOnTap: () => expandBlogArticleWithAssetImage(
+        context,
+        blogArticleHeroTag,
+        blogArticleHeader,
+        blogArticleBody,
+        blogArticleImageCredit,
+        blogArticleAssetImage,
+        responsive,
+        blogArticleButtonTopRow,
+        blogArticleButtonBottomRow,
+      ),
+    ),
+  );
+}
+
+void expandBlogArticleWithNetImage(
+  BuildContext context,
+  String blogArticleHeroTag,
+  String blogArticleHeader,
+  String blogArticleBody,
+  String blogArticleImageCredit,
+  String blogArticleImageUrl,
+  ResponsiveRender responsive,
+  Widget? blogArticleButtonTopRow,
+  Widget? blogArticleButtonBottomRow,
+) {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) {
+        return BlogArticleHeroWindow(
+          blogArticleHeroTag: blogArticleHeroTag,
+          blogArticleTitle: blogArticleHeader,
+          blogArticleBody: blogArticleBody,
+          blogArticleImageCredit: blogArticleImageCredit,
+          blogArticleHeroImage: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(40)),
+            child: CachedNetworkImage(
+              imageUrl: blogArticleImageUrl,
+              placeholder: (context, url) =>
+                  Center(child: const CircularProgressIndicator()),
+              errorWidget: (context, url, error) =>
+                  Center(child: SizedBox(child: ImageNotFound())),
+              height: responsive.screenIsExtraLarge
+                  ? responsive.hp(55)
+                  : responsive.screenIsLarge
+                  ? responsive.hp(45)
+                  : responsive.screenIsMedium
+                  ? responsive.hp(35)
+                  : responsive.screenIsSmall
+                  ? responsive.hp(25)
+                  : responsive.hp(15),
+              fit: BoxFit.fill,
+              filterQuality: responsive.screenIsExtraLarge
+                  ? FilterQuality.high
+                  : FilterQuality.low,
+            ),
           ),
+          blogButtonTopRow: blogArticleButtonTopRow,
+          blogButtonBottomRow: blogArticleButtonBottomRow,
+        );
+      },
+    ),
+  );
+}
+
+void expandBlogArticleWithAssetImage(
+  BuildContext context,
+  String blogArticleHeroTag,
+  String blogArticleHeader,
+  String blogArticleBody,
+  String blogArticleImageCredit,
+  String blogArticleAssetImage,
+  ResponsiveRender responsive,
+  Widget? blogArticleButtonTopRow,
+  Widget? blogArticleButtonBottomRow,
+) {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) {
+        return BlogArticleHeroWindow(
+          blogArticleHeroTag: blogArticleHeroTag,
+          blogArticleTitle: blogArticleHeader,
+          blogArticleBody: blogArticleBody,
+          blogArticleImageCredit: blogArticleImageCredit,
+          blogArticleHeroImage: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(40)),
+            child: Image.asset(
+              blogArticleAssetImage,
+              height: responsive.screenIsExtraLarge
+                  ? responsive.hp(55)
+                  : responsive.screenIsLarge
+                  ? responsive.hp(45)
+                  : responsive.screenIsMedium
+                  ? responsive.hp(35)
+                  : responsive.screenIsSmall
+                  ? responsive.hp(25)
+                  : responsive.hp(15),
+              fit: BoxFit.fill,
+              filterQuality: responsive.screenIsExtraLarge
+                  ? FilterQuality.high
+                  : FilterQuality.low,
+            ),
+          ),
+          blogButtonTopRow: blogArticleButtonTopRow,
+          blogButtonBottomRow: blogArticleButtonBottomRow,
         );
       },
     ),
@@ -355,6 +540,8 @@ SliverQuiltedGridDelegate buildSliverLandscapeGridDelegate(int mainCrossAxis) {
       QuiltedGridTile(mainCrossAxis, 32),
       QuiltedGridTile(mainCrossAxis, 32),
       QuiltedGridTile(mainCrossAxis, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
+      QuiltedGridTile(mainCrossAxis, 32),
     ],
   );
 }
@@ -366,6 +553,8 @@ SliverQuiltedGridDelegate buildSliverPortraitGridDelegate(int mainCrossAxis) {
     pattern: [
       QuiltedGridTile(16, 64),
       QuiltedGridTile(10, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
+      QuiltedGridTile(mainCrossAxis, 64),
       QuiltedGridTile(mainCrossAxis, 64),
       QuiltedGridTile(mainCrossAxis, 64),
       QuiltedGridTile(mainCrossAxis, 64),
